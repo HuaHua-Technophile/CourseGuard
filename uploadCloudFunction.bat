@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-1gfryui8b6a1c41c --n quickstartFunctions --r --project "C:\Study\CourseGuard" --report_first --report
