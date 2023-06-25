@@ -1,1 +1,4 @@
-<view>hhh</view>
+<view>
+  <button bindtap="cluodtest">云函数调试</button>
+</view>
+<view>Curriculum:{{Curriculum}}</view>
