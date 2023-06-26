@@ -1,9 +1,8 @@
 {
   "pages": ["pages/index/index"],
-  "darkmode": true,
   "window": {
-    "backgroundColor": "#1e1e1e",
-    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#160d1a",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "课镖客"
   },
   "sitemapLocation": "sitemap.json",

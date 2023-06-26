@@ -1,35 +1,41 @@
 {
   "curriculumName": "粤嵌课表",
   "arrangement": [
-    [
-      "声乐",
-      "",
-      "思政",
-      "",
-      "声乐",
-      "声乐",
-      "间谍伪装",
-      "间谍伪装",
-      "",
-      "声乐"
-    ],
-    ["声乐", "", "思政", "声乐", "声乐", "声乐", "", "间谍伪装", "", "声乐"],
-    ["", "", "思政", "", "声乐", "声乐", "", "", "", "声乐"],
-    ["", "思政", "思政", "", "声乐", "", "间谍伪装", "间谍伪装", "", "声乐"],
-    [
-      "",
-      "",
-      "思政",
-      "间谍伪装",
-      "声乐",
-      "声乐",
-      "间谍伪装",
-      "间谍伪装",
-      "",
-      "声乐"
-    ],
-    ["", "", "思政", "声乐", "声乐", "", "声乐", "", "间谍伪装", "声乐"],
-    ["声乐", "声乐", "思政", "", "声乐", "", "", "间谍伪装", "", "声乐"]
+    {
+      "morningCourses": ["思政", "思政", "思政", "思政"],
+      "afternoonCourses": ["思政", "声乐", "思政", "思政"],
+      "nightCourses": ["思政", "思政"]
+    },
+    {
+      "morningCourses": ["思政", "思政", "思政", "思政"],
+      "afternoonCourses": ["思政", "思政", "声乐", "思政"],
+      "nightCourses": ["思政", "思政"]
+    },
+    {
+      "morningCourses": ["思政", "思政", "思政", "思政"],
+      "afternoonCourses": ["思政", "思政", "思政", "思政"],
+      "nightCourses": ["思政", "思政"]
+    },
+    {
+      "morningCourses": ["思政", "间谍伪装", "思政", "思政"],
+      "afternoonCourses": ["思政", "思政", "思政", "思政"],
+      "nightCourses": ["思政", "思政"]
+    },
+    {
+      "morningCourses": ["思政", "间谍伪装", "思政", "思政"],
+      "afternoonCourses": ["思政", "思政", "思政", "间谍伪装"],
+      "nightCourses": ["声乐", "思政"]
+    },
+    {
+      "morningCourses": ["思政", "声乐", "思政", "思政"],
+      "afternoonCourses": ["思政", "思政", "思政", "思政"],
+      "nightCourses": ["思政", "思政"]
+    },
+    {
+      "morningCourses": ["思政", "思政", "思政", "思政"],
+      "afternoonCourses": ["思政", "思政", "思政", "思政"],
+      "nightCourses": ["声乐", "思政"]
+    }
   ],
   "hour": [
     "08:00-08:40",
@@ -56,17 +62,20 @@
       "思政": {
         "teacher": "张三",
         "classRoom": "5-214",
-        "courseColor": "#8FFFD6"
+        "courseColor": "#8FFFD6",
+        "textColor": "#c8c8c8"
       },
       "间谍伪装": {
         "teacher": "川建国",
         "classRoom": "1-001",
-        "courseColor": "#E0D1FF"
+        "courseColor": "#E0D1FF",
+        "textColor": "#c8c8c8"
       },
       "声乐": {
         "teacher": "波澜哥",
         "classRoom": "9-301",
-        "courseColor": "#49700B"
+        "courseColor": "#49700B",
+        "textColor": "#c8c8c8"
       }
     }
   }
