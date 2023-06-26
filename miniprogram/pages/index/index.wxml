@@ -3,10 +3,10 @@
   <view></view>
   <!-- 下方操作栏 -->
   <view>
-    <button size="mini">编辑课表</button>
-    <button size="mini">课表设置</button>
-    <button size="mini">上课时间</button>
-    <button size="mini">一键配色</button>
+    <button size="mini" plain="true">编辑课表</button>
+    <button size="mini" plain="true">课表设置</button>
+    <button size="mini" plain="true">上课时间</button>
+    <button size="mini" plain="true">一键配色</button>
   </view>
   <!-- 关于我们 -->
 </view>
