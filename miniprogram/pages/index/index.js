@@ -15,11 +15,83 @@ Page({
       success: (res) => {
         res.total > 0 && this.setData({ newUser: true })
       }
-    })/*统计有多少条*/
+    })/*统计有多少条,判断是否是新用户*/
+    if (this.newUser) {
+      this.setData({
+        Curriculum: {
+          "curriculumName": "默认课表",
+          "arrangement": [
+            {
+              "morningCourses": ["", "", "", ""],
+              "afternoonCourses": ["", "", "", ""],
+              "nightCourses": ["", ""]
+            },
+            {
+              "morningCourses": ["", "", "", ""],
+              "afternoonCourses": ["", "", "", ""],
+              "nightCourses": ["", ""]
+            },
+            {
+              "morningCourses": ["", "", "", ""],
+              "afternoonCourses": ["", "", "", ""],
+              "nightCourses": ["", ""]
+            },
+            {
+              "morningCourses": ["", "", "", ""],
+              "afternoonCourses": ["", "", "", ""],
+              "nightCourses": ["", ""]
+            },
+            {
+              "morningCourses": ["", "", "", ""],
+              "afternoonCourses": ["", "", "", ""],
+              "nightCourses": ["", ""]
+            },
+            {
+              "morningCourses": ["", "", "", ""],
+              "afternoonCourses": ["", "", "", ""],
+              "nightCourses": ["", ""]
+            },
+            {
+              "morningCourses": ["", "", "", ""],
+              "afternoonCourses": ["", "", "", ""],
+              "nightCourses": ["", ""]
+            }
+          ],
+          "hour": [
+            "08:00-08:40",
+            "09:00-09:40",
+            "10:00-10:40",
+            "11:00-11:40",
+            "14:00-14:40",
+            "15:00-15:40",
+            "16:00-16:40",
+            "17:00-17:40",
+            "19:00-19:40",
+            "20:00-20:40"
+          ],
+          "classInfo": {
+            "morningStart": "08:00",
+            "morningCourses": 4,
+            "afternoonStart": "14:00",
+            "afternoonCourses": 4,
+            "nightStart": "19:00",
+            "nightCourses": 2,
+            "courseTime": 40,
+            "breakTime": 20,
+            "courseTotal": {}
+          }
+        }
+      })
+    } else {
+      db.collection('Curriculum').get({
+        success: (res) => {
+          // console.log(res.data)// res.data 包含该记录的数据
+          this.setData({ Curriculum: res.data[0] })
+        }
+      })
+    }
   },
-
   onReady() { },//生命周期函数--监听页面初次渲染完成
-
   /**
    * 生命周期函数--监听页面显示
    */

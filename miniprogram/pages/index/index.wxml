@@ -1,14 +1,15 @@
 <view class="bgDark">
   <!-- 课表本体 -->
   <view style="height:80vh">
-
+    <!-- 课表名称 -->
+    <view>{{}}</view>
   </view>
   <!-- 下方操作栏 -->
   <view class="d-flex justify-content-around">
-    <button size="mini" plain="true">编辑课表</button>
-    <button size="mini" plain="true">课表设置</button>
-    <button size="mini" plain="true">上课时间</button>
-    <button size="mini" plain="true">一键配色</button>
+    <button size="mini" plain="true" style="color:#469c7d">编辑课表</button>
+    <button size="mini" plain="true" style="color: #b63350;">课表设置</button>
+    <button size="mini" plain="true" style="color: #2d79af;">上课时间</button>
+    <button size="mini" plain="true" style="color:#c45b11">一键配色</button>
   </view>
   <!-- 关于我们 -->
 </view>
