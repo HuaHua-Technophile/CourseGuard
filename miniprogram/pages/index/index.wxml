@@ -2,7 +2,7 @@
   <!-- 课表本体 -->
   <view style="height:80vh">
     <!-- 课表名称 -->
-    <view>{{Curriculum.curriculumName}}</view>
+    <view class="text-center">{{Curriculum.curriculumName}}</view>
   </view>
   <!-- 下方操作栏 -->
   <view class="d-flex justify-content-around">

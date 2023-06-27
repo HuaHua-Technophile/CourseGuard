@@ -1,7 +1,14 @@
 Page({
   data: {
-    Curriculum: null,
+    Curriculum: {
+      curriculumName: ''
+    },
     newUser: true
+  },
+  observers: {
+    'Curriculum': function (Curriculum) {
+      console.log(Curriculum)
+    }
   },
   // 生命周期函数--监听页面加载
   onLoad(options) {
@@ -15,7 +22,7 @@ Page({
     if (this.data.newUser) {
       this.setData({
         Curriculum: {
-          "curriculumName": "默认课表",
+          "curriculumName": "课镖客",
           "arrangement": [
             {
               "morningCourses": ["", "", "", ""],
