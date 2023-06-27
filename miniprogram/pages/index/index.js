@@ -1,6 +1,7 @@
 Page({
   data: {
     Curriculum: null,
+    newUser: false
   },
   cluodtest() {
     // this.setData({ Curriculum: 666 });
@@ -10,14 +11,11 @@ Page({
   // 生命周期函数--监听页面加载
   onLoad(options) {
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
-    const Curriculum = db.collection("Curriculum");
-    Curriculum.where({
-      curriculumName: '粤嵌课表',
-    }).get({
-      success: function (res) {
-        console.log(res.data);
-      },
-    });
+    db.collection('Curriculum').count({
+      success: (res) => {
+        res.total > 0 && this.setData({ newUser: true })
+      }
+    })/*统计有多少条*/
   },
 
   onReady() { },//生命周期函数--监听页面初次渲染完成
