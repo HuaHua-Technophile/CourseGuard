@@ -1,4 +1,21 @@
 <!--pages/classSetting/classSetting.wxml-->
-<view class="text-light">
-kkkk
+<!-- 课表设置页面 -->
+<view class="tableSetting text-light">
+  <!-- 顶部基础编辑 -->
+  <view class="settingHeader">
+    <view class="tableNameArea">
+      <text class="tableName">课表名称</text>
+      <input class="editName" type="text" maxlength='10' placeholder="课镖客" />
+    </view>
+    <ClassSumSetting>
+      <text>上午几节课</text>
+    </ClassSumSetting>
+    <ClassSumSetting>
+      <text>下午几节课</text>
+    </ClassSumSetting>
+    <ClassSumSetting>
+      <text>晚上几节课</text>
+    </ClassSumSetting>
+  </view>
+
 </view>

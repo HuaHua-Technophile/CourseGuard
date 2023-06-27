@@ -5,17 +5,15 @@ Page({
     },
     newUser: true
   },
-<<<<<<< HEAD
   toClassSetting() {
     wx.navigateTo({
       url: '../classSetting/classSetting'
     })
-=======
+  },
   observers: {
     'Curriculum': function (Curriculum) {
       console.log(Curriculum)
     }
->>>>>>> 082e13bd2e0f0fa2ddea0c5baa74360dbc5fa822
   },
   // 生命周期函数--监听页面加载
   onLoad(options) {
