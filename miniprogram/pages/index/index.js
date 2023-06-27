@@ -1,22 +1,18 @@
 Page({
   data: {
     Curriculum: null,
-    newUser: false
-  },
-  cluodtest() {
-    // this.setData({ Curriculum: 666 });
-    // this.data.Curriculum = 777;
-    // console.log("点击了云函数测试,Curriculum:", this.data.Curriculum);
+    newUser: true
   },
   // 生命周期函数--监听页面加载
   onLoad(options) {
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
     db.collection('Curriculum').count({
       success: (res) => {
-        res.total > 0 && this.setData({ newUser: true })
+        res.total > 0 && this.setData({ newUser: false })
       }
     })/*统计有多少条,判断是否是新用户*/
-    if (this.newUser) {
+    // 如果为新用户,则给一个默认课表,但先不存入数据库避免污染
+    if (this.data.newUser) {
       this.setData({
         Curriculum: {
           "curriculumName": "默认课表",
@@ -82,7 +78,8 @@ Page({
           }
         }
       })
-    } else {
+    }//如果不是新用户
+    else {
       db.collection('Curriculum').get({
         success: (res) => {
           // console.log(res.data)// res.data 包含该记录的数据
