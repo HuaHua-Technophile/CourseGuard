@@ -3,10 +3,10 @@ Page({
     Curriculum: null,
     newUser: false
   },
-  cluodtest() {
-    // this.setData({ Curriculum: 666 });
-    // this.data.Curriculum = 777;
-    // console.log("点击了云函数测试,Curriculum:", this.data.Curriculum);
+  toClassSetting() {
+    wx.navigateTo({
+      url: '../classSetting/classSetting'
+    })
   },
   // 生命周期函数--监听页面加载
   onLoad(options) {

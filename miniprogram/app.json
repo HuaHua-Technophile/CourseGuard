@@ -1,5 +1,5 @@
 {
-  "pages": ["pages/index/index"],
+  "pages": ["pages/index/index", "pages/classSetting/classSetting"],
   "window": {
     "navigationBarBackgroundColor": "#160d1a",
     "navigationBarTextStyle": "white",
