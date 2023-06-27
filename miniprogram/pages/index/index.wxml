@@ -1,6 +1,8 @@
 <view class="bgDark">
   <!-- 课表本体 -->
-  <view></view>
+  <view>
+  
+  </view>
   <!-- 下方操作栏 -->
   <view>
     <button size="mini" plain="true">编辑课表</button>
