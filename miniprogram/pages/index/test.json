@@ -1,82 +1,65 @@
 {
-  "curriculumName": "粤嵌课表",
-  "arrangement": [
-    {
-      "morningCourses": ["思政", "思政", "思政", "思政"],
-      "afternoonCourses": ["思政", "声乐", "思政", "思政"],
-      "nightCourses": ["思政", "思政"]
-    },
-    {
-      "morningCourses": ["思政", "思政", "思政", "思政"],
-      "afternoonCourses": ["思政", "思政", "声乐", "思政"],
-      "nightCourses": ["思政", "思政"]
-    },
-    {
-      "morningCourses": ["思政", "思政", "思政", "思政"],
-      "afternoonCourses": ["思政", "思政", "思政", "思政"],
-      "nightCourses": ["思政", "思政"]
-    },
-    {
-      "morningCourses": ["思政", "间谍伪装", "思政", "思政"],
-      "afternoonCourses": ["思政", "思政", "思政", "思政"],
-      "nightCourses": ["思政", "思政"]
-    },
-    {
-      "morningCourses": ["思政", "间谍伪装", "思政", "思政"],
-      "afternoonCourses": ["思政", "思政", "思政", "间谍伪装"],
-      "nightCourses": ["声乐", "思政"]
-    },
-    {
-      "morningCourses": ["思政", "声乐", "思政", "思政"],
-      "afternoonCourses": ["思政", "思政", "思政", "思政"],
-      "nightCourses": ["思政", "思政"]
-    },
-    {
-      "morningCourses": ["思政", "思政", "思政", "思政"],
-      "afternoonCourses": ["思政", "思政", "思政", "思政"],
-      "nightCourses": ["声乐", "思政"]
-    }
-  ],
-  "hour": [
-    "08:00-08:40",
-    "09:00-09:40",
-    "10:00-10:40",
-    "11:00-11:40",
-    "14:00-14:40",
-    "15:00-15:40",
-    "16:00-16:40",
-    "17:00-17:40",
-    "19:00-19:40",
-    "20:00-20:40"
-  ],
+  "_id": "8c262ac9649997c6001031522614072a",
+  "arrangement": [{
+    "afternoonCourses": ["思政", "声乐", "思政", "思政"],
+    "morningCourses": ["思政", "思政", "思政", "思政"],
+    "nightCourses": ["思政", "思政"]
+  }, {
+    "nightCourses": ["思政", "思政"],
+    "afternoonCourses": ["思政", "思政", "声乐", "思政"],
+    "morningCourses": ["思政", "思政", "思政", "思政"]
+  }, {
+    "afternoonCourses": ["思政", "思政", "思政", "思政"],
+    "morningCourses": ["思政", "思政", "思政", "思政"],
+    "nightCourses": ["思政", "思政"]
+  }, {
+    "afternoonCourses": ["思政", "思政", "思政", "思政"],
+    "morningCourses": ["思政", "间谍伪装", "思政", "思政"],
+    "nightCourses": ["思政", "思政"]
+  }, {
+    "afternoonCourses": ["思政", "思政", "思政", "间谍伪装"],
+    "morningCourses": ["思政", "间谍伪装", "思政", "思政"],
+    "nightCourses": ["声乐", "思政"]
+  }, {
+    "afternoonCourses": ["思政", "思政", "思政", "思政"],
+    "morningCourses": ["思政", "声乐", "思政", "思政"],
+    "nightCourses": ["思政", "思政"]
+  }, {
+    "afternoonCourses": ["思政", "思政", "思政", "思政"],
+    "morningCourses": ["思政", "思政", "思政", "思政"],
+    "nightCourses": ["声乐", "思政"]
+  }],
   "classInfo": {
+    "morningCourses": 4.0,
     "morningStart": "08:00",
-    "morningCourses": 4,
-    "afternoonStart": "14:00",
-    "afternoonCourses": 4,
+    "nightCourses": 2.0,
     "nightStart": "19:00",
-    "nightCourses": 2,
-    "courseTime": 40,
-    "breakTime": 20,
+    "afternoonCourses": 4.0,
+    "afternoonStart": "14:00",
+    "breakTime": 20.0,
+    "courseTime": 40.0,
     "courseTotal": {
+      "声乐": {
+        "courseColor": "#49700B",
+        "teacher": "波澜哥",
+        "textColor": "#c8c8c8",
+        "classRoom": "9-301"
+      },
       "思政": {
-        "teacher": "张三",
         "classRoom": "5-214",
         "courseColor": "#8FFFD6",
+        "teacher": "张三",
         "textColor": "#c8c8c8"
       },
       "间谍伪装": {
-        "teacher": "川建国",
         "classRoom": "1-001",
         "courseColor": "#E0D1FF",
-        "textColor": "#c8c8c8"
-      },
-      "声乐": {
-        "teacher": "波澜哥",
-        "classRoom": "9-301",
-        "courseColor": "#49700B",
+        "teacher": "川建国",
         "textColor": "#c8c8c8"
       }
     }
-  }
-}
+  },
+  "curriculumName": "粤嵌课表",
+  "hour": ["08:00-08:40", "09:00-09:40", "10:00-10:40", "11:00-11:40", "14:00-14:40", "15:00-15:40", "16:00-16:40", "17:00-17:40", "19:00-19:40", "20:00-20:40"],
+  "_openid": "o7U2J5TgDVWkn3SQP8ls5_hbq9gM"
+} 

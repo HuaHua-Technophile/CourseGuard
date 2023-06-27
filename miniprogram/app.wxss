@@ -2,6 +2,3 @@
 page {
   background: linear-gradient(#160d1a, #242441);
 }
-button {
-  color: #932b41;
-}
