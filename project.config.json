@@ -36,10 +36,7 @@
     "minifyWXSS": true,
     "disableUseStrict": false,
     "showES6CompileOption": false,
-    "useCompilerPlugins": [
-      "typescript",
-      "sass"
-    ],
+    "useCompilerPlugins": false,
     "minifyWXML": true,
     "condition": false
   },
