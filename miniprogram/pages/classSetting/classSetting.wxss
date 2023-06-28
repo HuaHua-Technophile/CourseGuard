@@ -1,0 +1,26 @@
+.tableSetting {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+.settingHeader {
+  margin-top: 30rpx;
+  padding: 0 30rpx;
+  border-radius: 10rpx;
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.tableNameArea {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.editName {
+  text-align: right !important;
+}
+
+.editName::placeholder {
+  text-align: right !important;
+}
