@@ -1,4 +1,5 @@
 <view class="bgDark text-light">
+  <watch :curriculumName="{{Curriculum.curriculumName}}"></watch>
   <!-- 课表本体 -->
   <view style="height:80vh">
     <!-- 课表名称 -->

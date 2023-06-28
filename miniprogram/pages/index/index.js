@@ -5,11 +5,7 @@ Page({
     },
     newUser: true
   },
-  observers: {
-    'Curriculum': function (Curriculum) {
-      console.log(Curriculum)
-    }
-  },
+
   // 生命周期函数--监听页面加载
   onLoad(options) {
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
