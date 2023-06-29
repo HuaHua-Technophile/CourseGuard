@@ -1,22 +1,26 @@
+//获取全局公用数据
+
 Page({
   data: {
     Curriculum: {
-      curriculumName: "",
+      curriculumName: "666",
     },
     newUser: true,
+    theme: "", //主题色
   },
+  // 路由跳转-----------------
   toClassSetting() {
     wx.navigateTo({
       url: "../classSetting/classSetting",
     });
   },
-  observers: {
-    Curriculum: function (Curriculum) {
-      console.log(Curriculum);
-    },
-  },
   // 生命周期函数--监听页面加载
   onLoad(options) {
+    // 主题色-----------------------------
+    wx.getSystemInfo({
+      success: (res) => (getApp().globalData.theme = res.theme),
+    });
+    this.setData({ theme: getApp().globalData.theme });
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
     db.collection("Curriculum").count({
       success: (res) => {
@@ -66,16 +70,16 @@ Page({
             },
           ],
           hour: [
-            "08:00-08:40",
-            "09:00-09:40",
-            "10:00-10:40",
-            "11:00-11:40",
-            "14:00-14:40",
-            "15:00-15:40",
-            "16:00-16:40",
-            "17:00-17:40",
-            "19:00-19:40",
-            "20:00-20:40",
+            ["08:00", "08:40"],
+            ["09:00", "09:40"],
+            ["10:00", "10:40"],
+            ["11:00", "11:40"],
+            ["14:00", "14:40"],
+            ["15:00", "15:40"],
+            ["16:00", "16:40"],
+            ["17:00", "17:40"],
+            ["19:00", "19:40"],
+            ["20:00", "20:40"],
           ],
           classInfo: {
             morningStart: "08:00",
@@ -100,7 +104,10 @@ Page({
       });
     }
   },
-  onReady() {}, //生命周期函数--监听页面初次渲染完成
+  onReady() {
+    //判断用户主题是暗色还是亮色
+    // 主题色
+  }, //生命周期函数--监听页面初次渲染完成
   /**
    * 生命周期函数--监听页面显示
    */

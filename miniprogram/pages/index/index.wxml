@@ -1,16 +1,46 @@
-<view class="bgDark text-light">
-  <watch :curriculumName="{{Curriculum.curriculumName}}"></watch>
-  <!-- 课表本体 -->
-  <view style="height:80vh">
-    <!-- 课表名称 -->
-    <view class="text-center">{{Curriculum.curriculumName}}</view>
+<page-meta page-style="{{theme=='light'? 'background: linear-gradient(#feac5e, rgb(199, 121, 208), rgb(75, 192, 200));':'background: linear-gradient(#cc95c0,#dbd4b4,#7aa1d2)'}}">
+  <!-- 动态修改title样式,包括文本内容与颜色 -->
+  <navigation-bar title="{{Curriculum.curriculumName}}" front-color="{{theme=='light'?'#1e1e1e':'#c8c8c8'}}" background-color="{{theme=='light'?'#feac5e':'#cc95c0'}}" />
+  <!-- 页面内容 -->
+  <view class="hhh {{theme=='light'?'':'text-light'}}">
+    <!-- 课表本体 -->
+    <view style="height:80vh" class="d-flex">
+      <!-- 左侧课程时间，分为顶栏，上午，下午，晚上 -->
+      <view style="width: var(--itemHeight);">
+        <!-- 上午 -->
+        <view class="mb-2 {{theme=='light'? 'bg-light':'bg-dark'}} bg-opacity-50 rounded">
+          <view wx:for="{{Curriculum.hour}}" wx:key="index" wx:if="{{index <Curriculum.classInfo.morningCourses}}" class="d-flex flex-column align-items-center justify-content-center" style="min-height: var(--itemHeight);">
+            <text style="height: 1rem;">{{index+1}}</text>
+            <text class="fs-10 opacity-50" style="height: 9.3px;">{{item[0]}}</text>
+            <text class="fs-10 opacity-50" style="height: 9.3px;">{{item[1]}}</text>
+          </view>
+        </view>
+        <!-- 下午 -->
+        <view class="mb-2 {{theme=='light'? 'bg-light':'bg-dark'}} bg-opacity-50 rounded">
+          <view wx:for="{{Curriculum.hour}}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses<= index &&  index <(Curriculum.classInfo.morningCourses+Curriculum.classInfo.afternoonCourses)}}" class="d-flex flex-column align-items-center justify-content-center" style="min-height: var(--itemHeight);">
+            <text style="height: 1rem;">{{index+1}}</text>
+            <text class="fs-10 opacity-50" style="height: 9.3px;">{{item[0]}}</text>
+            <text class="fs-10 opacity-50" style="height: 9.3px;">{{item[1]}}</text>
+          </view>
+        </view>
+        <!-- 晚上 -->
+        <view class="mb-2 {{theme=='light'? 'bg-light':'bg-dark'}} bg-opacity-50 rounded">
+          <view wx:for="{{Curriculum.hour}}" wx:key="index" wx:if="{{(Curriculum.classInfo.morningCourses+Curriculum.classInfo.afternoonCourses)<= index &&  index <(Curriculum.classInfo.morningCourses+Curriculum.classInfo.afternoonCourses+Curriculum.classInfo.nightCourses)}}" class="d-flex flex-column align-items-center justify-content-center" style="min-height: var(--itemHeight);">
+            <text style="height: 1rem;">{{index+1}}</text>
+            <text class="fs-10 opacity-50" style="height: 9.3px;">{{item[0]}}</text>
+            <text class="fs-10 opacity-50" style="height: 9.3px;">{{item[1]}}</text>
+          </view>
+        </view>
+      </view>
+      <!-- 右侧课程 -->
+    </view>
+    <!-- 下方操作栏 -->
+    <view class="d-flex justify-content-around">
+      <button size="mini" plain="true" style="color:#469c7d">编辑课表</button>
+      <button size="mini" plain="true" style="color: #b63350;" bindtap="toClassSetting">课表设置</button>
+      <button size="mini" plain="true" style="color: #2d79af;">上课时间</button>
+      <button size="mini" plain="true" style="color:#c45b11">一键配色</button>
+    </view>
+    <!-- 关于我们 -->
   </view>
-  <!-- 下方操作栏 -->
-  <view class="d-flex justify-content-around">
-    <button size="mini" plain="true" style="color:#469c7d">编辑课表</button>
-    <button size="mini" plain="true" style="color: #b63350;" bindtap="toClassSetting">课表设置</button>
-    <button size="mini" plain="true" style="color: #2d79af;">上课时间</button>
-    <button size="mini" plain="true" style="color:#c45b11">一键配色</button>
-  </view>
-  <!-- 关于我们 -->
-</view>
+</page-meta>
