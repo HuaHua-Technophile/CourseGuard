@@ -1,6 +1,6 @@
-<page-meta page-style="{{theme=='light'? 'background: linear-gradient(#feac5e, rgb(199, 121, 208), rgb(75, 192, 200));color:#3e3152;':'background: linear-gradient(#cc95c0,#dbd4b4,#7aa1d2);color:#aa97c2'}}">
+<page-meta page-style="{{theme=='light' ? 'background: linear-gradient(#feac5e, #c779d0, #4bc0c8);color:#3e3152;' : 'background: linear-gradient(#4b134f,#782323);color:#aa97c2;'}}">
   <!-- 动态修改title样式,包括文本内容与颜色 -->
-  <navigation-bar title="{{Curriculum.curriculumName}}" front-color="{{theme=='light'?'#1e1e1e':'#c8c8c8'}}" background-color="{{theme=='light'?'#feac5e':'#cc95c0'}}" />
+  <navigation-bar title="{{Curriculum.curriculumName}}" front-color="{{theme=='light'?'#1e1e1e':'#c8c8c8'}}" background-color="{{theme=='light'?'#feac5e':'#4b134f'}}" />
   <!-- 页面内容 -->
   <view class="hhh {{theme=='light'?'':'text-light'}}">
     <!-- 课表本体 -->
