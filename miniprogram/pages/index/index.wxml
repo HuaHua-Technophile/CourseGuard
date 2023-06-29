@@ -1,4 +1,4 @@
-<page-meta page-style="{{theme=='light'? 'background: linear-gradient(#feac5e, rgb(199, 121, 208), rgb(75, 192, 200));':'background: linear-gradient(#cc95c0,#dbd4b4,#7aa1d2)'}}">
+<page-meta page-style="{{theme=='light'? 'background: linear-gradient(#feac5e, rgb(199, 121, 208), rgb(75, 192, 200));color:#3e3152;':'background: linear-gradient(#cc95c0,#dbd4b4,#7aa1d2);color:#aa97c2'}}">
   <!-- 动态修改title样式,包括文本内容与颜色 -->
   <navigation-bar title="{{Curriculum.curriculumName}}" front-color="{{theme=='light'?'#1e1e1e':'#c8c8c8'}}" background-color="{{theme=='light'?'#feac5e':'#cc95c0'}}" />
   <!-- 页面内容 -->
