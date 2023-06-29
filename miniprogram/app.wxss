@@ -1,4 +1,5 @@
 @import "./bootstrap.wxss";
+
 page {
   --itemHeight: 50px;
 }

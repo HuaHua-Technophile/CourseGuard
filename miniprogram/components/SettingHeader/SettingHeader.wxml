@@ -1,0 +1,27 @@
+<!--components/SettingHeader/SettingHeader.wxml-->
+<!-- 课程表设置页面头部功能组件 -->
+<view class="settingHeader">
+  <view class="tableNameArea">
+    <text class="tableName">课表名称</text>
+    <input class="editName" type="text" maxlength='10' placeholder="课镖客" bindinput="inputChange" />
+  </view>
+  <!-- picker弹出控制,设置每个时间段的课程数 -->
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" data-time="morningNum">
+    <view class="picker">
+      <view>上午几节课</view>
+      <view>{{morningNum}}</view>
+    </view>
+  </picker>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" data-time="affterNum">
+    <view class="picker">
+      <view>下午几节课</view>
+      <view>{{affterNum}}</view>
+    </view>
+  </picker>
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}" data-time="nightNum">
+    <view class="picker">
+      <view>晚上几节课</view>
+      <view>{{nightNum}}</view>
+    </view>
+  </picker>
+</view>

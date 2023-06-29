@@ -1,6 +1,0 @@
-<!--components/ClassSumSetting/ClassSumSetting.wxml-->
-<view class="morningClassSum">
-  <slot>
-  </slot>
-  <view>4节</view>
-</view>

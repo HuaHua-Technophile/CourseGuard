@@ -1,7 +1,0 @@
-/* components/ClassSumSetting/ClassSumSetting.wxss */
-.morningClassSum {
-  height: 100rpx;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
