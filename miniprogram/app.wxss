@@ -1,4 +1,8 @@
 @import "./bootstrap.wxss";
+
 page {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
   background: linear-gradient(#160d1a, #242441);
 }

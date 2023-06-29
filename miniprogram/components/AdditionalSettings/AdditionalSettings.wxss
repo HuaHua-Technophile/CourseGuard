@@ -1,0 +1,18 @@
+/* components/AdditionalSettings/AdditionalSettings.wxss */
+.additionalSettings {
+  margin-top: 30rpx;
+  padding: 0 26rpx 0rpx 30rpx;
+  border-radius: 10rpx;
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.allNameArea {
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+switch {
+  zoom: .7;
+}

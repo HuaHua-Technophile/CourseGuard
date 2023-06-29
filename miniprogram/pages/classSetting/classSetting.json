@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "ClassSumSetting": "/components/ClassSumSetting/ClassSumSetting"
+    "SettingHeader": "/components/SettingHeader/SettingHeader",
+    "AdditionalSettings": "/components/AdditionalSettings/AdditionalSettings"
   }
 }
