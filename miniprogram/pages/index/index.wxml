@@ -4,7 +4,7 @@
   <!-- 页面内容 -->
   <view class="hhh {{theme=='light'?'':'text-light'}}">
     <!-- 课表本体 -->
-    <view style="height:80vh" class="d-flex">
+    <view class="d-flex">
       <!-- 左侧课程时间，分为顶栏，上午，下午，晚上 -->
       <view style="width: var(--itemHeight);">
         <!-- 上午 -->
