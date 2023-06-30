@@ -36,6 +36,10 @@ Component({
         tableName: event.detail.value
       })
       console.log(this.data.tableName);
+    },
+    // 提交数据到云数据库
+    toDataBase() {
+      console.log('提交成功');
     }
   },
   lifetimes: {

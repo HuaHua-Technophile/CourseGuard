@@ -5,6 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {},
+  submitSetting() {
+    const settingHeader = this.selectComponent('.settingHeader');
+    const additionalSettings = this.selectComponent('.additionalSettings');
+    settingHeader.toDataBase()
+    console.log(settingHeader, additionalSettings);
+  },
 
   /**
    * 生命周期函数--监听页面加载
