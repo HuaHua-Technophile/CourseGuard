@@ -1,6 +1,6 @@
-<page-meta page-style="{{theme=='light' ? 'background: linear-gradient(#feac5e, #c779d0, #4bc0c8);color:#3e3152;' : 'background: linear-gradient(#4b134f,#782323);color:#aa97c2;'}}">
+<page-meta page-style="{{theme=='light' ? 'background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;' : 'background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
   <!-- 动态修改title样式,包括文本内容与颜色 -->
-  <navigation-bar title="{{Curriculum.curriculumName}}" front-color="{{theme=='light'?'#1e1e1e':'#c8c8c8'}}" background-color="{{theme=='light'?'#feac5e':'#4b134f'}}" />
+  <navigation-bar title="{{Curriculum.curriculumName}}" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" />
   <!-- 页面内容 -->
   <view class="hhh {{theme=='light'?'':'text-light'}}">
     <!-- 课表本体 -->
@@ -26,20 +26,20 @@
         <!-- 晚上 -->
         <view class="mb-2 {{theme=='light'? 'bg-light':'bg-dark'}} bg-opacity-50 rounded">
           <view wx:for="{{Curriculum.hour}}" wx:key="index" wx:if="{{(Curriculum.classInfo.morningCourses+Curriculum.classInfo.afternoonCourses)<= index &&  index <(Curriculum.classInfo.morningCourses+Curriculum.classInfo.afternoonCourses+Curriculum.classInfo.nightCourses)}}" class="d-flex flex-column align-items-center justify-content-center" style="min-height: var(--itemHeight);">
-            <text style="height: 1rem;">{{index+1}}</text>
-            <text class="fs-10 opacity-50" style="height: 9.3px;">{{item[0]}}</text>
-            <text class="fs-10 opacity-50" style="height: 9.3px;">{{item[1]}}</text>
+            <view style="height: 1rem;">{{index+1}}</view>
+            <view class="fs-10 opacity-50" style="height: 9.3px;">{{item[0]}}</view>
+            <view class="fs-10 opacity-50" style="height: 9.3px;">{{item[1]}}</view>
           </view>
         </view>
       </view>
       <!-- 右侧课程 -->
     </view>
     <!-- 下方操作栏 -->
-    <view class="d-flex justify-content-around">
-      <button size="mini" plain="true" style="color:#469c7d">编辑课表</button>
-      <button size="mini" plain="true" style="color: #b63350;" bindtap="toClassSetting">课表设置</button>
-      <button size="mini" plain="true" style="color: #2d79af;">上课时间</button>
-      <button size="mini" plain="true" style="color:#c45b11">一键配色</button>
+    <view class="d-flex ">
+      <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-5" style="color:#469c7d">编辑课表</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-5" style="color: #b63350;" bindtap="toClassSetting">课表设置</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-5" style="color: #2d79af;">上课时间</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-5" style="color:#c45b11">一键配色</view>
     </view>
     <!-- 关于我们 -->
   </view>
