@@ -39,7 +39,7 @@ Component({
     },
     // 提交数据到云数据库
     toDataBase() {
-      console.log('提交成功');
+      console.log('提交数据库成功');
     }
   },
   lifetimes: {
