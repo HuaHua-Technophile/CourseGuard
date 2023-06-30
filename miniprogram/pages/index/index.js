@@ -81,16 +81,17 @@ Page({
             ["19:00", "19:40"],
             ["20:00", "20:40"],
           ],
+          // 课表信息
           classInfo: {
-            morningStart: "08:00",
-            morningCourses: 4,
-            afternoonStart: "14:00",
-            afternoonCourses: 4,
-            nightStart: "19:00",
-            nightCourses: 2,
-            courseTime: 40,
-            breakTime: 20,
-            courseTotal: {},
+            morningStart: "08:00", //上午开始时间
+            morningCourses: 4, //上午课程数量
+            afternoonStart: "14:00", //下午开始时间
+            afternoonCourses: 4, //下午课程数量
+            nightStart: "19:00", //晚上开始时间
+            nightCourses: 2, //晚上课程数量
+            courseTime: 40, //一节课的时间
+            breakTime: 20, //课间休息的时长
+            courseTotal: {}, //存放课程的信息
           },
         },
       });
