@@ -36,10 +36,10 @@
     </view>
     <!-- 下方操作栏 -->
     <view class="d-flex ">
-      <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-1" style="color:#469c7d">编辑课表</view>
-      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-1" style="color: #b63350;" bindtap="toClassSetting">课表设置</view>
-      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-1" style="color: #2d79af;">上课时间</view>
-      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-1" style="color:#c45b11">一键配色</view>
+      <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-5" style="color:#469c7d">编辑课表</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-5" style="color: #b63350;" bindtap="toClassSetting">课表设置</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-5" style="color: #2d79af;">上课时间</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded px-2 py-1 text-center fs-5" style="color:#c45b11">一键配色</view>
     </view>
     <!-- 关于我们 -->
   </view>
