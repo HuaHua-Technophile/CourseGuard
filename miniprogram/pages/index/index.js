@@ -10,7 +10,7 @@ Page({
   },
   // 路由跳转-----------------
   toClassSetting() {
-    wx.navigateTo({
+    wx.redirectTo({
       url: "../classSetting/classSetting",
     });
   },
@@ -20,20 +20,23 @@ Page({
     wx.getSystemInfo({
       success: (res) => (getApp().globalData.theme = res.theme),
     });
-    this.setData({ theme: getApp().globalData.theme });
+    this.setData({
+      theme: getApp().globalData.theme
+    });
     // 数据库初始化,用于判断用户是否是新用户,做出相应操作
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
     //统计数据库中能获取到多少条该用户的课程表,判断是否是新用户
     db.collection("Curriculum").count({
       success: (res) => {
-        if (res.total > 0) this.setData({ newUser: false });
+        if (res.total > 0) this.setData({
+          newUser: false
+        });
         // 如果为新用户,则给一个默认课表,同时存入数据库
         if (this.data.newUser) {
           this.setData({
             Curriculum: {
               curriculumName: "课镖客",
-              arrangement: [
-                {
+              arrangement: [{
                   morningCourses: ["", "", "", ""],
                   afternoonCourses: ["", "", "", ""],
                   nightCourses: ["", ""],
@@ -107,7 +110,9 @@ Page({
           db.collection("Curriculum").get({
             success: (res) => {
               // console.log(res.data)// res.data 包含该记录的数据
-              this.setData({ Curriculum: res.data[0] });
+              this.setData({
+                Curriculum: res.data[0]
+              });
             },
           });
         }

@@ -21,6 +21,19 @@ Page({
       })
     })
   },
+  // 保存设置成功提示封装
+  saveSuccess() {
+    return new Promise((resolve) => {
+      wx.showToast({
+        title: '保存设置成功',
+        icon: 'success',
+        duration: 2000,
+        success: (res) => {
+          resolve(res)
+        }
+      })
+    })
+  },
   // 点击确认设置按钮，将当前设置保存到云数据库及storage
   submitSetting() {
     this.showModalAsync().then((res) => {
@@ -30,15 +43,14 @@ Page({
       settingHeader.toDataBase()
       additionalSettings.saveToStorage()
       console.log(`success => ${res}`);
-      // 保存设置成功提示
-      wx.showToast({
-        title: '保存设置成功',
-        icon: 'success',
-        duration: 2000
+      // 更新数据库数据后回到首页
+      this.saveSuccess().then(() => {
+        wx.redirectTo({
+          url: "../index/index"
+        })
+      }).catch(err => {
+        console.log(`error => ${err}`);
       })
-      注意
-    }).catch(err => {
-      console.log(`error => ${err}`);
     })
   },
 
