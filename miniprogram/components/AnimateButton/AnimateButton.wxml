@@ -1,0 +1,4 @@
+<!--components/animateButton/animateButton.wxml-->
+<view class="bubbly-button">
+  <slot></slot>
+</view>

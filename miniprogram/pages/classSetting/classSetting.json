@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "SettingHeader": "/components/SettingHeader/SettingHeader",
-    "AdditionalSettings": "/components/AdditionalSettings/AdditionalSettings"
+    "AdditionalSettings": "/components/AdditionalSettings/AdditionalSettings",
+    "AnimateButton": "/components/AnimateButton/AnimateButton"
   }
 }

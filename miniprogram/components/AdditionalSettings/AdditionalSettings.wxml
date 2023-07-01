@@ -4,26 +4,26 @@
   <!-- 显示课程全称 -->
   <view class="allNameArea">
     <view>显示课程全称</view>
-    <switch color="#089f8a" data-index="0" bindchange="switchChange"></switch>
+    <switch color="#007ffe" data-index="0" bindchange="switchChange"></switch>
   </view>
   <!-- 是否显示教师 -->
   <view class="allNameArea">
     <view>是否显示教师</view>
-    <switch color="#089f8a" data-index="1" bindchange="switchChange"></switch>
+    <switch color="#007ffe" data-index="1" bindchange="switchChange"></switch>
   </view>
   <!-- 是否显示教室 -->
   <view class="allNameArea">
     <view>是否显示教室</view>
-    <switch color="#089f8a" data-index="2" bindchange="switchChange"></switch>
+    <switch color="#007ffe" data-index="2" bindchange="switchChange"></switch>
   </view>
   <!-- 是否显示周六 -->
   <view class="allNameArea">
     <view>是否显示周六</view>
-    <switch color="#089f8a" data-index="3" bindchange="switchChange"></switch>
+    <switch color="#007ffe" data-index="3" bindchange="switchChange"></switch>
   </view>
   <!-- 是否显示周日 -->
   <view class="allNameArea">
     <view>是否显示周日</view>
-    <switch color="#089f8a" data-index="4" bindchange="switchChange"></switch>
+    <switch color="#007ffe" data-index="4" bindchange="switchChange"></switch>
   </view>
 </view>
