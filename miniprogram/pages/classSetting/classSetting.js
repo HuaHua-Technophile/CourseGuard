@@ -30,10 +30,13 @@ Page({
       settingHeader.toDataBase()
       additionalSettings.saveToStorage()
       console.log(`success => ${res}`);
-      // 更新数据库数据后回到首页
-      wx.navigateTo({
-        url: "../index/index"
+      // 保存设置成功提示
+      wx.showToast({
+        title: '保存设置成功',
+        icon: 'success',
+        duration: 2000
       })
+      注意
     }).catch(err => {
       console.log(`error => ${err}`);
     })
