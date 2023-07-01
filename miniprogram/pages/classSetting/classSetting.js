@@ -5,11 +5,38 @@ Page({
    * 页面的初始数据
    */
   data: {},
-  // 点击确认设置按钮，将当前设置保存到云数据库
+  // 封装模态弹窗方法
+  showModalAsync() {
+    return new Promise((resolve, reject) => {
+      wx.showModal({
+        title: '温馨提示',
+        content: '修改课程数量直接影响现有课程配置，确定要这么操作?',
+        success(res) {
+          if (res.confirm) {
+            resolve(res.confirm)
+          } else if (res.cancel) {
+            reject(res.cancel)
+          }
+        }
+      })
+    })
+  },
+  // 点击确认设置按钮，将当前设置保存到云数据库及storage
   submitSetting() {
-    const settingHeader = this.selectComponent('.settingHeader');
-    const additionalSettings = this.selectComponent('.additionalSettings');
-    settingHeader.toDataBase()
+    this.showModalAsync().then((res) => {
+      // 获取组件实例，调用组件中定义的方法进行数据库及storage数据更新
+      const settingHeader = this.selectComponent('.settingHeader');
+      const additionalSettings = this.selectComponent('.additionalSettings');
+      settingHeader.toDataBase()
+      additionalSettings.saveToStorage()
+      console.log(`success => ${res}`);
+      // 更新数据库数据后回到首页
+      wx.navigateTo({
+        url: "../index/index"
+      })
+    }).catch(err => {
+      console.log(`error => ${err}`);
+    })
   },
 
   /**

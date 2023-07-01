@@ -12,10 +12,10 @@ Component({
    */
   data: {
     tableName: '',
-    morningNum: '4节',
-    affterNum: '4节',
-    nightNum: '4节',
-    array: ['没有课']
+    morningNum: 4,
+    affterNum: 4,
+    nightNum: 4,
+    array: [0]
   },
 
   /**
@@ -24,10 +24,8 @@ Component({
   methods: {
     // 监听picker中的选项改变来设置课程数量
     bindPickerChange(event) {
-      console.log(event.detail);
-      let numString = event.detail.value > 0 ? `${event.detail.value}节` : '没有课'
       this.setData({
-        [event.currentTarget.dataset.time]: numString
+        [event.currentTarget.dataset.time]: event.detail.value
       })
     },
     // 设置课表名称
@@ -35,15 +33,79 @@ Component({
       this.setData({
         tableName: event.detail.value
       })
-      console.log(this.data.tableName);
     },
     // 提交数据到云数据库
     toDataBase() {
+      const db = wx.cloud.database()
+      const _ = db.command
+      db.collection('Curriculum').where({
+        _openid: 'o7U2J5VjuP8mKkbX7KvETK-NYH98'
+      }).update({
+        data: {
+          Curriculum: {
+            classInfo: {
+              morningCourses: this.data.morningNum,
+              afternoonCourses: this.data.affterNum,
+              nightCourses: this.data.nightNum
+            },
+            curriculumName: this.data.tableName
+          }
+        }
+      })
       console.log('提交数据库成功');
+    },
+    // 获取用户当前课表设置
+    getUserSetting() {
+      const db = wx.cloud.database()
+      const _ = db.command
+      let dbData
+      db.collection('Curriculum').get({
+        _openid: 'o7U2J5VjuP8mKkbX7KvETK-NYH98',
+        success: (res) => {
+          dbData = res.data
+          this.setData({
+            tableName: dbData[0].Curriculum.curriculumName,
+            morningNum: dbData[0].Curriculum.classInfo.morningCourses,
+            affterNum: dbData[0].Curriculum.classInfo.afternoonCourses,
+            nightNum: dbData[0].Curriculum.classInfo.nightCourses
+          })
+        }
+      })
     }
   },
   lifetimes: {
+    created() {
+      // 获取用户当前课表设置
+      this.getUserSetting()
+    },
     attached() {
+      //   wx.login({
+      //     success: (res) => {
+      //         console.log(res);
+      //         this.setData({
+      //             wxCode: res.code,
+      //         })
+      //         // ====== 【获取OpenId】
+      //         let m_code = this.data.wxCode; // 获取code
+      //         let m_AppId = "wx5db872f7431522ce"; // appid
+      //         let m_mi = "450414da9a2152c282adc1e6"; // 小程序密钥
+      //         console.log("m_code:" + m_code);
+      //         let url = "https://api.weixin.qq.com/sns/jscode2session?appid=" + m_AppId + "&secret=" + m_mi + "&js_code=" + m_code + "&grant_type=authorization_code";
+      //         console.log(url);
+      //         wx.request({
+      //             url: url,
+      //             success: (res) => {
+      //                 console.log(res);
+      //                 this.setData({
+      //                     wxOpenId: res.data.openid
+      //                 })
+      //                 //获取到你的openid
+      //                 console.log("====openID=======");
+      //                 console.log(this.data.wxOpenId);
+      //             }
+      //         })
+      //     }
+      // })
       // 循环遍历设置每个时间段的课程数量
       const array = ['没有课']
       for (let i = 1; i <= 10; i++) {
@@ -52,6 +114,6 @@ Component({
       this.setData({
         array: array
       })
-    }
+    },
   }
 })

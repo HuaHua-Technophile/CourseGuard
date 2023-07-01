@@ -6,3 +6,7 @@
   position: relative;
   overflow: hidden;
 }
+
+.successSetting {
+  width: 100%;
+}

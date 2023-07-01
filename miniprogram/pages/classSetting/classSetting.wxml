@@ -6,6 +6,8 @@
     <!-- 额外设置 -->
     <AdditionalSettings class="additionalSettings"></AdditionalSettings>
     <!-- 确认设置 -->
-    <AnimateButton bindtap="submitSetting">确认设置</AnimateButton>
+    <view class="successSetting">
+      <AnimateButton bindtap="submitSetting">确认设置</AnimateButton>
+    </view>
   </view>
 </page-meta>
