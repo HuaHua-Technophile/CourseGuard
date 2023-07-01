@@ -5,6 +5,12 @@ Page({
    * 页面的初始数据
    */
   data: {},
+  // 点击确认设置按钮，将当前设置保存到云数据库
+  submitSetting() {
+    const settingHeader = this.selectComponent('.settingHeader');
+    const additionalSettings = this.selectComponent('.additionalSettings');
+    settingHeader.toDataBase()
+  },
 
   /**
    * 生命周期函数--监听页面加载

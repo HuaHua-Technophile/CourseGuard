@@ -6,3 +6,16 @@
   position: relative;
   overflow: hidden;
 }
+
+.settingSuccess {
+  width: 100%;
+  height: 100rpx;
+  margin-top: 60rpx;
+  padding: 4px;
+  background: linear-gradient(to right, #8f41e9, #578aef);
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 34rpx;
+}
