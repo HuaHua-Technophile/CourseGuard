@@ -8,17 +8,18 @@ Page({
     theme: "", //主题色
     week: -1, //今天是周几,用于顶部周几高亮
     // Editing: false,//是否处于编辑状态
-    CurriculumId: 'ke'biao'ke', // 当前展示的课表是哪个
+    CurriculumId: "课镖客", // 当前展示的课表是哪个
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
+    console.log(`将查询_id为${this.data.CurriculumId}的课表`);
     db.collection("Curriculum")
       .where({ _id: this.data.CurriculumId })
       .get({
         success: (res) => {
           this.setData({
-            Curriculum: res.data[this.data.CurriculumIndex], //返回数据是一个数组,取其第Index个作为当前渲染的课程表
+            Curriculum: res.data[0], //返回数据是一个数组,取其第Index个作为当前渲染的课程表
           });
           console.log("打印课表数据", this.data.Curriculum); //打印课表数据
         },
@@ -49,9 +50,8 @@ Page({
     this.setData({
       theme: getApp().globalData.theme,
     });
-    // 数据库初始化,用于判断用户是否是新用户,做出相应操作
+    // 统计数据库中能获取到多少条该用户的课程表,判断是否是新用户
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
-    //统计数据库中能获取到多少条该用户的课程表,判断是否是新用户
     db.collection("Curriculum").count({
       success: (res) => {
         console.log(`获取到${res.total}个课程表,新用户:${res.total == 0}`);
@@ -126,13 +126,12 @@ Page({
             },
             success: function (res) {
               console.log("课程表添加成功", res);
-              this.setData()
             },
           });
         }
+        this.getCurriculum(); //获取课表数据
       },
     });
-    this.getCurriculum();
     // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
     this.setData({ week: new Date().getDay() });
   },
