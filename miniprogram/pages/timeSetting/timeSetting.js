@@ -14,7 +14,23 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    const db = wx.cloud.database()
+    const _ = db.command
+    // 根据课表设置中的课程数渲染相应时间设置条数
+    db.collection('Curriculum').where({
+      _openid: 'o7U2J5VjuP8mKkbX7KvETK-NYH98'
+    }).get({
+      success: (res) => {
+        let classInfo = res.data[0].Curriculum.classInfo
+        this.setData({
+          morningNum: Number(classInfo.morningCourses),
+          affternonNum: Number(classInfo.afternoonCourses),
+          nightNum: Number(classInfo.nightCourses)
+        })
+        console.log(res);
+      }
+    })
+    console.log('提交数据库成功');
   },
 
   /**
