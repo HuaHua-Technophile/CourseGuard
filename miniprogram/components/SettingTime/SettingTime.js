@@ -17,8 +17,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    startTime: '00:00',
-    endTime: '00:00',
     morningArr: [{
       id: 1,
       startTime: '00:00',
