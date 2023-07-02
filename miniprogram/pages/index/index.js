@@ -5,13 +5,26 @@ Page({
     Curriculum: {
       curriculumName: "",
     },
-    newUser: true, //是否为新用户,默认为true
     theme: "", //主题色
     week: -1, //今天是周几,用于顶部周几高亮
     // Editing: false,//是否处于编辑状态
-    CurriculumIndex: 0, // 当前展示的课表是第几个,页面初始化时默认展示第1个课程表
+    CurriculumId: 'ke'biao'ke', // 当前展示的课表是哪个
   },
-  // 路由跳转-----------------
+  // 课表数据获取,封装为函数
+  getCurriculum() {
+    const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
+    db.collection("Curriculum")
+      .where({ _id: this.data.CurriculumId })
+      .get({
+        success: (res) => {
+          this.setData({
+            Curriculum: res.data[this.data.CurriculumIndex], //返回数据是一个数组,取其第Index个作为当前渲染的课程表
+          });
+          console.log("打印课表数据", this.data.Curriculum); //打印课表数据
+        },
+      });
+  },
+  // 路由跳转-------------------------
   toClassSetting() {
     wx.redirectTo({
       url: "../classSetting/classSetting",
@@ -20,6 +33,11 @@ Page({
   toTimeSetting() {
     wx.redirectTo({
       url: "../timeSetting/timeSetting",
+    });
+  },
+  toChangeCurriculum() {
+    wx.redirectTo({
+      url: "../changeCurriculum/changeCurriculum",
     });
   },
   // 生命周期函数--监听页面加载
@@ -36,102 +54,85 @@ Page({
     //统计数据库中能获取到多少条该用户的课程表,判断是否是新用户
     db.collection("Curriculum").count({
       success: (res) => {
-        if (res.total > 0)
-          this.setData({
-            newUser: false,
-          });
-        // 如果为新用户,则给一个默认课表,同时存入数据库
-        if (this.data.newUser) {
-          console.log("是新用户");
-          this.setData({
-            Curriculum: {
-              data: {
-                curriculumName: "课镖客",
-                arrangement: [
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                ],
-                hour: [
-                  ["08:00", "08:40"],
-                  ["09:00", "09:40"],
-                  ["10:00", "10:40"],
-                  ["11:00", "11:40"],
-                  ["14:00", "14:40"],
-                  ["15:00", "15:40"],
-                  ["16:00", "16:40"],
-                  ["17:00", "17:40"],
-                  ["19:00", "19:40"],
-                  ["20:00", "20:40"],
-                ],
-                // 课表信息
-                classInfo: {
-                  morningStart: "08:00", //上午开始时间
-                  morningCourses: 4, //上午课程数量
-                  afternoonStart: "14:00", //下午开始时间
-                  afternoonCourses: 4, //下午课程数量
-                  nightStart: "19:00", //晚上开始时间
-                  nightCourses: 2, //晚上课程数量
-                  courseTime: 40, //一节课的时间
-                  breakTime: 20, //课间休息的时长
-                  courseTotal: {}, //存放课程的信息
-                },
-              },
-            },
-          });
+        console.log(`获取到${res.total}个课程表,新用户:${res.total == 0}`);
+        if (res.total == 0) {
           db.collection("Curriculum").add({
             // data 字段表示需新增的 JSON 数据
             data: {
-              // _id: 'todo-identifiant-aleatoire', // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
-              data: this.data.Curriculum.data,
+              _id: "课镖客", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
+              // 课程信息
+              arrangement: [
+                {
+                  morningCourses: ["", "", "", ""],
+                  afternoonCourses: ["", "", "", ""],
+                  nightCourses: ["", ""],
+                },
+                {
+                  morningCourses: ["", "", "", ""],
+                  afternoonCourses: ["", "", "", ""],
+                  nightCourses: ["", ""],
+                },
+                {
+                  morningCourses: ["", "", "", ""],
+                  afternoonCourses: ["", "", "", ""],
+                  nightCourses: ["", ""],
+                },
+                {
+                  morningCourses: ["", "", "", ""],
+                  afternoonCourses: ["", "", "", ""],
+                  nightCourses: ["", ""],
+                },
+                {
+                  morningCourses: ["", "", "", ""],
+                  afternoonCourses: ["", "", "", ""],
+                  nightCourses: ["", ""],
+                },
+                {
+                  morningCourses: ["", "", "", ""],
+                  afternoonCourses: ["", "", "", ""],
+                  nightCourses: ["", ""],
+                },
+                {
+                  morningCourses: ["", "", "", ""],
+                  afternoonCourses: ["", "", "", ""],
+                  nightCourses: ["", ""],
+                },
+              ],
+              // 上课时段
+              hour: [
+                ["08:00", "08:40"],
+                ["09:00", "09:40"],
+                ["10:00", "10:40"],
+                ["11:00", "11:40"],
+                ["14:00", "14:40"],
+                ["15:00", "15:40"],
+                ["16:00", "16:40"],
+                ["17:00", "17:40"],
+                ["19:00", "19:40"],
+                ["20:00", "20:40"],
+              ],
+              // 课表信息
+              classInfo: {
+                morningStart: "08:00", //上午开始时间
+                morningCourses: 4, //上午课程数量
+                afternoonStart: "14:00", //下午开始时间
+                afternoonCourses: 4, //下午课程数量
+                nightStart: "19:00", //晚上开始时间
+                nightCourses: 2, //晚上课程数量
+                courseTime: 40, //一节课的时间
+                breakTime: 20, //课间休息的时长
+                courseTotal: {}, //存放课程的信息
+              },
             },
-          });
-        } //如果不是新用户
-        else {
-          console.log("是老用户");
-          db.collection("Curriculum").get({
-            success: (res) => {
-              this.setData({
-                Curriculum: res.data[this.data.CurriculumIndex], //返回数据是一个数组,取其第Index个作为当前渲染的课程表
-              });
-              console.log("打印课表数据", this.data.Curriculum); //打印课表数据
+            success: function (res) {
+              console.log("课程表添加成功", res);
+              this.setData()
             },
           });
         }
       },
     });
+    this.getCurriculum();
     // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
     this.setData({ week: new Date().getDay() });
   },

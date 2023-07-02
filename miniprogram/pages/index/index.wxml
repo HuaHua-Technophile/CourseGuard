@@ -60,7 +60,7 @@
       <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#469c7d">编辑课程</view>
       <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color: #b63350;" bindtap="toClassSetting">课表设置</view>
       <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color: #2d79af;" bindtap="toTimeSetting">上课时段</view>
-      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#c45b11">切换课表</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#c45b11" bindtap="toChangeCurriculum">切换课表</view>
     </view>
     <!-- 关于我们 -->
   </view>
