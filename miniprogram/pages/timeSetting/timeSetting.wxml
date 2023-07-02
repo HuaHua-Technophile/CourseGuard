@@ -1,0 +1,21 @@
+<!--pages/timeSetting/timeSetting.wxml-->
+<!-- 课表设置页面 -->
+<page-meta page-style="{{theme=='light' ? 'background: linear-gradient(#feac5e, #c779d0, #4bc0c8);color:#3e3152;' : 'background: linear-gradient(#4b134f,#782323);color:#aa97c2;'}}">
+  <view class="timeSetting text-light">
+    <!-- 上午时间设置 -->
+    <view class="timeArea">
+      <view class="title">上午时间设置</view>
+      <view class="pickerArea">
+        <SettingTime timeArea="morningArr" timeIndex="{{index}}" wx:for="{{morningNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+      </view>
+      <view class="title">下午时间设置</view>
+      <view class="pickerArea">
+        <SettingTime timeArea="afternonArr" timeIndex="{{index}}" wx:for="{{affternonNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+      </view>
+      <view class="title">晚上时间设置</view>
+      <view class="pickerArea">
+        <SettingTime timeArea="nightArr" timeIndex="{{index}}" wx:for="{{nightNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+      </view>
+    </view>
+  </view>
+</page-meta>

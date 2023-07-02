@@ -1,0 +1,27 @@
+<!--components/SettingTime/SettingTime.wxml-->
+<!-- 每节课时间设置 -->
+<view class="settingTime">
+  <view class="timeName">
+    <slot></slot>
+  </view>
+  <view class="timeSelect">
+    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+      <view class="picker">
+        <view class="time">
+          <text wx:if="{{timeArea === 'morningArr'}}">{{morningArr[timeIndex].startTime}} - </text>
+          <text wx:elif="{{timeArea === 'afternonArr'}}">{{afternonArr[timeIndex].startTime}} - </text>
+          <text wx:else>{{nightArr[timeIndex].startTime}} - </text>
+        </view>
+      </view>
+    </picker>
+    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+      <view class="picker">
+        <view class="time">
+          <text wx:if="{{timeArea === 'morningArr'}}">{{morningArr[timeIndex].endTime}}</text>
+          <text wx:elif="{{timeArea === 'afternonArr'}}">{{afternonArr[timeIndex].endTime}}</text>
+          <text wx:else>{{nightArr[timeIndex].endTime}}</text>
+        </view>
+      </view>
+    </picker>
+  </view>
+</view>

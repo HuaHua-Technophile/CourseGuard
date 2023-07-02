@@ -1,5 +1,9 @@
 {
-  "pages": ["pages/index/index", "pages/classSetting/classSetting"],
+  "pages": [
+    "pages/index/index",
+    "pages/classSetting/classSetting",
+    "pages/timeSetting/timeSetting"
+  ],
   "darkmode": true,
   "window": {
     "navigationBarBackgroundColor": "#160d1a",

@@ -14,6 +14,11 @@ Page({
       url: "../classSetting/classSetting",
     });
   },
+  toTimeSetting() {
+    wx.redirectTo({
+      url: "../timeSetting/timeSetting",
+    });
+  },
   // 生命周期函数--监听页面加载
   async onLoad(options) {
     // 主题色-----------------------------

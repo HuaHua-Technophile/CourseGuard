@@ -42,11 +42,7 @@ Page({
       additionalSettings.saveToStorage()
       console.log(`success => ${res}`);
       // 更新数据库数据后回到首页
-      this.saveSuccess().then(() => {
-        wx.redirectTo({
-          url: "../index/index"
-        })
-      })
+      this.saveSuccess()
     })
   },
 
