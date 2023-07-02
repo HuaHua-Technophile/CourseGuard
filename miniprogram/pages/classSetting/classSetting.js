@@ -7,15 +7,13 @@ Page({
   data: {},
   // 封装模态弹窗方法
   showModalAsync() {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve) => {
       wx.showModal({
         title: '温馨提示',
         content: '修改课程数量直接影响现有课程配置，确定要这么操作?',
         success(res) {
           if (res.confirm) {
             resolve(res.confirm)
-          } else if (res.cancel) {
-            reject(res.cancel)
           }
         }
       })
@@ -48,8 +46,6 @@ Page({
         wx.redirectTo({
           url: "../index/index"
         })
-      }).catch(err => {
-        console.log(`error => ${err}`);
       })
     })
   },
