@@ -10,6 +10,18 @@ Component({
     timeIndex: {
       type: Number,
       value: 0
+    },
+    morning: {
+      type: Number,
+      value: 0
+    },
+    afternon: {
+      type: Number,
+      value: 0
+    },
+    night: {
+      type: Number,
+      value: 0
     }
   },
 
@@ -17,21 +29,9 @@ Component({
    * 组件的初始数据
    */
   data: {
-    morningArr: [{
-      id: 1,
-      startTime: '00:00',
-      endTime: '00:00',
-    }],
-    afternonArr: [{
-      id: 1,
-      startTime: '00:00',
-      endTime: '00:00',
-    }],
-    nightArr: [{
-      id: 1,
-      startTime: '00:00',
-      endTime: '00:00',
-    }]
+    morningArr: [],
+    afternonArr: [],
+    nightArr: []
   },
 
   /**
@@ -69,11 +69,43 @@ Component({
           [`nightArr[${this.properties.timeIndex}].endTime`]: event.detail.value
         })
       }
+    },
+    // 初始化各时间段课程时间
+    initTime() {
+      const morningTemp = []
+      const afternonTemp = []
+      const nightTemp = []
+      for (let i = 0; i < this.properties.morning; i++) {
+        morningTemp.push({
+          id: i + 1,
+          startTime: '00:00',
+          endTime: '00:00',
+        })
+      }
+      for (let j = 0; j < this.properties.afternon; j++) {
+        afternonTemp.push({
+          id: j + 1,
+          startTime: '00:00',
+          endTime: '00:00',
+        })
+      }
+      for (let k = 0; k < this.properties.night; k++) {
+        nightTemp.push({
+          id: k + 1,
+          startTime: '00:00',
+          endTime: '00:00',
+        })
+      }
+      this.setData({
+        morningArr: morningTemp,
+        afternonArr: afternonTemp,
+        nightArr: nightTemp
+      })
     }
   },
   lifetimes: {
-    created() {
-
+    ready() {
+      this.initTime()
     }
   }
 })
