@@ -6,15 +6,15 @@
     <view class="timeArea">
       <view class="title">上午时间设置</view>
       <view class="pickerArea">
-        <SettingTime timeArea="morningArr" timeIndex="{{index}}" wx:for="{{morningNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+        <SettingTime morning="{{morningNum}}" timeArea="morningArr" timeIndex="{{index}}" wx:for="{{morningNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
       </view>
       <view class="title">下午时间设置</view>
       <view class="pickerArea">
-        <SettingTime timeArea="afternonArr" timeIndex="{{index}}" wx:for="{{affternonNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+        <SettingTime afternon="{{affternonNum}}" timeArea="afternonArr" timeIndex="{{index}}" wx:for="{{affternonNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
       </view>
       <view class="title">晚上时间设置</view>
       <view class="pickerArea">
-        <SettingTime timeArea="nightArr" timeIndex="{{index}}" wx:for="{{nightNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+        <SettingTime night="{{nightNum}}" timeArea="nightArr" timeIndex="{{index}}" wx:for="{{nightNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
       </view>
     </view>
   </view>

@@ -28,6 +28,7 @@ Page({
           nightNum: Number(classInfo.nightCourses)
         })
         console.log(res);
+        
       }
     })
     console.log('提交数据库成功');

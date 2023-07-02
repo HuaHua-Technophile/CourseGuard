@@ -9,9 +9,9 @@
     <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
       <view class="picker">
         <view class="time">
-          <text wx:if="{{timeArea === 'morningArr'}}">{{morningArr[timeIndex].startTime}} - </text>
-          <text wx:elif="{{timeArea === 'afternonArr'}}">{{afternonArr[timeIndex].startTime}} - </text>
-          <text wx:else>{{nightArr[timeIndex].startTime}} - </text>
+          <text wx:if="{{timeArea === 'morningArr'}}">{{morningArr[timeIndex].startTime}}-</text>
+          <text wx:elif="{{timeArea === 'afternonArr'}}">{{afternonArr[timeIndex].startTime}}-</text>
+          <text wx:else>{{nightArr[timeIndex].startTime}}-</text>
         </view>
       </view>
     </picker>
