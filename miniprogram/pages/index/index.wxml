@@ -1,12 +1,21 @@
 <page-meta page-style="{{theme=='light' ? 'background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;' : 'background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
   <!-- 动态修改title样式,包括文本内容与颜色 -->
-  <navigation-bar title="{{Curriculum.curriculumName}}" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" />
+  <navigation-bar title="{{Curriculum.data.curriculumName}}" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" />
   <!-- 页面内容 -->
   <view class="hhh {{theme=='light'?'':'text-light'}}">
+    <!-- 顶部显示周几 -->
+    <view class="d-flex ms-2 mb-2">
+      <!-- 留空占位 -->
+      <view style="width: var(--itemHeight);" class="me-2"></view>
+      <!-- 星期数 -->
+      <view class="d-flex {{theme=='light'? 'bg-light':'bg-dark'}} bg-opacity-50 rounded">
+        <view wx:for="{{['一','二','三','四','五','六','日']}}" class="text-center py-2 {{(week-1 == index || (index == 6&&week==0))?'text-danger':''}}" style="width: var(--itemHeight);">周{{item}}</view>
+      </view>
+    </view>
     <!-- 课表本体 -->
-    <view id="Curriculum" class="d-flex">
+    <view id="Curriculum" class="ms-2 d-flex">
       <!-- 左侧课程时间，分为顶栏，上午，下午，晚上 -->
-      <view style="width: var(--itemHeight);">
+      <view style="width: var(--itemHeight);" class="me-2">
         <!-- 上午 -->
         <view class="mb-2 {{theme=='light'? 'bg-light':'bg-dark'}} bg-opacity-50 rounded">
           <view wx:for="{{Curriculum.data.hour}}" wx:key="index" wx:if="{{index <Curriculum.data.classInfo.morningCourses}}" class="d-flex flex-column align-items-center justify-content-center" style="min-height: var(--itemHeight);">
@@ -33,13 +42,25 @@
         </view>
       </view>
       <!-- 右侧课程 -->
+      <view class="">
+        <!-- 上午 -->
+        <view class="{{theme=='light'? 'bg-light':'bg-dark'}} bg-opacity-50 rounded d-flex">
+          <!-- 每一列(天) -->
+          <view style="width: var(--itemHeight);" wx:for="{{Curriculum.data.arrangement}}">
+            <!-- 每一节课程的item -->
+            <view wx:for="{{item.afternoonCourses}}" wx:for-item="C" style="min-height: var(--itemHeight);" class="border rounded">{{C}}</view>
+          </view>
+        </view>
+        <!-- 下午 -->
+        <!-- 晚上 -->
+      </view>
     </view>
     <!-- 下方操作栏 -->
     <view class="d-flex">
-      <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#469c7d">编辑课表</view>
+      <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#469c7d">编辑课程</view>
       <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color: #b63350;" bindtap="toClassSetting">课表设置</view>
-      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color: #2d79af;" bindtap="toTimeSetting">上课时间</view>
-      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#c45b11">一键配色</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color: #2d79af;" bindtap="toTimeSetting">上课时段</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#c45b11">切换课表</view>
     </view>
     <!-- 关于我们 -->
   </view>

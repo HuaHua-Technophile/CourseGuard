@@ -7,6 +7,9 @@ Page({
     },
     newUser: true, //是否为新用户,默认为true
     theme: "", //主题色
+    week: -1, //今天是周几,用于顶部周几高亮
+    // Editing: false,//是否处于编辑状态
+    CurriculumIndex: 0, // 当前展示的课表是第几个,页面初始化时默认展示第1个课程表
   },
   // 路由跳转-----------------
   toClassSetting() {
@@ -121,7 +124,7 @@ Page({
           db.collection("Curriculum").get({
             success: (res) => {
               this.setData({
-                Curriculum: res.data[0], //返回数据是一个数组,取其第一个作为当前渲染的课程表
+                Curriculum: res.data[this.data.CurriculumIndex], //返回数据是一个数组,取其第Index个作为当前渲染的课程表
               });
               console.log("打印课表数据", this.data.Curriculum); //打印课表数据
             },
@@ -129,6 +132,8 @@ Page({
         }
       },
     });
+    // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
+    this.setData({ week: new Date().getDay() });
   },
   onReady() {
     //判断用户主题是暗色还是亮色
