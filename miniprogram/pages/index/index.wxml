@@ -48,7 +48,7 @@
           <!-- 每一列(天) -->
           <view style="width: var(--itemHeight);" wx:for="{{Curriculum.data.arrangement}}">
             <!-- 每一节课程的item -->
-            <view wx:for="{{item.afternoonCourses}}" wx:for-item="C" style="min-height: var(--itemHeight);">{{C}}</view>
+            <view wx:for="{{item.afternoonCourses}}" wx:for-item="C" style="min-height: var(--itemHeight);" class="border rounded">{{C}}</view>
           </view>
         </view>
         <!-- 下午 -->
@@ -57,10 +57,10 @@
     </view>
     <!-- 下方操作栏 -->
     <view class="d-flex">
-      <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#469c7d">编辑课表</view>
+      <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#469c7d">编辑课程</view>
       <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color: #b63350;" bindtap="toClassSetting">课表设置</view>
-      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color: #2d79af;" bindtap="toTimeSetting">上课时间</view>
-      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#c45b11">一键配色</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color: #2d79af;" bindtap="toTimeSetting">上课时段</view>
+      <view class="flex-grow-1 me-2 bg-opacity-50 {{theme=='light'? 'bg-light':'bg-dark'}} rounded py-1 text-center" style="color:#c45b11">切换课表</view>
     </view>
     <!-- 关于我们 -->
   </view>
