@@ -7,6 +7,7 @@ Page({
     },
     newUser: true, //是否为新用户,默认为true
     theme: "", //主题色
+    week: -1,
   },
   // 路由跳转-----------------
   toClassSetting() {
@@ -129,6 +130,9 @@ Page({
         }
       },
     });
+    // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
+    this.setData({ week: new Date().getDay() });
+    console.log(this.data.week);
   },
   onReady() {
     //判断用户主题是暗色还是亮色
