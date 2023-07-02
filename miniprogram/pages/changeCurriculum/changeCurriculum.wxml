@@ -1,2 +1,5 @@
-<!--pages/changeCurriculum/changeCurriculum.wxml-->
-<text>pages/changeCurriculum/changeCurriculum.wxml</text>
+<page-meta page-style="{{theme=='light' ? 'background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;' : 'background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
+  <!-- 动态修改title样式,包括文本内容与颜色 -->
+  <navigation-bar title="{{Curriculum._id}}" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" >
+  </navigation-bar>
+</page-meta>

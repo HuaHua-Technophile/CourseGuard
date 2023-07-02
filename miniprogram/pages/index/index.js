@@ -2,22 +2,21 @@
 
 Page({
   data: {
-    Curriculum: {
-      curriculumName: "",
-    },
+    Curriculum: {},
     theme: "", //主题色
     week: -1, //今天是周几,用于顶部周几高亮
     // Editing: false,//是否处于编辑状态
-    CurriculumId: "课镖客", // 当前展示的课表是哪个
+    CurriculumId: "", // 当前展示的课表是哪个
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
-    console.log(`将查询_id为${this.data.CurriculumId}的课表`);
+    console.log(`将获取_id为 "${this.data.CurriculumId}" 的课表`);
     db.collection("Curriculum")
       .where({ _id: this.data.CurriculumId })
       .get({
         success: (res) => {
+          console.log(`_id"${this.data.CurriculumId}":`, res);
           this.setData({
             Curriculum: res.data[0], //返回数据是一个数组,取其第Index个作为当前渲染的课程表
           });
@@ -54,12 +53,12 @@ Page({
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
     db.collection("Curriculum").count({
       success: (res) => {
-        console.log(`获取到${res.total}个课程表,新用户:${res.total == 0}`);
         if (res.total == 0) {
+          console.log(`获取到${res.total}个课程表,是新用户`);
           db.collection("Curriculum").add({
             // data 字段表示需新增的 JSON 数据
             data: {
-              _id: "课镖客", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
+              _id: "课镖客666", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
               // 课程信息
               arrangement: [
                 {
@@ -125,11 +124,15 @@ Page({
               },
             },
             success: function (res) {
-              console.log("课程表添加成功", res);
+              console.log("课程表添加成功", res, res._id);
+              this.setData({ CurriculumId: res._id });
+              this.getCurriculum(); //获取课表数据
             },
           });
+        } else {
+          console.log(`获取到${res.total}个课程表,不是新用户`);
+          this.getCurriculum(); //获取课表数据
         }
-        this.getCurriculum(); //获取课表数据
       },
     });
     // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
