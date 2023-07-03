@@ -29,8 +29,14 @@ Component({
    * 组件的初始数据
    */
   data: {
-    morningArr: [],
-    afternonArr: [],
+    morningArr: [{
+      id: 1,
+      startTime: '00:00',
+      endTime: '00:00'
+    }],
+    afternonArr: [{
+      id: 1,
+    }],
     nightArr: []
   },
 
