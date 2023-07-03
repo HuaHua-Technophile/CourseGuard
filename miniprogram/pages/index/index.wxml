@@ -56,9 +56,13 @@
         <!-- 上午 -->
         <view class="d-flex {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
           <!-- 每一列(天) -->
-          <view wx:for="{{ Curriculum.arrangement }}" wx:key="index" class="flex-grow-1">
+          <view wx:for="{{ Curriculum.arrangement }}" wx:key="index" style="flex:1">
             <!-- 每一节课程的item -->
-            <view wx:for="{{ item.afternoonCourses }}" wx:for-item="C" style="min-height: var(--itemHeight)" wx:key="index" class="border border-light border-opacity-25 rounded">{{ C }}</view>
+            <view wx:for="{{ item.morningCourses }}" wx:for-item="name" style="min-height: var(--itemHeight)" wx:key="index" class="border border-light border-opacity-25 w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center" data-Courses="morningCourses" data-day='item' data-Index='index' bindlongpress="addCourse">
+              <view class="fs-9">{{name}}</view>
+              <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[name].teacher}}</view>
+              <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[name].classRoom}}</view>
+            </view>
           </view>
         </view>
         <!-- 下午 -->
