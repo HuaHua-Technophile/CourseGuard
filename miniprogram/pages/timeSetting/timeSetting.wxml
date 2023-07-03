@@ -1,6 +1,6 @@
-<!--pages/timeSetting/timeSetting.wxml-->
-<!-- 课表设置页面 -->
-<page-meta page-style="{{theme=='light' ? 'background: linear-gradient(#feac5e, #c779d0, #4bc0c8);color:#3e3152;' : 'background: linear-gradient(#4b134f,#782323);color:#aa97c2;'}}">
+<page-meta page-style="{{theme=='light' ? 'background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;' : 'background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
+  <!-- 动态修改title样式,包括文本内容与颜色 -->
+  <navigation-bar title="切换课表" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" />
   <view class="timeSetting text-light">
     <!-- 上午时间设置 -->
     <view class="timeArea">

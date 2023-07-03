@@ -27,17 +27,17 @@ Page({
   // 路由跳转-------------------------
   toClassSetting() {
     wx.redirectTo({
-      url: "../classSetting/classSetting",
+      url: `../classSetting/classSetting?theme=${this.data.theme}`,
     });
   },
   toTimeSetting() {
     wx.redirectTo({
-      url: "../timeSetting/timeSetting",
+      url: `../timeSetting/timeSetting?theme=${this.data.theme}`,
     });
   },
   toChangeCurriculum() {
     wx.redirectTo({
-      url: "../changeCurriculum/changeCurriculum",
+      url: `../changeCurriculum/changeCurriculum?theme=${this.data.theme}`,
     });
   },
   // 生命周期函数--监听页面加载
@@ -62,7 +62,7 @@ Page({
               // data 字段表示需新增的 JSON 数据
               data: {
                 // _id: "课镖客666", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
-                name:'课镖客666',
+                name: "课镖客666",
                 // 课程信息
                 arrangement: [
                   {
