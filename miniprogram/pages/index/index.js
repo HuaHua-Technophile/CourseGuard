@@ -5,8 +5,9 @@ Page({
     Curriculum: {},
     theme: "", //主题色
     week: -1, //今天是周几,用于顶部周几高亮
-    // Editing: false,//是否处于编辑状态
+    Editing: false, //是否处于编辑状态
     CurriculumId: "", // 当前展示的课表是哪个
+    
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
@@ -40,6 +41,11 @@ Page({
       url: `../changeCurriculum/changeCurriculum?theme=${this.data.theme}`,
     });
   },
+  // 长按编辑课程--------------------------
+  addCourse(CourseTime, item, C) {
+    this.setData({ Editing: true });
+    console.log("长按进入编辑状态", this.data.Editing, CourseTime, item, C);
+  },
   // 生命周期函数--监听页面加载
   async onLoad(options) {
     // 主题色-----------------------------
@@ -64,41 +70,62 @@ Page({
                 // _id: "课镖客666", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
                 name: "课镖客666",
                 // 课程信息
+                Course: {
+                  声乐: {
+                    courseColor: "#49700B",
+                    teacher: "波澜哥",
+                    textColor: "#c8c8c8",
+                    classRoom: "9-301",
+                  },
+                  思政: {
+                    classRoom: "5-214",
+                    courseColor: "#8FFFD6",
+                    teacher: "张三",
+                    textColor: "#c8c8c8",
+                  },
+                  间谍伪装: {
+                    classRoom: "1A-999",
+                    courseColor: "#564asd",
+                    teacher: "川建国",
+                    textColor: "#c8c8c8",
+                  },
+                },
+                // 课程安排
                 arrangement: [
                   {
+                    morningCourses: ["声乐", "思政", "", ""],
+                    afternoonCourses: ["", "", "", "声乐"],
+                    nightCourses: ["", ""],
+                  },
+                  {
+                    morningCourses: ["", "", "思政", ""],
+                    afternoonCourses: ["", "声乐", "间谍伪装", ""],
+                    nightCourses: ["", ""],
+                  },
+                  {
+                    morningCourses: ["", "间谍伪装", "间谍伪装", ""],
+                    afternoonCourses: ["", "", "", ""],
+                    nightCourses: ["", "思政"],
+                  },
+                  {
                     morningCourses: ["", "", "", ""],
+                    afternoonCourses: ["", "", "声乐", ""],
+                    nightCourses: ["", ""],
+                  },
+                  {
+                    morningCourses: ["", "思政", "", "间谍伪装"],
                     afternoonCourses: ["", "", "", ""],
                     nightCourses: ["", ""],
                   },
                   {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
+                    morningCourses: ["声乐", "声乐", "声乐", "声乐"],
+                    afternoonCourses: ["", "思政", "", ""],
+                    nightCourses: ["间谍伪装", "间谍伪装"],
                   },
                   {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
-                  },
-                  {
-                    morningCourses: ["", "", "", ""],
-                    afternoonCourses: ["", "", "", ""],
-                    nightCourses: ["", ""],
+                    morningCourses: ["思政", "思政", "思政", "思政"],
+                    afternoonCourses: ["间谍伪装", "", "", ""],
+                    nightCourses: ["", "思政"],
                   },
                 ],
                 // 上课时段

@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/classSetting/classSetting",
     "pages/timeSetting/timeSetting",
-    "pages/changeCurriculum/changeCurriculum"
+    "pages/changeCurriculum/changeCurriculum",
+    "pages/addCourse/addCourse"
   ],
   "darkmode": true,
   "window": {
