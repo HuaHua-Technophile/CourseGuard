@@ -61,7 +61,8 @@ Page({
             db.collection("Curriculum").add({
               // data 字段表示需新增的 JSON 数据
               data: {
-                _id: "课镖客666", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
+                // _id: "课镖客666", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
+                name:'课镖客666',
                 // 课程信息
                 arrangement: [
                   {
