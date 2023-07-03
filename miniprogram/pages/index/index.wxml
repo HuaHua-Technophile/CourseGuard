@@ -3,21 +3,15 @@
   <navigation-bar title="{{ Curriculum.name }}" front-color="{{ theme == 'light' ? '#3e3152' : '#aa97c2' }}" background-color="{{ theme == 'light' ? '#FFDE86' : '#320532' }}" />
   <!-- 页面内容 -->
   <view class="hhh {{ theme == 'light' ? '' : 'text-light' }}">
-    <!-- 顶部显示周几 -->
-    <view class="d-flex ms-2 mb-2">
-      <!-- 留空占位 -->
-      <view style="width: var(--itemHeight)" class="me-2"></view>
-      <!-- 星期数 -->
-      <view class="d-flex {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
-        <view wx:for="{{ ['一', '二', '三', '四', '五', '六', '日'] }}" wx:key="index" class="text-center py-2 {{week - 1 == index || (index == 6 && week == 0) ? 'text-danger' : ''}}" style="width: var(--itemHeight)">周{{ item }}</view>
-      </view>
-    </view>
+
     <!-- 课表本体 -->
     <view id="Curriculum" class="ms-2 d-flex">
       <!-- 左侧课程时间，分为顶栏，上午，下午，晚上 -->
       <view style="width: var(--itemHeight)" class="me-2">
+        <!-- 顶部留空 -->
+        <view style="height: 2.305rem;" class="mb-2"></view>
         <!-- 上午 -->
-        <view class="mb-2 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
+        <view class="mb-2 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1">
           <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{ index < Curriculum.classInfo.morningCourses }}" class="d-flex flex-column align-items-center justify-content-center" style="min-height: var(--itemHeight)">
             <text style="height: 1rem">{{ index + 1 }}</text>
             <text class="fs-10 opacity-50" style="height: 9.3px">{{
@@ -29,7 +23,7 @@
           </view>
         </view>
         <!-- 下午 -->
-        <view class="mb-2 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
+        <view class="mb-2 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1">
           <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses <= index && index < Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses}}" class="d-flex flex-column align-items-center justify-content-center" style="min-height: var(--itemHeight)">
             <text style="height: 1rem">{{ index + 1 }}</text>
             <text class="fs-10 opacity-50" style="height: 9.3px">{{
@@ -41,7 +35,7 @@
           </view>
         </view>
         <!-- 晚上 -->
-        <view class="mb-2 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
+        <view class="mb-2 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1">
           <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses <= index && index < Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses + Curriculum.classInfo.nightCourses}}" class="d-flex flex-column align-items-center justify-content-center" style="min-height: var(--itemHeight)">
             <view style="height: 1rem">{{ index + 1 }}</view>
             <view class="fs-10 opacity-50" style="height: 9.3px">{{
@@ -54,13 +48,17 @@
         </view>
       </view>
       <!-- 右侧课程 -->
-      <view class="">
+      <view>
+        <!-- 星期数 -->
+        <view class="d-flex {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded mb-2">
+          <view wx:for="{{ ['一', '二', '三', '四', '五', '六', '日'] }}" wx:key="index" class="text-center py-2 {{week - 1 == index || (index == 6 && week == 0) ? 'text-danger' : ''}}" style="width: var(--itemHeight)">周{{ item }}</view>
+        </view>
         <!-- 上午 -->
         <view class="{{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded d-flex">
           <!-- 每一列(天) -->
           <view style="width: var(--itemHeight)" wx:for="{{ Curriculum.arrangement }}" wx:key="index">
             <!-- 每一节课程的item -->
-            <view wx:for="{{ item.afternoonCourses }}" wx:for-item="C" style="min-height: var(--itemHeight)" wx:key="index" class="border rounded">{{ C }}</view>
+            <view wx:for="{{ item.afternoonCourses }}" wx:for-item="C" style="min-height: var(--itemHeight)" wx:key="index" class=" rounded">{{ C }}</view>
           </view>
         </view>
         <!-- 下午 -->
