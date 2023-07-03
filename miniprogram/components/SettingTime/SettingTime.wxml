@@ -6,7 +6,7 @@
   </view>
   <view class="timeSelect">
     <!-- 开始时间 -->
-    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
+    <picker header-text="开始时间" mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindStartTimeChange">
       <view class="picker">
         <view class="time">
           <text wx:if="{{timeArea === 'morningArr'}}">{{morningArr[timeIndex].startTime}}-</text>
@@ -16,7 +16,7 @@
       </view>
     </picker>
     <!-- 结束时间 -->
-    <picker mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
+    <picker header-text="结束时间" mode="time" value="{{time}}" start="00:00" end="23:59" bindchange="bindEndTimeChange">
       <view class="picker">
         <view class="time">
           <text wx:if="{{timeArea === 'morningArr'}}">{{morningArr[timeIndex].endTime}}</text>
