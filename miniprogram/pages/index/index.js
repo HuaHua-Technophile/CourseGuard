@@ -7,7 +7,6 @@ Page({
     week: -1, //今天是周几,用于顶部周几高亮
     Editing: false, //是否处于编辑状态
     CurriculumId: "", // 当前展示的课表是哪个
-    
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
@@ -42,9 +41,9 @@ Page({
     });
   },
   // 长按编辑课程--------------------------
-  addCourse(CourseTime, item, C) {
+  addCourse(e) {
     this.setData({ Editing: true });
-    console.log("长按进入编辑状态", this.data.Editing, CourseTime, item, C);
+    console.log("长按进入编辑状态", this.data.Editing, e);
   },
   // 生命周期函数--监听页面加载
   async onLoad(options) {
@@ -72,14 +71,14 @@ Page({
                 // 课程信息
                 Course: {
                   声乐: {
-                    courseColor: "#49700B",
+                    courseColor: "0,255,0",
                     teacher: "波澜哥",
-                    textColor: "#c8c8c8",
+                    textColor: "#FF0000",
                     classRoom: "9-301",
                   },
                   思政: {
                     classRoom: "5-214",
-                    courseColor: "#8FFFD6",
+                    courseColor: "23,86,95",
                     teacher: "张三",
                     textColor: "#c8c8c8",
                   },

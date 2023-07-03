@@ -1,7 +1,7 @@
 @import "./bootstrap5.3.wxss";
 
 page {
-  --itemHeight: 50px;
+  --itemHeight: 65px;
 }
 .fs-7 {
   font-size: 0.9rem !important;
@@ -17,4 +17,10 @@ page {
 
 .fs-10 {
   font-size: 0.6rem !important;
+}
+.itemMarginX:not(:last-child) {
+  margin-right: 2.5px;
+}
+.itemMarginY:not(:last-child) {
+  margin-bottom: 2.5px;
 }
