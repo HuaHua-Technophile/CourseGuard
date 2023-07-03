@@ -7,6 +7,7 @@ Page({
     week: -1, //今天是周几,用于顶部周几高亮
     Editing: false, //是否处于编辑状态
     CurriculumId: "", // 当前展示的课表是哪个
+    CourseCheck: [], //当前选择了哪些课程,稍后传入编辑页面进行课程编辑
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
@@ -42,10 +43,18 @@ Page({
       url: `../changeCurriculum/changeCurriculum?theme=${this.data.theme}`,
     });
   },
-  // 长按编辑课程--------------------------
+  // 切换进入预备编辑------------------------------
+  changeEditing() {
+    this.setData({ Editing: !this.data.Editing });
+  },
+  // 点击添加课程进入预备编辑--------------------------
   addCourse(e) {
     this.setData({ Editing: true });
-    console.log("长按进入编辑状态", this.data.Editing, e);
+    console.log("长按进入编辑状态:", this.data.Editing, e);
+    let CourseCheck = this.data.CourseCheck;
+    CourseCheck.push(e.currentTarget.dataset);
+    this.setData({ CourseCheck });
+    console.log("添加了一节课进入待编辑列表", this.data.CourseCheck);
   },
   // 生命周期函数--监听页面加载
   async onLoad(options) {
@@ -73,7 +82,7 @@ Page({
                 // 课程信息
                 Course: {
                   声乐: {
-                    courseColor: "0,255,0",
+                    courseColor: "#50503625",
                     teacher: "波澜哥",
                     textColor: "#FF0000",
                     classRoom: "9-301",

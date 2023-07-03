@@ -1,15 +1,16 @@
-<!-- 课表设置页面 -->
 <page-meta page-style="{{theme == 'light'? 'background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': 'background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
   <!-- 动态修改title样式,包括文本内容与颜色 -->
   <navigation-bar title="课表设置" front-color="{{ theme == 'light' ? '#3e3152' : '#aa97c2' }}" background-color="{{ theme == 'light' ? '#FFDE86' : '#320532' }}" />
-  <view class="tableSetting text-light">
-    <!-- 顶部基础编辑 -->
-    <SettingHeader cid="{{id}}" class="settingHeader"></SettingHeader>
-    <!-- 额外设置 -->
-    <AdditionalSettings class="additionalSettings"></AdditionalSettings>
-    <!-- 确认设置 -->
-    <view class="successSetting">
-      <AnimateButton bindtap="submitSetting">确认设置</AnimateButton>
+  <view class="tableSetting vh-100 overflow-scroll noScrollBar">
+    <view class="mb-4">
+      <!-- 顶部基础编辑 -->
+      <SettingHeader cid="{{id}}" class="settingHeader"></SettingHeader>
+      <!-- 额外设置 -->
+      <AdditionalSettings class="additionalSettings"></AdditionalSettings>
+      <!-- 确认设置 -->
+      <view class="successSetting">
+        <AnimateButton bindtap="submitSetting">确认设置</AnimateButton>
+      </view>
     </view>
   </view>
 </page-meta>

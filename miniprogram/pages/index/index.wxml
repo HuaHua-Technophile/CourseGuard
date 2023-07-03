@@ -2,80 +2,83 @@
   <!-- 动态修改title样式,包括文本内容与颜色 -->
   <navigation-bar title="{{ Curriculum.name }}" front-color="{{ theme == 'light' ? '#3e3152' : '#aa97c2' }}" background-color="{{ theme == 'light' ? '#FFDE86' : '#320532' }}" />
   <!-- 页面内容 -->
-  <view class="hhh {{ theme == 'light' ? '' : 'text-light' }}">
-
-    <!-- 课表本体 -->
-    <view id="Curriculum" class="d-flex">
-      <!-- 左侧课程时间，分为顶栏，上午，下午，晚上 -->
-      <view class="me-1 flex-shrink-0">
-        <!-- 顶部留空 -->
-        <view style="height: 2.305rem;" class="mb-1"></view>
-        <!-- 上午 -->
-        <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
-          <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{ index < Curriculum.classInfo.morningCourses }}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-            <text style="height: 1rem">{{ index + 1 }}</text>
-            <text class="fs-10 opacity-50" style="height: 9.3px">{{
-              item[0]
-              }}</text>
-            <text class="fs-10 opacity-50" style="height: 9.3px">{{
-              item[1]
-              }}</text>
+  <view class="index vh-100 overflow-scroll noScrollBar">
+    <view class="mb-4">
+      <!-- 课表本体 -->
+      <view id="Curriculum" class="d-flex">
+        <!-- 左侧课程时间，分为顶栏，上午，下午，晚上 -->
+        <view class="me-1 flex-shrink-0">
+          <!-- 顶部留空 -->
+          <view style="height: 2.305rem;" class="mb-1"></view>
+          <!-- 上午 -->
+          <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
+            <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{ index < Curriculum.classInfo.morningCourses }}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+              <text style="height: 1rem">{{ index + 1 }}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{
+                item[0]
+                }}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{
+                item[1]
+                }}</text>
+            </view>
           </view>
-        </view>
-        <!-- 下午 -->
-        <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
-          <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses <= index && index < Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses}}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-            <text style="height: 1rem">{{ index + 1 }}</text>
-            <text class="fs-10 opacity-50" style="height: 9.3px">{{
-              item[0]
-              }}</text>
-            <text class="fs-10 opacity-50" style="height: 9.3px">{{
-              item[1]
-              }}</text>
+          <!-- 下午 -->
+          <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
+            <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses <= index && index < Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses}}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+              <text style="height: 1rem">{{ index + 1 }}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{
+                item[0]
+                }}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{
+                item[1]
+                }}</text>
+            </view>
           </view>
-        </view>
-        <!-- 晚上 -->
-        <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
-          <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses <= index && index < Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses + Curriculum.classInfo.nightCourses}}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-            <view style="height: 1rem">{{ index + 1 }}</view>
-            <view class="fs-10 opacity-50" style="height: 9.3px">{{
-              item[0]
-              }}</view>
-            <view class="fs-10 opacity-50" style="height: 9.3px">{{
-              item[1]
-              }}</view>
-          </view>
-        </view>
-      </view>
-      <!-- 右侧课程 -->
-      <view class="flex-grow-1 overflow-hidden">
-        <!-- 星期数 -->
-        <view class="d-flex justify-content-around {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded mb-1">
-          <view wx:for="{{ ['一', '二', '三', '四', '五', '六', '日'] }}" wx:key="index" style="flex:1;" class="itemMarginX text-center py-2  {{week - 1 == index || (index == 6 && week == 0) ? 'text-danger' : ''}}">周{{ item }}</view>
-        </view>
-        <!-- 上午课程 -->
-        <view class="d-flex {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
-          <!-- 每一列(周几) -->
-          <view wx:for="{{ Curriculum.arrangement }}" wx:for-index="day" wx:key="day" style="flex:1" class="itemMarginX">
-            <!-- 每一节课程的item -->
-            <view wx:for="{{ item.morningCourses }}" wx:for-item="name" wx:key="index" style="height: var(--itemHeight);;color:{{Curriculum.Course[name].textColor}};background: rgba({{Curriculum.Course[name].courseColor}},0.3);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center" data-Courses="morningCourses" data-day='{{day}}' data-Index='{{index}}' bindlongpress="addCourse">
-              <view class="fs-9">{{name}}</view>
-              <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[name].teacher}}</view>
-              <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[name].classRoom}}</view>
+          <!-- 晚上 -->
+          <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
+            <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses <= index && index < Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses + Curriculum.classInfo.nightCourses}}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+              <view style="height: 1rem">{{ index + 1 }}</view>
+              <view class="fs-10 opacity-50" style="height: 9.3px">{{
+                item[0]
+                }}</view>
+              <view class="fs-10 opacity-50" style="height: 9.3px">{{
+                item[1]
+                }}</view>
             </view>
           </view>
         </view>
-        <!-- 下午 -->
-        <!-- 晚上 -->
+        <!-- 右侧课程 -->
+        <view class="flex-grow-1 overflow-hidden">
+          <!-- 星期数 -->
+          <view class="d-flex justify-content-around {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded mb-1">
+            <view wx:for="{{ ['一', '二', '三', '四', '五', '六', '日'] }}" wx:key="index" style="flex:1;" class="itemMarginX text-center py-2  {{week - 1 == index || (index == 6 && week == 0) ? 'text-danger' : ''}}">周{{ item }}</view>
+          </view>
+          <!-- 上午课程 -->
+          <view class="d-flex {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
+            <!-- 每一列(周几) -->
+            <view wx:for="{{ Curriculum.arrangement }}" wx:for-index="day" wx:key="day" style="flex:1" class="itemMarginX">
+              <!-- 每一节课程的item -->
+              <view wx:for="{{ item.morningCourses }}" wx:for-item="name" wx:key="index" style="height: var(--itemHeight);;color:{{Curriculum.Course[name].textColor}};background: rgba({{Curriculum.Course[name].courseColor}},0.3);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-Courses="morningCourses" data-day='{{day}}' data-Index='{{index}}' bind:tap="addCourse">
+                <view class="fs-9">{{name}}</view>
+                <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[name].teacher}}</view>
+                <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[name].classRoom}}</view>
+                <!-- 勾选框 -->
+                <view wx:if="{{Editing}}" class="position-absolute end-0 bottom-0 rounded-pill border {{theme=='light'?'border-pink':'border-purple'}} border-opacity-50 CousesItem {{}}" style="width: 10px;height: 10px;margin: 0 1px 1px 0;"></view>
+              </view>
+            </view>
+          </view>
+          <!-- 下午 -->
+          <!-- 晚上 -->
+        </view>
       </view>
+      <!-- 下方操作栏 -->
+      <view class="d-flex">
+        <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #469c7d" bind:tap="changeEditing">编辑课程</view>
+        <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #b63350" bindtap="toClassSetting">课表设置</view>
+        <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #2d79af" bindtap="toTimeSetting">上课时段</view>
+        <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #c45b11" bindtap="toChangeCurriculum">切换课表</view>
+      </view>
+      <!-- 关于我们 -->
     </view>
-    <!-- 下方操作栏 -->
-    <view class="d-flex">
-      <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #469c7d">编辑课程</view>
-      <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #b63350" bindtap="toClassSetting">课表设置</view>
-      <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #2d79af" bindtap="toTimeSetting">上课时段</view>
-      <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #c45b11" bindtap="toChangeCurriculum">切换课表</view>
-    </view>
-    <!-- 关于我们 -->
   </view>
 </page-meta>

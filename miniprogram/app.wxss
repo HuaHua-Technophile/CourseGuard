@@ -3,6 +3,9 @@
 page {
   --itemHeight: 65px;
 }
+.noScrollBar::-webkit-scrollbar {
+  display: none !important;
+}
 .fs-7 {
   font-size: 0.9rem !important;
 }
@@ -18,9 +21,15 @@ page {
 .fs-10 {
   font-size: 0.6rem !important;
 }
+
 .itemMarginX:not(:last-child) {
   margin-right: 2.5px;
 }
+
 .itemMarginY:not(:last-child) {
   margin-bottom: 2.5px;
+}
+
+.CousesItem.check {
+  background: red;
 }
