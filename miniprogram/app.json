@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/classSetting/classSetting",
-    "pages/timeSetting/timeSetting"
+    "pages/timeSetting/timeSetting",
+    "pages/changeCurriculum/changeCurriculum"
   ],
   "darkmode": true,
   "window": {
