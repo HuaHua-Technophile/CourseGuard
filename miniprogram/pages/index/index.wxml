@@ -7,7 +7,7 @@
     <!-- 课表本体 -->
     <view id="Curriculum" class="d-flex">
       <!-- 左侧课程时间，分为顶栏，上午，下午，晚上 -->
-      <view style="width: var(--itemHeight)" class="me-1">
+      <view class="me-1 flex-shrink-0">
         <!-- 顶部留空 -->
         <view style="height: 2.305rem;" class="mb-1"></view>
         <!-- 上午 -->
@@ -48,17 +48,17 @@
         </view>
       </view>
       <!-- 右侧课程 -->
-      <view>
+      <view class="flex-grow-1 overflow-hidden">
         <!-- 星期数 -->
-        <view class="d-flex {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded mb-1">
-          <view wx:for="{{ ['一', '二', '三', '四', '五', '六', '日'] }}" wx:key="index" class="text-center py-2 {{week - 1 == index || (index == 6 && week == 0) ? 'text-danger' : ''}}" style="width: var(--itemHeight)">周{{ item }}</view>
+        <view class="d-flex justify-content-around {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded mb-1">
+          <view wx:for="{{ ['一', '二', '三', '四', '五', '六', '日'] }}" wx:key="index" class="text-center py-2 {{week - 1 == index || (index == 6 && week == 0) ? 'text-danger' : ''}}">周{{ item }}</view>
         </view>
         <!-- 上午 -->
-        <view class="{{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded d-flex">
+        <view class="d-flex {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
           <!-- 每一列(天) -->
-          <view style="width: var(--itemHeight)" wx:for="{{ Curriculum.arrangement }}" wx:key="index">
+          <view wx:for="{{ Curriculum.arrangement }}" wx:key="index" class="flex-grow-1">
             <!-- 每一节课程的item -->
-            <view wx:for="{{ item.afternoonCourses }}" wx:for-item="C" style="min-height: var(--itemHeight)" wx:key="index" class=" rounded">{{ C }}</view>
+            <view wx:for="{{ item.afternoonCourses }}" wx:for-item="C" style="min-height: var(--itemHeight)" wx:key="index" class="border border-light border-opacity-25 rounded">{{ C }}</view>
           </view>
         </view>
         <!-- 下午 -->
