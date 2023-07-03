@@ -5,6 +5,7 @@ Page({
    */
   data: {
     theme: "light",
+    id: -1,
   },
   // 封装模态弹窗方法
   showModalAsync() {
@@ -52,7 +53,13 @@ Page({
    */
   onLoad(options) {
     // 接收其他页面传值
-    this.setData({ theme: options.theme });
+    this.setData({
+      theme: options.theme
+    });
+    this.setData({
+      id: options.id
+    })
+    console.log(this.data.id);
   },
 
   /**

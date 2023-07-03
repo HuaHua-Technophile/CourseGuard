@@ -4,7 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+    cid: {
+      type: String,
+      value: '默认id'
+    }
   },
 
   /**
@@ -39,7 +42,7 @@ Component({
       const db = wx.cloud.database()
       const _ = db.command
       db.collection('Curriculum').where({
-        _openid: 'o7U2J5VjuP8mKkbX7KvETK-NYH98'
+        _id: this.properties.cid
       }).update({
         data: {
           Curriculum: {
@@ -56,11 +59,12 @@ Component({
     },
     // 获取用户当前课表设置
     getUserSetting() {
+      console.log(this.properties.id);
       const db = wx.cloud.database()
       const _ = db.command
       let dbData
       db.collection('Curriculum').get({
-        _openid: 'o7U2J5VjuP8mKkbX7KvETK-NYH98',
+        _id: this.properties.cid,
         success: (res) => {
           dbData = res.data
           this.setData({

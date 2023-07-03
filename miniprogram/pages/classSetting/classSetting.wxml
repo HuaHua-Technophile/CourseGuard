@@ -4,7 +4,7 @@
   <navigation-bar title="课表设置" front-color="{{ theme == 'light' ? '#3e3152' : '#aa97c2' }}" background-color="{{ theme == 'light' ? '#FFDE86' : '#320532' }}" />
   <view class="tableSetting text-light">
     <!-- 顶部基础编辑 -->
-    <SettingHeader class="settingHeader"></SettingHeader>
+    <SettingHeader cid="{{id}}" class="settingHeader"></SettingHeader>
     <!-- 额外设置 -->
     <AdditionalSettings class="additionalSettings"></AdditionalSettings>
     <!-- 确认设置 -->

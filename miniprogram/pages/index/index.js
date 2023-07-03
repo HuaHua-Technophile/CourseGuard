@@ -13,7 +13,9 @@ Page({
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
     console.log(`将获取_id为 "${this.data.CurriculumId}" 的课表`);
     db.collection("Curriculum")
-      .where({ _id: this.data.CurriculumId })
+      .where({
+        _id: this.data.CurriculumId
+      })
       .get({
         success: (res) => {
           console.log(`_id"${this.data.CurriculumId}":`, res);
@@ -27,7 +29,7 @@ Page({
   // 路由跳转-------------------------
   toClassSetting() {
     wx.redirectTo({
-      url: `../classSetting/classSetting?theme=${this.data.theme}`,
+      url: `../classSetting/classSetting?theme=${this.data.theme}&id=${this.data.CurriculumId}`,
     });
   },
   toTimeSetting() {
@@ -64,8 +66,7 @@ Page({
                 // _id: "课镖客666", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
                 name: "课镖客666",
                 // 课程信息
-                arrangement: [
-                  {
+                arrangement: [{
                     morningCourses: ["", "", "", ""],
                     afternoonCourses: ["", "", "", ""],
                     nightCourses: ["", ""],
@@ -129,14 +130,21 @@ Page({
               },
               success: (res) => {
                 console.log(`课程表${res._id}添加成功`, res);
-                this.setData({ CurriculumId: res._id });
+                this.setData({
+                  CurriculumId: res._id
+                });
                 this.getCurriculum(); //获取课表数据
               },
             });
           } else {
             db.collection("Curriculum").get({
               success: (res) => {
-                this.setData({ Curriculum: res.data[0] });
+                this.setData({
+                  Curriculum: res.data[0]
+                });
+                this.setData({
+                  CurriculumId: res.data[0]._id
+                })
                 console.log("当前课表数据", this.data.Curriculum); //当前课表数据
               },
             });
@@ -150,7 +158,9 @@ Page({
       this.getCurriculum(); //获取课表数据
     }
     // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
-    this.setData({ week: new Date().getDay() });
+    this.setData({
+      week: new Date().getDay()
+    });
   },
   onReady() {
     //判断用户主题是暗色还是亮色
