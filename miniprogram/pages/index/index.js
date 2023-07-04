@@ -28,18 +28,23 @@ Page({
   },
   // 路由跳转-------------------------
   toClassSetting() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: `../classSetting/classSetting?theme=${this.data.theme}&id=${this.data.CurriculumId}`,
     });
   },
   toTimeSetting() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: `../timeSetting/timeSetting?theme=${this.data.theme}&id=${this.data.CurriculumId}`,
     });
   },
   toChangeCurriculum() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: `../changeCurriculum/changeCurriculum?theme=${this.data.theme}`,
+    });
+  },
+  toAddCourse() {
+    wx.navigateTo({
+      url: `../addCourse/addCourse?theme=${this.data.theme}&id=${this.data.CurriculumId}`,
     });
   },
   // 切换进入预备编辑------------------------------

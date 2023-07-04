@@ -1,0 +1,12 @@
+<page-meta page-style="{{theme == 'light'? 'background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': 'background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
+  <!-- 动态修改title样式,包括文本内容与颜色 -->
+  <navigation-bar title="添加课程" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" />
+  <view class="changeCurr vh-100 overflow-hidden noScrollBar">
+    <view class="mb-4">
+      <!-- 课程列表 -->
+      <view></view>
+      <!-- 添加课表,批量删除课表 -->
+      <view>保存</view>
+    </view>
+  </view>
+</page-meta>

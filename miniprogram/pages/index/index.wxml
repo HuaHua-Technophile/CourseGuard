@@ -94,7 +94,7 @@
         <view class="flex-grow-1 me-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center">
           <view class="iconfont icon-shanchu"></view>删除所选
         </view>
-        <view class="flex-grow-1 me-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center">
+        <view class="flex-grow-1 me-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" bindtap="toAddCourse">
           <view class="iconfont icon-jia"></view>添加课程
         </view>
         <view class="flex-grow-1 me-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" bindtap="finishEditing">
