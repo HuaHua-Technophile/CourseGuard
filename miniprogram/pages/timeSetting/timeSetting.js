@@ -6,14 +6,30 @@ Page({
   data: {
     state: 0,
     id: -1,
-    morningNum: 10,
-    affternonNum: 5,
-    nightNum: 7,
+    morningNum: 4,
+    affternonNum: 4,
+    nightNum: 4,
     theme: "light",
   },
+  // 封装模态弹窗方法
+  showModalAsync() {
+    return new Promise((resolve) => {
+      wx.showModal({
+        title: "温馨提示",
+        content: "修改课程数量直接影响现有课程配置，确定要这么操作?",
+        success(res) {
+          if (res.confirm) {
+            resolve(res.confirm);
+          }
+        },
+      });
+    });
+  },
   changeState() {
-    this.setData({
-      state: this.data.state + 1
+    this.showModalAsync().then(() => {
+      this.setData({
+        state: this.data.state + 1
+      })
     })
   },
 
@@ -21,21 +37,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      id: options.id
+    })
+    console.log(this.data.id);
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    this.setData({
-      id: options.id
-    })
-    console.log(this.data.id);
-    // 接收其他页面传值
-    this.setData({
-      theme: options.theme
-    });
     const db = wx.cloud.database();
     const _ = db.command;
     // 根据课表设置中的课程数渲染相应时间设置条数

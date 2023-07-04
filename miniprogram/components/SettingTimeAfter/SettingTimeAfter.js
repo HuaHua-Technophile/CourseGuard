@@ -94,6 +94,23 @@ Component({
       })
     },
     // 提交数据到云数据库
+    toInitDataBase() {
+      const db = wx.cloud.database()
+      const _ = db.command
+      db.collection('Curriculum').where({
+        _id: this.properties.cid
+      }).update({
+        data: {
+          hour: {
+            afternonArr: this.data.afternonArr,
+          },
+        },
+        success: () => {
+          console.log('提交数据库成功');
+        }
+      })
+    },
+    // 提交数据到云数据库
     toDataBase() {
       const db = wx.cloud.database()
       const _ = db.command
@@ -101,11 +118,9 @@ Component({
         _id: this.properties.cid
       }).update({
         data: {
-          Curriculum: {
-            hour: {
-              afternonArr: this.data.afternonArr,
-            },
-          }
+          hour: {
+            [`afternonArr.${this.properties.timeIndex}`]: this.data.afternonArr[this.properties.timeIndex],
+          },
         },
         success: () => {
           console.log('提交数据库成功');
@@ -115,14 +130,13 @@ Component({
   },
   observers: {
     'st': function (newVal) {
-      if (this.properties.mark == 1) {
-        this.toDataBase()
-      }
+      this.toDataBase()
     }
   },
   lifetimes: {
     ready() {
       this.initTime()
+      this.toInitDataBase()
     }
   }
 })
