@@ -1,5 +1,3 @@
-//获取全局公用数据
-
 Page({
   data: {
     Curriculum: {},

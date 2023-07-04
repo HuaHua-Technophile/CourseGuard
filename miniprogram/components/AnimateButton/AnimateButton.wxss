@@ -11,7 +11,7 @@
   position: relative;
   border-radius: 0.4rem;
   transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-  box-shadow: 0 2px 25px rgba(var(--body-theme-color-rgb), 0.502);
+  box-shadow: 0 2px 25px rgba(var(--body-theme-color-rgb), 0.6);
 }
 
 .bubbly-button:focus {

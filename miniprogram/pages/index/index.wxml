@@ -100,18 +100,30 @@
       </view>
       <!-- 课表编辑栏 -->
       <view wx:if="{{Editing}}" class="d-flex">
-        <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center">
-          <view class="iconfont icon-bianji"></view>编辑所选
-        </view>
-        <view class="flex-grow-1 me-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center">
-          <view class="iconfont icon-shanchu"></view>删除所选
-        </view>
-        <view class="flex-grow-1 me-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" bindtap="toAddCourse">
-          <view class="iconfont icon-jia"></view>添加课程
-        </view>
-        <view class="flex-grow-1 me-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" bindtap="finishEditing">
-          <view class="iconfont icon-wancheng"></view>完成编辑
-        </view>
+        <AnimateButton class="flex-grow-1 mx-2 flex-column">
+          <view>
+            <view class="iconfont icon-bianji d-flex justify-content-center"></view>
+            <view>编辑所选</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2">
+          <view>
+            <view class="iconfont icon-shanchu d-flex justify-content-center"></view>
+            <view>删除所选</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2" bindtap="toAddCourse">
+          <view>
+            <view class="iconfont icon-jia d-flex justify-content-center"></view>
+            <view>添加课程</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2" bindtap="finishEditing">
+          <view>
+            <view class="iconfont icon-wancheng d-flex justify-content-center"></view>
+            <view>完成编辑</view>
+          </view>
+        </AnimateButton>
       </view>
       <!-- 关于我们 -->
     </view>

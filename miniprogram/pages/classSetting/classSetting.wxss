@@ -1,7 +1,4 @@
-.tableSetting {
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-}
+
 .bubbly-button {
   padding: 50px !important;
 }

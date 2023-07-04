@@ -2,7 +2,7 @@
   <!-- 动态修改title样式,包括文本内容与颜色 -->
   <navigation-bar title="课表设置" front-color="{{ theme == 'light' ? '#3e3152' : '#aa97c2' }}" background-color="{{ theme == 'light' ? '#FFDE86' : '#320532' }}" />
   <view class="vh-100 overflow-scroll noScrollBar">
-    <view class="mb-4 tableSetting">
+    <view class="mb-4 px-3">
       <!-- 顶部基础编辑 -->
       <SettingHeader cid="{{id}}" class="settingHeader"></SettingHeader>
       <!-- 额外设置 -->
