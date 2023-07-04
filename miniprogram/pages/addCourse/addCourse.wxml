@@ -20,9 +20,13 @@
             <text>课程全称</text>
             <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="12" value="{{item.fullName}}" data-value="fullName" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
-          <view class="d-flex justify-content-between">
+          <view class="d-flex justify-content-between mb-2">
             <text>教师称呼</text>
-            <input placeholder="必填" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.teacher}}" data-value="teacher" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+            <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.teacher}}" data-value="teacher" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+          </view>
+          <view class="d-flex justify-content-between">
+            <text>授课地点</text>
+            <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.location}}" data-value="location" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
         </view>
       </view>

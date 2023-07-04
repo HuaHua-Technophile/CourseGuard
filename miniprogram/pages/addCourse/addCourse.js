@@ -4,6 +4,9 @@ Page({
     id: -1, //传入的当前课表的id
     CourseList: [], //所有课程的数据存放,因为页面的顺序不能乱,因此将对象改为数组
   },
+  addCourse() {
+    
+  },
   // 输入框失去焦点保存课程名称
   changeValue(e) {
     if (e.detail.value != "")
