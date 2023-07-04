@@ -1,4 +1,4 @@
-<page-meta page-style="{{theme == 'light'? 'background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': 'background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
+<page-meta page-style="{{theme == 'light'? '--body-theme-color:#eabfbf;--body-theme-color-rgb:234,191,191;background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': '--body-theme-color:#3b1e41;--body-theme-color-rgb:59,30,65;background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
   <!-- 动态修改title样式,包括文本内容与颜色 -->
   <navigation-bar title="{{ Curriculum.name }}" front-color="{{ theme == 'light' ? '#3e3152' : '#aa97c2' }}" background-color="{{ theme == 'light' ? '#FFDE86' : '#320532' }}" />
   <!-- 页面内容 -->
@@ -58,12 +58,12 @@
             <!-- 每一列(周几) -->
             <view wx:for="{{ Curriculum.arrangement }}" wx:for-index="day" wx:key="day" style="flex:1" class="itemMarginX">
               <!-- 每一节课程的item -->
-              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" style="height: var(--itemHeight);color:{{Curriculum.Course[j.Course].textColor}};background: rgba({{Curriculum.Course[j.Course].courseColor}},0.3);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bind:tap="addCourse">
+              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" style="height: var(--itemHeight);color:{{Curriculum.Course[j.Course].textColor}};background: rgba({{Curriculum.Course[j.Course].courseColor}},0.3);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bindtap="addCourse">
                 <view class="fs-9">{{j.Course}}</view>
                 <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].teacher}}</view>
                 <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].classRoom}}</view>
                 <!-- 勾选框 -->
-                <view hidden="{{!Editing}}" class="position-absolute end-0 bottom-0 border {{theme=='light'?'border-pink bg-pink':'border-purple bg-purple'}} border-opacity-50 {{j.check?'':'bg-opacity-10'}}  rounded" style="width:10px;height: 10px;margin: 0 0.5px 0.5px 0;"></view>
+                <view hidden="{{!Editing}}" class="position-absolute end-0 bottom-0 border {{theme=='light'?'border-pink bg-pink':'border-purple bg-purple'}} border-opacity-50 {{j.check?'':'bg-opacity-10'}} rounded" style="width:10px;height: 10px;margin: 0 0.5px 0.5px 0;"></view>
               </view>
             </view>
           </view>
@@ -72,11 +72,58 @@
         </view>
       </view>
       <!-- 下方操作栏 -->
-      <view class="d-flex">
-        <view class="flex-grow-1 mx-2 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #469c7d" bind:tap="changeEditing">编辑课程</view>
-        <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #b63350" bindtap="toClassSetting">课表设置</view>
-        <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #2d79af" bindtap="toTimeSetting">上课时段</view>
-        <view class="flex-grow-1 me-1 bg-opacity-50 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} rounded py-1 text-center" style="color: #c45b11" bindtap="toChangeCurriculum">切换课表</view>
+      <view wx:if="{{!Editing}}" class="d-flex">
+        <AnimateButton class="flex-grow-1 mx-2 flex-column" bindtap="changeEditing">
+          <view>
+            <view class="iconfont icon-bianji d-flex justify-content-center"></view>
+            <view>选课编辑</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2" bindtap="toClassSetting">
+          <view>
+            <view class="iconfont icon-shezhi d-flex justify-content-center"></view>
+            <view>课表设置</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2" bindtap="toTimeSetting">
+          <view>
+            <view class="iconfont icon-shijian d-flex justify-content-center"></view>
+            <view>上课时段</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2" bindtap="toChangeCurriculum">
+          <view>
+            <view class="iconfont icon-qiehuan d-flex justify-content-center"></view>
+            <view>切换课表</view>
+          </view>
+        </AnimateButton>
+      </view>
+      <!-- 课表编辑栏 -->
+      <view wx:if="{{Editing}}" class="d-flex">
+        <AnimateButton class="flex-grow-1 mx-2 flex-column">
+          <view>
+            <view class="iconfont icon-bianji d-flex justify-content-center"></view>
+            <view>编辑所选</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2">
+          <view>
+            <view class="iconfont icon-shanchu d-flex justify-content-center"></view>
+            <view>删除所选</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2" bindtap="toAddCourse">
+          <view>
+            <view class="iconfont icon-jia d-flex justify-content-center"></view>
+            <view>添加课程</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2" bindtap="finishEditing">
+          <view>
+            <view class="iconfont icon-wancheng d-flex justify-content-center"></view>
+            <view>完成编辑</view>
+          </view>
+        </AnimateButton>
       </view>
       <!-- 关于我们 -->
     </view>

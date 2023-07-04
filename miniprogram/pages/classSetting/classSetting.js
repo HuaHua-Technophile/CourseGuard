@@ -1,8 +1,4 @@
-// pages/classSetting/classSetting.js
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     theme: "light",
     id: -1,
@@ -47,10 +43,7 @@ Page({
       this.saveSuccess();
     });
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  /* 生命周期函数--监听页面加载*/
   onLoad(options) {
     // 接收其他页面传值
     this.setData({

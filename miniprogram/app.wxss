@@ -1,3 +1,7 @@
+/* 字体图标 */
+
+@import "./src/font_Editing/iconfont.wxss";
+
 @import "./bootstrap5.3.wxss";
 
 page {

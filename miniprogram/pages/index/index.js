@@ -1,5 +1,3 @@
-//获取全局公用数据
-
 Page({
   data: {
     Curriculum: {},
@@ -28,18 +26,23 @@ Page({
   },
   // 路由跳转-------------------------
   toClassSetting() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: `../classSetting/classSetting?theme=${this.data.theme}&id=${this.data.CurriculumId}`,
     });
   },
   toTimeSetting() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: `../timeSetting/timeSetting?theme=${this.data.theme}&id=${this.data.CurriculumId}`,
     });
   },
   toChangeCurriculum() {
-    wx.redirectTo({
+    wx.navigateTo({
       url: `../changeCurriculum/changeCurriculum?theme=${this.data.theme}`,
+    });
+  },
+  toAddCourse() {
+    wx.navigateTo({
+      url: `../addCourse/addCourse?theme=${this.data.theme}&id=${this.data.CurriculumId}`,
     });
   },
   // 切换进入预备编辑------------------------------
@@ -50,7 +53,11 @@ Page({
         i[j].forEach((k) => (k.check = false));
       }
     });
+    this.setData({ Editing: !this.data.Editing });
     this.setData({ [`Curriculum.arrangement`]: arrangement });
+  },
+  // 完成编辑
+  finishEditing() {
     this.setData({ Editing: !this.data.Editing });
   },
   // 点击添加课程进入预备编辑或提示课程信息

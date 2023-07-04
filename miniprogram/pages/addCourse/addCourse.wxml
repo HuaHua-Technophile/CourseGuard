@@ -1,0 +1,37 @@
+<page-meta page-style="{{theme == 'light'? '--body-theme-color:#eabfbf;--body-theme-color-rgb:234,191,191;background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': '--body-theme-color:#3b1e41;--body-theme-color-rgb:59,30,65;background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
+  <!-- 动态修改title样式,包括文本内容与颜色 -->
+  <navigation-bar title="添加课程" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" />
+  <view class="changeCurr vh-100 overflow-hidden noScrollBar">
+    <view class="mb-4 px-3">
+      <!-- 新建课表 -->
+      <view style="height: 40px;" class="mb-2">
+        <AnimateButton>
+          添加课程
+        </AnimateButton>
+      </view>
+      <!-- 课程列表 -->
+      <view class="mb-2">
+        <view wx:for="{{CourseList}}" wx:key="index" class="rounded {{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50 mb-2 p-3">
+          <view class="d-flex justify-content-between mb-2">
+            <text>课程简称</text>
+            <input placeholder="必填,4位长度以内" class="flex-grow-1 d-inline text-end" maxlength="4" value="{{item.name}}" data-value="name" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+          </view>
+          <view class="d-flex justify-content-between mb-2">
+            <text>课程全称</text>
+            <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="12" value="{{item.fullName}}" data-value="fullName" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+          </view>
+          <view class="d-flex justify-content-between">
+            <text>教师称呼</text>
+            <input placeholder="必填" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.teacher}}" data-value="teacher" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+          </view>
+        </view>
+      </view>
+      <!-- 添加课表,批量删除课表 -->
+      <view style="height: 40px;">
+        <AnimateButton bind:tap="saveCourse">
+          确认保存
+        </AnimateButton>
+      </view>
+    </view>
+  </view>
+</page-meta>

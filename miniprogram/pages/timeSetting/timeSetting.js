@@ -1,8 +1,4 @@
-// pages/timeSetting/timeSetting.js
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     state: 0,
     id: -1,
@@ -42,22 +38,19 @@ Page({
   changeState() {
     this.showModalAsync().then(() => {
       this.setData({
-        state: this.data.state + 1
-      })
-      this.saveSuccess()
-    })
+        state: this.data.state + 1,
+      });
+      this.saveSuccess();
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  /* 生命周期函数--监听页面加载 */
   onLoad(options) {
     this.setData({
-      theme: options.theme
+      theme: options.theme,
     });
     this.setData({
-      id: options.id
-    })
+      id: options.id,
+    });
     console.log(this.data.id);
   },
 
