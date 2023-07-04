@@ -82,12 +82,16 @@ Component({
     // 初始化各时间段课程时间
     initTime() {
       const nightTemp = []
+      let startIntNum = 18
       for (let i = 0; i < this.properties.night; i++) {
         nightTemp.push({
           id: i + 1,
-          startTime: '00:00',
-          endTime: '00:00',
+          startTime: startIntNum < 10 ? `0${startIntNum}:00` : `${startIntNum}:00`,
+          endTime: startIntNum < 10 ? `0${startIntNum}:40` : `${startIntNum}:40`,
         })
+        if (i === 2 || i === 4 || i === 6) {
+          startIntNum++
+        }
       }
       this.setData({
         nightArr: nightTemp,
@@ -135,8 +139,24 @@ Component({
   },
   lifetimes: {
     ready() {
-      this.initTime()
-      this.toInitDataBase()
+      // 获取数据库中用户时间设置
+      const db = wx.cloud.database()
+      const _ = db.command
+      db.collection('Curriculum').where({
+        _id: this.properties.cid
+      }).get({
+        success: (res) => {
+          if (res.data[0].hour.nightArr.length > 0) {
+            console.log(res.data[0].hour.nightArr);
+            this.setData({
+              nightArr: res.data[0].hour.nightArr
+            })
+          } else {
+            this.initTime()
+            this.toInitDataBase()
+          }
+        }
+      })
     }
   }
 })

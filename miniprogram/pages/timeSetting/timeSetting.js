@@ -25,11 +25,26 @@ Page({
       });
     });
   },
+  // 保存设置成功提示封装
+  saveSuccess() {
+    return new Promise((resolve) => {
+      wx.showToast({
+        title: "保存设置成功",
+        icon: "success",
+        duration: 2000,
+        success: (res) => {
+          resolve(res);
+        },
+      });
+    });
+  },
+  // 保存后改变子组件状态触发子组件回调
   changeState() {
     this.showModalAsync().then(() => {
       this.setData({
         state: this.data.state + 1
       })
+      this.saveSuccess()
     })
   },
 
@@ -37,6 +52,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.setData({
+      theme: options.theme
+    });
     this.setData({
       id: options.id
     })
@@ -56,7 +74,7 @@ Page({
       })
       .get({
         success: (res) => {
-          let classInfo = res.data[0].Curriculum.classInfo;
+          let classInfo = res.data[0].classInfo;
           this.setData({
             morningNum: Number(classInfo.morningCourses),
             affternonNum: Number(classInfo.afternoonCourses),

@@ -45,14 +45,12 @@ Component({
         _id: this.properties.cid
       }).update({
         data: {
-          Curriculum: {
-            classInfo: {
-              morningCourses: this.data.morningNum,
-              afternoonCourses: this.data.affterNum,
-              nightCourses: this.data.nightNum
-            },
-            curriculumName: this.data.tableName
-          }
+          classInfo: {
+            morningCourses: this.data.morningNum,
+            afternoonCourses: this.data.affterNum,
+            nightCourses: this.data.nightNum
+          },
+          name: this.data.tableName
         }
       })
       console.log('提交数据库成功');
@@ -66,12 +64,13 @@ Component({
       db.collection('Curriculum').get({
         _id: this.properties.cid,
         success: (res) => {
+          console.log('getUserSetting调用了。获取到数据为', res)
           dbData = res.data
           this.setData({
-            tableName: dbData[0].Curriculum.curriculumName,
-            morningNum: dbData[0].Curriculum.classInfo.morningCourses,
-            affterNum: dbData[0].Curriculum.classInfo.afternoonCourses,
-            nightNum: dbData[0].Curriculum.classInfo.nightCourses
+            tableName: dbData[0].name,
+            morningNum: dbData[0].classInfo.morningCourses,
+            affterNum: dbData[0].classInfo.afternoonCourses,
+            nightNum: dbData[0].classInfo.nightCourses
           })
         }
       })
