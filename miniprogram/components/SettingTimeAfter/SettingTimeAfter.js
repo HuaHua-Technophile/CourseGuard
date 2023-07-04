@@ -40,7 +40,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    morningArr: [],
+    afternonArr: [],
   },
 
   /**
@@ -81,16 +81,16 @@ Component({
     },
     // 初始化各时间段课程时间
     initTime() {
-      const morningTemp = []
-      for (let i = 0; i < this.properties.morning; i++) {
-        morningTemp.push({
+      const afternonTemp = []
+      for (let i = 0; i < this.properties.afternon; i++) {
+        afternonTemp.push({
           id: i + 1,
           startTime: '00:00',
           endTime: '00:00',
         })
       }
       this.setData({
-        morningArr: morningTemp,
+        afternonArr: afternonTemp,
       })
     },
     // 提交数据到云数据库
@@ -103,7 +103,7 @@ Component({
         data: {
           Curriculum: {
             hour: {
-              morningArr: this.data.morningArr,
+              afternonArr: this.data.afternonArr,
             },
           }
         },

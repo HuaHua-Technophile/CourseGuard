@@ -7,17 +7,18 @@
       <view class="timeArea">
         <view class="title">上午时间设置</view>
         <view class="pickerArea">
-          <SettingTime morning="{{morningNum}}" timeArea="morningArr" timeIndex="{{index}}" wx:for="{{morningNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+          <SettingTime cid="{{id}}" st="{{state}}" mark="{{index}}" morning="{{morningNum}}" timeArea="morningArr" timeIndex="{{index}}" wx:for="{{morningNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
         </view>
         <view class="title">下午时间设置</view>
         <view class="pickerArea">
-          <SettingTime afternon="{{affternonNum}}" timeArea="afternonArr" timeIndex="{{index}}" wx:for="{{affternonNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+          <SettingTimeAfter cid="{{id}}" st="{{state}}" mark="{{index}}" afternon="{{affternonNum}}" timeArea="afternonArr" timeIndex="{{index}}" wx:for="{{affternonNum}}" wx:key="*this">第{{index + 1}}节课</SettingTimeAfter>
         </view>
         <view class="title">晚上时间设置</view>
         <view class="pickerArea">
-          <SettingTime night="{{nightNum}}" timeArea="nightArr" timeIndex="{{index}}" wx:for="{{nightNum}}" wx:key="*this">第{{index + 1}}节课</SettingTime>
+          <SettingTimeNight cid="{{id}}" st="{{state}}" mark="{{index}}" night="{{nightNum}}" timeArea="nightArr" timeIndex="{{index}}" wx:for="{{nightNum}}" wx:key="*this">第{{index + 1}}节课</SettingTimeNight>
         </view>
       </view>
+      <AnimateButton bindtap="changeState">保存设置</AnimateButton>
     </view>
   </view>
 </page-meta>
