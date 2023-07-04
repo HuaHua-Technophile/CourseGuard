@@ -28,6 +28,10 @@
             <text>授课地点</text>
             <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.location}}" data-value="location" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
+          <view class="d-flex justify-content-between">
+            <text bind:tap="toPick">背景颜色</text>
+            <view>{{item.bgColor}}</view>
+          </view>
         </view>
       </view>
       <!-- 添加课表,批量删除课表 -->
@@ -37,5 +41,7 @@
         </AnimateButton>
       </view>
     </view>
+    <!-- 拾色器 -->
+    <color-picker bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" />
   </view>
 </page-meta>

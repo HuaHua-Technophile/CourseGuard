@@ -3,10 +3,19 @@ Page({
     theme: "light", //主题
     id: -1, //传入的当前课表的id
     CourseList: [], //所有课程的数据存放,因为页面的顺序不能乱,因此将对象改为数组
+    rgb: "rgb(0,154,97)", //初始值
+    pick: false,
   },
-  addCourse() {
-    
+  // 显示取色器
+  toPick: function () {
+    this.setData({ pick: true });
   },
+  //取色结果回调
+  pickColor(e) {
+    let rgb = e.detail.color;
+    console.log(rgb);
+  },
+  addCourse() {},
   // 输入框失去焦点保存课程名称
   changeValue(e) {
     if (e.detail.value != "")
