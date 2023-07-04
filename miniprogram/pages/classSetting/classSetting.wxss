@@ -1,12 +1,7 @@
 .tableSetting {
-  width: 100%;
-  height: 100%;
   padding-left: 30rpx;
   padding-right: 30rpx;
-  position: relative;
-  overflow: hidden;
 }
-
-.successSetting {
-  width: 100%;
+.bubbly-button {
+  padding: 50px !important;
 }
