@@ -36,7 +36,7 @@ Page({
   },
   toTimeSetting() {
     wx.redirectTo({
-      url: `../timeSetting/timeSetting?theme=${this.data.theme}`,
+      url: `../timeSetting/timeSetting?theme=${this.data.theme}&id=${this.data.CurriculumId}`,
     });
   },
   toChangeCurriculum() {
@@ -232,18 +232,11 @@ Page({
                   },
                 ],
                 // 上课时段
-                hour: [
-                  ["08:00", "08:40"],
-                  ["09:00", "09:40"],
-                  ["10:00", "10:40"],
-                  ["11:00", "11:40"],
-                  ["14:00", "14:40"],
-                  ["15:00", "15:40"],
-                  ["16:00", "16:40"],
-                  ["17:00", "17:40"],
-                  ["19:00", "19:40"],
-                  ["20:00", "20:40"],
-                ],
+                hour: {
+                  morningArr: [],
+                  afternonArr: [],
+                  nightArr: [],
+                },
                 // 课表信息
                 classInfo: {
                   morningStart: "08:00", //上午开始时间

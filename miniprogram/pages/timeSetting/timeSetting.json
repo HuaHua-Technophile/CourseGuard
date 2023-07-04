@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "SettingTime": "/components/SettingTime/SettingTime"
+    "SettingTime": "/components/SettingTime/SettingTime",
+    "SettingTimeAfter": "/components/SettingTimeAfter/SettingTimeAfter",
+    "SettingTimeNight": "/components/SettingTimeNight/SettingTimeNight",
+    "AnimateButton": "/components/AnimateButton/AnimateButton"
   }
 }
