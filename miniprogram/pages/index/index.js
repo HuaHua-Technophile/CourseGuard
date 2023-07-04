@@ -53,6 +53,10 @@ Page({
     this.setData({ Editing: !this.data.Editing });
     this.setData({ [`Curriculum.arrangement`]: arrangement });
   },
+  // 完成编辑
+  finishEditing() {
+    this.setData({ Editing: !this.data.Editing });
+  },
   // 点击添加课程进入预备编辑或提示课程信息
   addCourse(e) {
     if (this.data.Editing) {
