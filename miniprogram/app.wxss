@@ -30,6 +30,9 @@ page {
   margin-bottom: 2.5px;
 }
 
-.CousesItem.check {
-  background: red;
+.CousesItem.check.light {
+  background: var(--bs-pink);
+}
+.CousesItem.check.dark {
+  background: var(--bs-pink);
 }
