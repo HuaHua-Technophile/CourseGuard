@@ -39,6 +39,8 @@ page,
   --bs-danger-rgb: 220, 53, 69;
   --bs-light-rgb: 248, 249, 250;
   --bs-dark-rgb: 33, 37, 41;
+  --bs-pink-rgb:215, 51, 133;
+  --bs-purple-rgb:111, 66, 193;
   --bs-primary-text-emphasis: #052c65;
   --bs-secondary-text-emphasis: #2b2f32;
   --bs-success-text-emphasis: #0a3622;
@@ -123,7 +125,6 @@ page,
   --bs-form-valid-border-color: #198754;
   --bs-form-invalid-color: #dc3545;
   --bs-form-invalid-border-color: #dc3545;
-  --bs-pink-rgb:215, 51, 133;
 }
 
 .bs-darkMode {
@@ -9433,6 +9434,14 @@ fieldset:disabled .btn {
 .bg-white {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
+}
+.bg-pink {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-pink-rgb), var(--bs-bg-opacity)) !important;
+}
+.bg-purple {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-purple-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-body {
