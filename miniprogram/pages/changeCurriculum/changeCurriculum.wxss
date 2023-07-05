@@ -30,3 +30,10 @@
   border-radius: 10rpx;
 }
 
+.box {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  margin-bottom: 200rpx;
+}
+
+.box>input {}

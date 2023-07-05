@@ -32,7 +32,6 @@ App({
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
     // 默认课表/新课表---骨架数据
-    name: "课镖客111",
     // 课程信息
     Course: {},
     // 课程安排
