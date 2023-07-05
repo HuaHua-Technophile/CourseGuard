@@ -1,6 +1,13 @@
-<page-meta page-style="{{theme == 'light'? '--body-theme-color:#eabfbf;--body-theme-color-rgb:234,191,191;background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': '--body-theme-color:#3b1e41;--body-theme-color-rgb:59,30,65;background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
-  <!-- 动态修改title样式,包括文本内容与颜色 -->
-  <navigation-bar title="课表设置" front-color="{{ theme == 'light' ? '#3e3152' : '#aa97c2' }}" background-color="{{ theme == 'light' ? '#FFDE86' : '#320532' }}" />
+<page-meta page-style="{{theme == 'light'? '--body-theme-color:#eabfbf;--body-theme-color-rgb:234,191,191;background:linear-gradient(45deg,#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': '--body-theme-color:#3b1e41;--body-theme-color-rgb:59,30,65;background: linear-gradient(45deg,#320532,#3C0F0F);color:#aa97c2;'}}">
+  <!-- 头部navbar -->
+  <view id="nav-bar" class="w-100 position-fixed top-0 start-0 z-3" style="height: {{navBarFullHeight}}px;">
+    <!-- navbar内容区,上方都是状态栏 -->
+    <view style="height:{{navBarHeight}}px;margin-top: {{navBarTop}}px;" class="d-flex align-items-center px-2">
+      <view class="iconfont icon-31fanhui1 fs-4 me-3" bind:tap="goBack"></view>
+      <text>{{Curriculum.name}}</text>
+    </view>
+  </view>
+  <!-- 内容区域 -->
   <view class="vh-100 overflow-scroll noScrollBar">
     <view class="mb-4 px-3">
       <!-- 顶部基础编辑 -->

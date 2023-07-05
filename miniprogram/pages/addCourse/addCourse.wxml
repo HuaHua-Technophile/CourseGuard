@@ -1,11 +1,18 @@
-<page-meta page-style="{{theme == 'light'? '--body-theme-color:#eabfbf;--body-theme-color-rgb:234,191,191;background: linear-gradient(#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': '--body-theme-color:#3b1e41;--body-theme-color-rgb:59,30,65;background: linear-gradient(#320532,#3C0F0F);color:#aa97c2;'}}">
-  <!-- 动态修改title样式,包括文本内容与颜色 -->
-  <navigation-bar title="添加课程" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" />
-  <view class="changeCurr vh-100 overflow-hidden noScrollBar">
+<page-meta page-style="{{theme == 'light'? '--body-theme-color:#eabfbf;--body-theme-color-rgb:234,191,191;background:linear-gradient(45deg,#FFDE86, #EFA1EE, #73E8F0);color:#3e3152;': '--body-theme-color:#3b1e41;--body-theme-color-rgb:59,30,65;background: linear-gradient(45deg,#320532,#3C0F0F);color:#aa97c2;'}}">
+  <!-- 头部navbar -->
+  <view id="nav-bar" class="w-100 position-fixed top-0 start-0 z-3" style="height: {{navBarFullHeight}}px;">
+    <!-- navbar内容区,上方都是状态栏 -->
+    <view style="height:{{navBarHeight}}px;margin-top: {{navBarTop}}px;" class="d-flex align-items-center px-2">
+      <view class="iconfont icon-31fanhui1 fs-4 me-3" bind:tap="goBack"></view>
+      <text>{{Curriculum.name}}</text>
+    </view>
+  </view>
+  <!-- 内容区域 -->
+  <view class="changeCurr vh-100 overflow-scroll noScrollBar">
     <view class="mb-4 px-3">
       <!-- 新建课表 -->
       <view style="height: 40px;" class="mb-2">
-        <AnimateButton>
+        <AnimateButton bind:tap="addCourse">
           添加课程
         </AnimateButton>
       </view>
@@ -26,7 +33,7 @@
           </view>
           <view class="d-flex justify-content-between mb-2">
             <text>授课地点</text>
-            <input placeholder="课室号或视频地址" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.location}}" data-value="location" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+            <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.location}}" data-value="location" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
           <view class="d-flex justify-content-between mb-2">
             <text>背景颜色</text>
@@ -38,7 +45,7 @@
           <view class="d-flex justify-content-between">
             <text>字体颜色</text>
             <view data-index="{{index}}" data-color="textColor" bind:tap="toPick" class="d-flex align-items-center">
-              <text class="me-2 fs-8 {{item.textColor?'':'opacity-50'}}">{{item.textColor||'背景色前景色'}}</text>
+              <text class="me-2 fs-8 {{item.textColor?'':'opacity-50'}}">{{item.textColor||'前景色'}}</text>
               <view style="height: 15px; width: 15px; --course-text-rgb:{{item.textColor}};" class="CourseText rounded-pill border"></view>
             </view>
           </view>
@@ -50,8 +57,8 @@
           确认保存
         </AnimateButton>
       </view>
+      <!-- 拾色器 -->
+      <color-picker bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" _theme="{{theme}}" />
     </view>
-    <!-- 拾色器 -->
-    <color-picker bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" _theme="{{theme}}" />
   </view>
 </page-meta>

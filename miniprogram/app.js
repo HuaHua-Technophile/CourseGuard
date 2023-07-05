@@ -1,8 +1,17 @@
 // app.js
 
 App({
-  globalData: { theme: "" },
   onLaunch: function () {
+    const that = this; //存储对象备份,避免随着运行环境的变化,this的指向改变
+    const menuButtonInfo = wx.getMenuButtonBoundingClientRect(); // 胶囊按钮位置信息
+    that.globalData.navBarFullHeight =
+      menuButtonInfo.top + menuButtonInfo.height;
+    that.globalData.navBarTop = menuButtonInfo.top;
+    that.globalData.navBarHeight = menuButtonInfo.height;
+    // 暗色/亮色检测----------------------
+    wx.getSystemInfo({
+      success: (res) => (that.globalData.theme = res.theme),
+    });
     if (!wx.cloud) {
       console.error("请使用 2.2.3 或以上的基础库以使用云能力");
     } else {
@@ -15,5 +24,11 @@ App({
         traceUser: true,
       });
     }
+  },
+  globalData: {
+    theme: "",//暗色/亮色
+    navBarFullHeight: 0, // 整个导航栏高度
+    navBarTop: 0, //navbar内容区域顶边距
+    navBarHeight: 0, //navbar内容区域高度
   },
 });

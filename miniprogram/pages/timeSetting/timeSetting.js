@@ -1,11 +1,18 @@
+const app = getApp();
 Page({
   data: {
     state: 0,
     id: -1,
-    morningNum: 4,
-    affternonNum: 4,
-    nightNum: 4,
-    theme: "light",
+    morningNum: 6,
+    affternonNum: 6,
+    nightNum: 6,
+    theme: "", //暗色/亮色
+    navBarFullHeight: 0, // 整个导航栏高度
+    navBarTop: 0, //navbar内容区域顶边距
+    navBarHeight: 0, //navbar内容区域高度
+  },
+  goBack() {
+    wx.navigateBack({ delta: 1 });
   },
   // 封装模态弹窗方法
   showModalAsync() {
@@ -46,17 +53,15 @@ Page({
   /* 生命周期函数--监听页面加载 */
   onLoad(options) {
     this.setData({
-      theme: options.theme,
+      theme: app.globalData.theme,
+      navBarFullHeight: app.globalData.navBarFullHeight,
+      navBarTop: app.globalData.navBarTop,
+      navBarHeight: app.globalData.navBarHeight,
     });
-    this.setData({
-      id: options.id,
-    });
+    this.setData({ id: options.id });
     console.log(this.data.id);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  /* 生命周期函数--监听页面初次渲染完成*/
   onReady() {
     const db = wx.cloud.database();
     const _ = db.command;
@@ -78,34 +83,4 @@ Page({
       });
     console.log("提交数据库成功");
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
 });

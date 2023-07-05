@@ -1,12 +1,20 @@
+const app = getApp();
 Page({
   data: {
-    theme: "light", //主题
     id: -1, //传入的当前课表的id
     CourseList: [], //所有课程的数据存放,因为页面的顺序不能乱,因此将对象改为数组
+    CourseListBackup: [], //页面进入时的数据备份,退出时检查一致性,若不一致则提示保存
     CourseIndex: "", // 指定当前缓冲栈中的颜色存入哪个课程
     color: "", //指定当前缓冲栈中的颜色存入课程的背景色还是前景色
     rgb: "rgb(0,154,97)", //当前存放进入缓冲栈的的颜色值
     pick: false, //控制颜色选择器显示/隐藏
+    theme: "", //暗色/亮色
+    navBarFullHeight: 0, // 整个导航栏高度
+    navBarTop: 0, //navbar内容区域顶边距
+    navBarHeight: 0, //navbar内容区域高度
+  },
+  goBack() {
+    wx.navigateBack({ delta: 1 });
   },
   // 显示取色器
   toPick(e) {
@@ -31,7 +39,19 @@ Page({
       this.data.CourseList[this.data.CourseIndex][this.data.color]
     );
   },
-  addCourse() {},
+  addCourse() {
+    let CourseList = this.data.CourseList;
+    CourseList.unshift({
+      name: "",
+      fullName: "",
+      teacher: "",
+      location: "",
+      bgColor: "",
+      textColor: "",
+    });
+    this.setData({ CourseList });
+    console.log("当前课表新增了一节课程:", this.data.CourseList);
+  },
   // 输入框失去焦点保存课程名称
   changeValue(e) {
     if (e.detail.value != "")
@@ -45,8 +65,13 @@ Page({
   },
   /*生命周期函数--监听页面加载*/
   onLoad(options) {
+    this.setData({
+      theme: app.globalData.theme,
+      navBarFullHeight: app.globalData.navBarFullHeight,
+      navBarTop: app.globalData.navBarTop,
+      navBarHeight: app.globalData.navBarHeight,
+    });
     // 接收其他页面传值-------------------------
-    this.setData({ theme: options.theme });
     this.setData({ id: options.id });
     const db = wx.cloud.database();
     db.collection("Curriculum")
@@ -59,40 +84,18 @@ Page({
             CourseList.push(res.data[0].Course[i]);
           }
           this.setData({ CourseList });
+          this.setData({ CourseListBackup: CourseList });
           console.log("当前课程表有这些课程", this.data.CourseList);
         },
       });
   },
-  /* 生命周期函数--监听页面初次渲染完成 */
-  onReady() {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {},
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {},
+  /* 生命周期函数--监听页面卸载*/
+  onUnload() {
+    if (
+      JSON.stringify(this.data.CourseList) !=
+      JSON.stringify(this.data.CourseListBackup)
+    ) {
+      console.log("有更改");
+    }
+  },
 });

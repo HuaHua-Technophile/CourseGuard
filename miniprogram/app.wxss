@@ -7,6 +7,9 @@
 page {
   --itemHeight: 65px;
 }
+#nav-bar {
+  backdrop-filter: blur(6px);
+}
 .noScrollBar::-webkit-scrollbar {
   display: none !important;
 }
@@ -46,5 +49,8 @@ page {
 }
 .CourseText {
   --course-text-opacity: 1;
-  background: rgba(var(--course-text-rgb), var(--course-text-opacity)) !important;
+  background: rgba(
+    var(--course-text-rgb),
+    var(--course-text-opacity)
+  ) !important;
 }

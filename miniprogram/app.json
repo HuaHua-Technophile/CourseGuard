@@ -10,7 +10,8 @@
   "window": {
     "navigationBarBackgroundColor": "#160d1a",
     "navigationBarTextStyle": "white",
-    "navigationBarTitleText": "课镖客"
+    "navigationBarTitleText": "课镖客",
+    "navigationStyle": "custom"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"
