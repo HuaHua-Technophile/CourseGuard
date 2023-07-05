@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "AnimateButton": "/components/AnimateButton/AnimateButton"
+    "AnimateButton": "/components/AnimateButton/AnimateButton",
+    "color-picker": "/components/color-picker/color-picker"
   }
 }

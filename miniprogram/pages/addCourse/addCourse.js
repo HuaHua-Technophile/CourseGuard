@@ -3,7 +3,35 @@ Page({
     theme: "light", //主题
     id: -1, //传入的当前课表的id
     CourseList: [], //所有课程的数据存放,因为页面的顺序不能乱,因此将对象改为数组
+    CourseIndex: "", // 指定当前缓冲栈中的颜色存入哪个课程
+    color: "", //指定当前缓冲栈中的颜色存入课程的背景色还是前景色
+    rgb: "rgb(0,154,97)", //当前存放进入缓冲栈的的颜色值
+    pick: false, //控制颜色选择器显示/隐藏
   },
+  // 显示取色器
+  toPick(e) {
+    this.setData({ pick: true });
+    this.setData({
+      CourseIndex: e.currentTarget.dataset.index,
+      color: e.currentTarget.dataset.color,
+    });
+    console.log("准备修改颜色值", this.data.CourseIndex, this.data.color);
+  },
+  //取色结果回调
+  pickColor(e) {
+    this.setData({
+      [`CourseList[${this.data.CourseIndex}].${this.data.color}`]: e.detail.color
+        .replace("rgb(", "")
+        .replace(")", ""),
+    });
+    console.log(
+      `修改了${this.data.CourseList[this.data.CourseIndex].name}的${
+        this.data.color
+      }颜色值为:`,
+      this.data.CourseList[this.data.CourseIndex][this.data.color]
+    );
+  },
+  addCourse() {},
   // 输入框失去焦点保存课程名称
   changeValue(e) {
     if (e.detail.value != "")

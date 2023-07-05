@@ -20,9 +20,27 @@
             <text>课程全称</text>
             <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="12" value="{{item.fullName}}" data-value="fullName" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
-          <view class="d-flex justify-content-between">
+          <view class="d-flex justify-content-between mb-2">
             <text>教师称呼</text>
-            <input placeholder="必填" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.teacher}}" data-value="teacher" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+            <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.teacher}}" data-value="teacher" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+          </view>
+          <view class="d-flex justify-content-between mb-2">
+            <text>授课地点</text>
+            <input placeholder="课室号或视频地址" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.location}}" data-value="location" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+          </view>
+          <view class="d-flex justify-content-between mb-2">
+            <text>背景颜色</text>
+            <view data-index="{{index}}" data-color="bgColor" bind:tap="toPick" class="d-flex align-items-center ">
+              <text class="me-2 fs-8 {{item.bgColor?'':'opacity-50'}}">{{item.bgColor||'背景色'}}</text>
+              <view style="height: 15px; width: 15px; --course-bg-rgb:{{item.bgColor}};" class="CourseBg rounded-pill border"></view>
+            </view>
+          </view>
+          <view class="d-flex justify-content-between">
+            <text>字体颜色</text>
+            <view data-index="{{index}}" data-color="textColor" bind:tap="toPick" class="d-flex align-items-center">
+              <text class="me-2 fs-8 {{item.textColor?'':'opacity-50'}}">{{item.textColor||'背景色前景色'}}</text>
+              <view style="height: 15px; width: 15px; --course-text-rgb:{{item.textColor}};" class="CourseText rounded-pill border"></view>
+            </view>
           </view>
         </view>
       </view>
@@ -33,5 +51,7 @@
         </AnimateButton>
       </view>
     </view>
+    <!-- 拾色器 -->
+    <color-picker bindchangeColor="pickColor" initColor="{{rgb}}" show="{{pick}}" _theme="{{theme}}" />
   </view>
 </page-meta>
