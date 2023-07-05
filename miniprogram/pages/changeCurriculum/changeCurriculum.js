@@ -19,6 +19,12 @@ Page({
       navBarTop: app.globalData.navBarTop,
       navBarHeight: app.globalData.navBarHeight,
     });
+    console.log(
+      "当前课程id:",
+      app.globalData.id,
+      "是否第一次进入页面:",
+      app.globalData.id == -1
+    );
     const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
     // 获取所有课表--------------------------
     db.collection("Curriculum").get({

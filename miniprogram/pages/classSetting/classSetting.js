@@ -1,7 +1,6 @@
 const app = getApp();
 Page({
   data: {
-    id: -1,
     theme: "", //暗色/亮色
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
@@ -9,7 +8,7 @@ Page({
   },
   goBack() {
     wx.navigateBack({
-      delta: 1
+      delta: 1,
     });
   },
   // 封装模态弹窗方法
@@ -61,9 +60,6 @@ Page({
       navBarTop: app.globalData.navBarTop,
       navBarHeight: app.globalData.navBarHeight,
     });
-    this.setData({
-      id: options.id
-    });
-    console.log(this.data.id);
+    console.log(app.globalData.id);
   },
 });

@@ -56,7 +56,7 @@
             <!-- 每一列(周几) -->
             <view wx:for="{{ Curriculum.arrangement }}" wx:for-index="day" wx:key="day" style="flex:1" class="itemMarginX">
               <!-- 每一节课程的item -->
-              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" style="height: var(--itemHeight);color:{{Curriculum.Course[j.Course].textColor}};background: rgba({{Curriculum.Course[j.Course].courseColor}},0.3);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bindtap="addCourse">
+              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" style="height: var(--itemHeight);color:{{Curriculum.Course[j.Course].textColor}};background: rgba({{Curriculum.Course[j.Course].courseColor}},0.3);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bindtap="addCourseToEditing">
                 <view class="fs-9">{{j.Course}}</view>
                 <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].teacher}}</view>
                 <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].classRoom}}</view>
@@ -98,7 +98,7 @@
       </view>
       <!-- 课表编辑栏 -->
       <view wx:if="{{Editing}}" class="d-flex">
-        <AnimateButton class="flex-grow-1 mx-2 flex-column">
+        <AnimateButton class="flex-grow-1 mx-2 flex-column" bindtap='editingThese' >
           <view>
             <view class="iconfont icon-bianji d-flex justify-content-center"></view>
             <view>编辑所选</view>
