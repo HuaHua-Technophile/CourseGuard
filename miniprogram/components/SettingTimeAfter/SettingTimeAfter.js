@@ -151,6 +151,18 @@ Component({
             this.setData({
               afternonArr: res.data[0].hour.afternonArr
             })
+            // 根据课程数显示相应时间设置条目
+            let afternonArrAdd = []
+            for (let i = 1; i <= this.properties.afternon - this.data.afternonArr.length; i++) {
+              afternonArrAdd.push({
+                id: res.data[0].hour.afternonArr[res.data[0].hour.afternonArr.length - 1].id + i,
+                startTime: '00:00',
+                endTime: '00:40'
+              })
+            }
+            this.setData({
+              afternonArr: [...this.data.afternonArr, ...afternonArrAdd]
+            })
           } else {
             this.initTime()
             this.toInitDataBase()

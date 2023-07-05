@@ -13,7 +13,9 @@ Page({
   },
   // 关于我们
   aboutUs() {
-    this.setData({ pageContainerShow: true });
+    this.setData({
+      pageContainerShow: true
+    });
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
@@ -123,10 +125,8 @@ Page({
                 // 课程信息
                 Course: {},
                 // 课程安排
-                arrangement: [
-                  {
-                    morningCourses: [
-                      {
+                arrangement: [{
+                    morningCourses: [{
                         Course: "",
                       },
                       {
@@ -139,8 +139,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    afternoonCourses: [
-                      {
+                    afternoonCourses: [{
                         Course: "",
                       },
                       {
@@ -153,8 +152,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    nightCourses: [
-                      {
+                    nightCourses: [{
                         Course: "",
                       },
                       {
@@ -163,8 +161,7 @@ Page({
                     ],
                   },
                   {
-                    morningCourses: [
-                      {
+                    morningCourses: [{
                         Course: "",
                       },
                       {
@@ -177,8 +174,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    afternoonCourses: [
-                      {
+                    afternoonCourses: [{
                         Course: "",
                       },
                       {
@@ -191,8 +187,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    nightCourses: [
-                      {
+                    nightCourses: [{
                         Course: "",
                       },
                       {
@@ -201,8 +196,7 @@ Page({
                     ],
                   },
                   {
-                    morningCourses: [
-                      {
+                    morningCourses: [{
                         Course: "",
                       },
                       {
@@ -215,8 +209,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    afternoonCourses: [
-                      {
+                    afternoonCourses: [{
                         Course: "",
                       },
                       {
@@ -229,8 +222,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    nightCourses: [
-                      {
+                    nightCourses: [{
                         Course: "",
                       },
                       {
@@ -239,8 +231,7 @@ Page({
                     ],
                   },
                   {
-                    morningCourses: [
-                      {
+                    morningCourses: [{
                         Course: "",
                       },
                       {
@@ -253,8 +244,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    afternoonCourses: [
-                      {
+                    afternoonCourses: [{
                         Course: "",
                       },
                       {
@@ -267,8 +257,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    nightCourses: [
-                      {
+                    nightCourses: [{
                         Course: "",
                       },
                       {
@@ -277,8 +266,7 @@ Page({
                     ],
                   },
                   {
-                    morningCourses: [
-                      {
+                    morningCourses: [{
                         Course: "",
                       },
                       {
@@ -291,8 +279,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    afternoonCourses: [
-                      {
+                    afternoonCourses: [{
                         Course: "",
                       },
                       {
@@ -305,8 +292,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    nightCourses: [
-                      {
+                    nightCourses: [{
                         Course: "",
                       },
                       {
@@ -315,8 +301,7 @@ Page({
                     ],
                   },
                   {
-                    morningCourses: [
-                      {
+                    morningCourses: [{
                         Course: "",
                       },
                       {
@@ -329,8 +314,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    afternoonCourses: [
-                      {
+                    afternoonCourses: [{
                         Course: "",
                       },
                       {
@@ -343,8 +327,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    nightCourses: [
-                      {
+                    nightCourses: [{
                         Course: "",
                       },
                       {
@@ -353,8 +336,7 @@ Page({
                     ],
                   },
                   {
-                    morningCourses: [
-                      {
+                    morningCourses: [{
                         Course: "",
                       },
                       {
@@ -367,8 +349,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    afternoonCourses: [
-                      {
+                    afternoonCourses: [{
                         Course: "",
                       },
                       {
@@ -381,8 +362,7 @@ Page({
                         Course: "",
                       },
                     ],
-                    nightCourses: [
-                      {
+                    nightCourses: [{
                         Course: "",
                       },
                       {
@@ -393,9 +373,55 @@ Page({
                 ],
                 // 上课时段
                 hour: {
-                  morningArr: [],
-                  afternonArr: [],
-                  nightArr: [],
+                  morningArr: [{
+                      id: 1,
+                      startTime: '07:00',
+                      endTime: '07:40'
+                    },
+                    {
+                      id: 2,
+                      startTime: '08:00',
+                      endTime: '08:40'
+                    }, {
+                      id: 3,
+                      startTime: '09:00',
+                      endTime: '09:40'
+                    }, {
+                      id: 4,
+                      startTime: '10:00',
+                      endTime: '10:40'
+                    }
+                  ],
+                  afternonArr: [{
+                      id: 1,
+                      startTime: '13:00',
+                      endTime: '13:40'
+                    },
+                    {
+                      id: 2,
+                      startTime: '14:00',
+                      endTime: '14:40'
+                    }, {
+                      id: 3,
+                      startTime: '15:00',
+                      endTime: '15:40'
+                    }, {
+                      id: 4,
+                      startTime: '16:00',
+                      endTime: '16:40'
+                    }
+                  ],
+                  nightArr: [{
+                      id: 1,
+                      startTime: '19:00',
+                      endTime: '19:40'
+                    },
+                    {
+                      id: 2,
+                      startTime: '20:00',
+                      endTime: '20:40'
+                    }
+                  ],
                 },
                 // 课表信息
                 classInfo: {
@@ -434,6 +460,8 @@ Page({
       this.getCurriculum(); //获取课表数据
     }
     // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
-    this.setData({ week: new Date().getDay() });
+    this.setData({
+      week: new Date().getDay()
+    });
   },
 });

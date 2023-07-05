@@ -151,6 +151,18 @@ Component({
             this.setData({
               morningArr: res.data[0].hour.morningArr
             })
+            // 根据课程数显示相应时间设置条目
+            let morningArrAdd = []
+            for (let i = 1; i <= this.properties.night - this.data.morningArr.length; i++) {
+              morningArrAdd.push({
+                id: res.data[0].hour.morningArr[res.data[0].hour.morningArr.length - 1].id + i,
+                startTime: '00:00',
+                endTime: '00:40'
+              })
+            }
+            this.setData({
+              morningArr: [...this.data.morningArr, ...morningArrAdd]
+            })
           } else {
             this.initTime()
             this.toInitDataBase()
