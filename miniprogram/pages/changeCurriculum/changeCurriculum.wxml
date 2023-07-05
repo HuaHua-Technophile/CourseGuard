@@ -12,16 +12,16 @@
     <view class="mb-4 px-3" style="padding-top: {{navBarFullHeight+5}}px;">
       <!-- 课表列表 -->
       <view class="tableList {{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50">
-        <view class="listItem">
-          <view class="title">课表一</view>
+        <view class="listItem" wx:for="{{CurriculumList}}" wx:key="index">
+          <view class="title">{{item.name}}</view>
           <view class="edit">
             <view class="select bg-success">选用</view>
             <view class="del bg-danger">删除</view>
           </view>
         </view>
       </view>
-      <!-- 添加课表 -->
-      <view bind:tap="createCurriculum">新建课程表</view>
     </view>
+    <!-- 添加课表 -->
+    <view bind:tap="createCurriculum">新建课程表</view>
   </view>
 </page-meta>

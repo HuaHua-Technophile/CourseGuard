@@ -1,32 +1,14 @@
-// components/SettingHeader/SettingHeader.js
+const app = getApp()
 Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-    cid: {
-      type: String,
-      value: '默认id'
-    }
-  },
-
-  /**
-   * 组件的初始数据
-   */
   data: {
     tableName: '',
     morningNum: 4,
     affterNum: 4,
     nightNum: 2,
-    morningArr: [],
-    afternonArr: [],
-    nightArr: [],
     array: [0]
   },
 
-  /**
-   * 组件的方法列表
-   */
+  /* 组件的方法列表*/
   methods: {
     // 监听picker中的选项改变来设置课程数量
     bindPickerChange(event) {
@@ -45,7 +27,7 @@ Component({
       const db = wx.cloud.database()
       const _ = db.command
       db.collection('Curriculum').where({
-        _id: this.properties.cid
+        _id: app.globalData.id
       }).update({
         data: {
           classInfo: {
@@ -60,12 +42,11 @@ Component({
     },
     // 获取用户当前课表设置
     getUserSetting() {
-      console.log(this.properties.id);
       const db = wx.cloud.database()
       const _ = db.command
       let dbData
       db.collection('Curriculum').get({
-        _id: this.properties.cid,
+        _id: app.globalData.id,
         success: (res) => {
           console.log('getUserSetting调用了。获取到数据为', res)
           dbData = res.data
@@ -75,15 +56,15 @@ Component({
             affterNum: dbData[0].classInfo.afternoonCourses,
             nightNum: dbData[0].classInfo.nightCourses
           })
+          console.log(this.data.nightNum);
         }
       })
     }
   },
   lifetimes: {
-    created() {
-
-    },
+    created() {},
     attached() {
+      this.getUserSetting()
       //   wx.login({
       //     success: (res) => {
       //         console.log(res);

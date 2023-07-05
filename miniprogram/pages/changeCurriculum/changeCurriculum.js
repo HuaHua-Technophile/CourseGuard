@@ -7,8 +7,35 @@ Page({
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
   },
+  // 新建课表
+  createCurriculum() {
+    const db = wx.cloud.database();
+    db.collection("Curriculum").add({
+      // data 字段表示需新增的 JSON 数据
+      data: {
+        name: app.globalData.name,
+        // 课程信息
+        Course: app.globalData.Course,
+        // 课程安排
+        arrangement: app.globalData.arrangement,
+        // 上课时段
+        hour: app.globalData.hour,
+        // 课表信息
+        classInfo: app.globalData.classInfo,
+      },
+      success: (res) => {
+        app.globalData.id = res._id;
+        console.log(`课程表${app.globalData.id}添加成功`, res);
+        wx.navigateBack({
+          delta: 1
+        });
+      },
+    })
+  },
   goBack() {
-    wx.navigateBack({ delta: 1 });
+    wx.navigateBack({
+      delta: 1
+    });
   },
   /* 生命周期函数--监听页面加载*/
   onLoad(options) {
@@ -29,7 +56,9 @@ Page({
     // 获取所有课表--------------------------
     db.collection("Curriculum").get({
       success: (res) => {
-        this.setData({ CurriculumList: res.data });
+        this.setData({
+          CurriculumList: res.data
+        });
         console.log("您的所有课程表:", this.data.CurriculumList);
       },
     });
