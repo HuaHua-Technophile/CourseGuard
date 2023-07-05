@@ -17,7 +17,10 @@ Component({
     tableName: '',
     morningNum: 4,
     affterNum: 4,
-    nightNum: 4,
+    nightNum: 2,
+    morningArr: [],
+    afternonArr: [],
+    nightArr: [],
     array: [0]
   },
 
@@ -78,8 +81,7 @@ Component({
   },
   lifetimes: {
     created() {
-      // 获取用户当前课表设置
-      this.getUserSetting()
+
     },
     attached() {
       //   wx.login({

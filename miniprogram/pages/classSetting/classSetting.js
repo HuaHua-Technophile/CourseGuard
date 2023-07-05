@@ -8,7 +8,9 @@ Page({
     navBarHeight: 0, //navbar内容区域高度
   },
   goBack() {
-    wx.navigateBack({ delta: 1 });
+    wx.navigateBack({
+      delta: 1
+    });
   },
   // 封装模态弹窗方法
   showModalAsync() {
@@ -59,7 +61,9 @@ Page({
       navBarTop: app.globalData.navBarTop,
       navBarHeight: app.globalData.navBarHeight,
     });
-    this.setData({ id: options.id });
+    this.setData({
+      id: options.id
+    });
     console.log(this.data.id);
   },
 });
