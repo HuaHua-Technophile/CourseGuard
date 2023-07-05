@@ -88,7 +88,13 @@ Page({
     }
   },
   // 编辑已经勾选的课时
-  bindPickerChange(e) {
+  PickerChange(e) {
+    let arrangement = this.data.Curriculum.arrangement;
+    arrangement.forEach((i) => {
+      for (let j in i) {
+        console.log(j);
+      }
+    });
     console.log("picker选择了", e);
   },
   // 完成编辑
