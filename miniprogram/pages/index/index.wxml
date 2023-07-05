@@ -72,7 +72,7 @@
 
       <!-- 下方操作栏 -->
       <view wx:if="{{!Editing}}" class="d-flex">
-        <AnimateButton class="flex-grow-1 mx-2 flex-column" bindtap="changeEditing">
+        <AnimateButton class="flex-grow-1 mx-2" bindtap="changeEditing">
           <view>
             <view class="iconfont icon-bianji d-flex justify-content-center"></view>
             <view>选课编辑</view>
@@ -99,14 +99,20 @@
       </view>
       <!-- 课表编辑栏 -->
       <view wx:if="{{Editing}}" class="d-flex">
-        <picker bindchange="bindPickerChange" value="{{index}}" range="{{pickerList}}">
-          <AnimateButton class="flex-grow-1 mx-2 flex-column" bindtap='editingThese'>
+        <picker wx:if="{{CourseList.length>0}}" bindchange="PickerChange" value="{{index}}" range="{{CourseList}}" class="flex-grow-1 mx-2">
+          <AnimateButton>
             <view>
               <view class="iconfont icon-bianji d-flex justify-content-center"></view>
               <view>编辑所选</view>
             </view>
           </AnimateButton>
         </picker>
+        <AnimateButton wx:else class="flex-grow-1 mx-2">
+          <view>
+            <view class="iconfont icon-bianji d-flex justify-content-center"></view>
+            <view>暂无课程</view>
+          </view>
+        </AnimateButton>
         <AnimateButton class="flex-grow-1 me-2">
           <view>
             <view class="iconfont icon-shanchu d-flex justify-content-center"></view>
