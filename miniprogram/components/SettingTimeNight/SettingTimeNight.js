@@ -1,8 +1,6 @@
-// components/SettingTime/SettingTime.js
+const app = getApp();
 Component({
-  /**
-   * 组件的属性列表
-   */
+  /*组件的属性列表*/
   properties: {
     st: {
       type: Number,
@@ -102,7 +100,7 @@ Component({
       const db = wx.cloud.database()
       const _ = db.command
       db.collection('Curriculum').where({
-        _id: this.properties.cid
+        _id: app.globalData.id
       }).update({
         data: {
           hour: {
@@ -115,11 +113,29 @@ Component({
       })
     },
     // 提交数据到云数据库
+    toInitData() {
+      return new Promise((resolve) => {
+        const db = wx.cloud.database()
+        const _ = db.command
+        db.collection('Curriculum').where({
+          _id: app.globalData.id
+        }).update({
+          data: {
+            hour: {
+              nightArr: this.data.nightArr
+            },
+          },
+          success: (res) => {
+            resolve(res)
+          }
+        })
+      })
+    },
     toDataBase() {
       const db = wx.cloud.database()
       const _ = db.command
       db.collection('Curriculum').where({
-        _id: this.properties.cid
+        _id: app.globalData.id
       }).update({
         data: {
           hour: {
@@ -134,18 +150,24 @@ Component({
   },
   observers: {
     'st': function (newVal) {
-      this.toDataBase()
+      if (this.data.nightArr.length > 0) {
+        this.toInitData().then(() => {
+          this.toDataBase()
+        })
+      }
     }
   },
   lifetimes: {
     ready() {
+      console.log(app.globalData.id);
       // 获取数据库中用户时间设置
       const db = wx.cloud.database()
       const _ = db.command
       db.collection('Curriculum').where({
-        _id: this.properties.cid
+        _id: app.globalData.id
       }).get({
         success: (res) => {
+          console.log(res, res.data[0].hour.nightArr.length);
           if (res.data[0].hour.nightArr.length > 0) {
             console.log(res.data[0].hour.nightArr);
             this.setData({

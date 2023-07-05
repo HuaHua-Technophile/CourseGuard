@@ -1,4 +1,4 @@
-// components/SettingTime/SettingTime.js
+const app = getApp()
 Component({
   /**
    * 组件的属性列表
@@ -11,9 +11,6 @@ Component({
     mark: {
       type: Number,
       value: 0
-    },
-    cid: {
-      type: String
     },
     timeArea: {
       type: String,
@@ -102,7 +99,7 @@ Component({
       const db = wx.cloud.database()
       const _ = db.command
       db.collection('Curriculum').where({
-        _id: this.properties.cid
+        _id: app.globalData.id
       }).update({
         data: {
           hour: {
@@ -115,11 +112,29 @@ Component({
       })
     },
     // 提交数据到云数据库
+    toInitData() {
+      return new Promise((resolve) => {
+        const db = wx.cloud.database()
+        const _ = db.command
+        db.collection('Curriculum').where({
+          _id: app.globalData.id
+        }).update({
+          data: {
+            hour: {
+              morningArr: this.data.morningArr
+            },
+          },
+          success: (res) => {
+            resolve(res)
+          }
+        })
+      })
+    },
     toDataBase() {
       const db = wx.cloud.database()
       const _ = db.command
       db.collection('Curriculum').where({
-        _id: this.properties.cid
+        _id: app.globalData.id
       }).update({
         data: {
           hour: {
@@ -134,7 +149,11 @@ Component({
   },
   observers: {
     'st': function (newVal) {
-      this.toDataBase()
+      if (this.data.morningArr.length > 0) {
+        this.toInitData().then(() => {
+          this.toDataBase()
+        })
+      }
     }
   },
   lifetimes: {
@@ -143,30 +162,30 @@ Component({
       const db = wx.cloud.database()
       const _ = db.command
       db.collection('Curriculum').where({
-        _id: this.properties.cid
+        _id: app.globalData.id
       }).get({
         success: (res) => {
-          // if (res.data[0].hour.morningArr.length > 0) {
-          //   console.log(res.data[0].hour.morningArr);
-          //   this.setData({
-          //     morningArr: res.data[0].hour.morningArr
-          //   })
-          //   // 根据课程数显示相应时间设置条目
-          //   let morningArrAdd = []
-          //   for (let i = 1; i <= this.properties.morning - this.data.morningArr.length; i++) {
-          //     morningArrAdd.push({
-          //       id: res.data[0].hour.morningArr[res.data[0].hour.morningArr.length - 1].id + i,
-          //       startTime: '00:00',
-          //       endTime: '00:40'
-          //     })
-          //   }
-          //   this.setData({
-          //     morningArr: [...this.data.morningArr, ...morningArrAdd]
-          //   })
-          // } else {
-          //   this.initTime()
-          //   this.toInitDataBase()
-          // }
+          if (res.data[0].hour.morningArr.length > 0) {
+            console.log(res.data[0].hour.morningArr);
+            this.setData({
+              morningArr: res.data[0].hour.morningArr
+            })
+            // 根据课程数显示相应时间设置条目
+            let morningArrAdd = []
+            for (let i = 1; i <= this.properties.morning - this.data.morningArr.length; i++) {
+              morningArrAdd.push({
+                id: res.data[0].hour.morningArr[res.data[0].hour.morningArr.length - 1].id + i,
+                startTime: '00:00',
+                endTime: '00:40'
+              })
+            }
+            this.setData({
+              morningArr: [...this.data.morningArr, ...morningArrAdd]
+            })
+          } else {
+            this.initTime()
+            this.toInitDataBase()
+          }
         }
       })
     }

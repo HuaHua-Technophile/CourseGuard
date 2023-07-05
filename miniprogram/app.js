@@ -31,5 +31,319 @@ App({
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
+    // 默认课表/新课表---骨架数据
+    name: "课镖客111",
+    // 课程信息
+    Course: {},
+    // 课程安排
+    arrangement: [{
+        morningCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+      {
+        morningCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+      {
+        morningCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+      {
+        morningCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+      {
+        morningCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+      {
+        morningCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+      {
+        morningCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [{
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+    ],
+    // 上课时段
+    hour: {
+      morningArr: [{
+          id: 1,
+          startTime: "07:00",
+          endTime: "07:40",
+        },
+        {
+          id: 2,
+          startTime: "08:00",
+          endTime: "08:40",
+        },
+        {
+          id: 3,
+          startTime: "09:00",
+          endTime: "09:40",
+        },
+        {
+          id: 4,
+          startTime: "10:00",
+          endTime: "10:40",
+        },
+      ],
+      afternonArr: [{
+          id: 1,
+          startTime: "13:00",
+          endTime: "13:40",
+        },
+        {
+          id: 2,
+          startTime: "14:00",
+          endTime: "14:40",
+        },
+        {
+          id: 3,
+          startTime: "15:00",
+          endTime: "15:40",
+        },
+        {
+          id: 4,
+          startTime: "16:00",
+          endTime: "16:40",
+        },
+      ],
+      nightArr: [{
+          id: 1,
+          startTime: "19:00",
+          endTime: "19:40",
+        },
+        {
+          id: 2,
+          startTime: "20:00",
+          endTime: "20:40",
+        },
+      ],
+    },
+    // 课表信息
+    classInfo: {
+      morningCourses: 4, //上午课程数量
+      afternoonCourses: 4, //下午课程数量
+      nightCourses: 2, //晚上课程数量
+    },
+
   },
 });
