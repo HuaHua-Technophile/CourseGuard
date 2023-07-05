@@ -2,118 +2,116 @@ Component({
   properties: {
     initColor: {
       type: String,
-      value:'rgb(255,0,0)'
+      value: "rgb(255,0,0)",
     },
     maskClosable: {
       type: Boolean,
-      value: true
+      value: true,
     },
     mask: {
       type: Boolean,
-      value: true
+      value: true,
     },
     show: {
       type: Boolean,
-      value: false
+      value: false,
+    },
+    _theme: {
+      type: String,
+      value: "light",
     },
   },
-  data: {
-
-  },
+  data: {},
   lifetimes: {
     attached() {
-      let { initColor} = this.data;
+      let { initColor } = this.data;
       this.setData({
-        hueColor: this.hsv2rgb((this.rgb2hsv(initColor)).h,100,100)
-      })
+        hueColor: this.hsv2rgb(this.rgb2hsv(initColor).h, 100, 100),
+      });
     },
     ready() {
-      
-      const $ = this.createSelectorQuery()
-      const target = $.select('.target')
-      target.boundingClientRect()
+      const $ = this.createSelectorQuery();
+      const target = $.select(".target");
+      target.boundingClientRect();
       $.exec((res) => {
-        const rect = res[0]
+        const rect = res[0];
         if (rect) {
           this.SV = {
             W: rect.width - 28, // block-size=28
             H: rect.height - 28,
-            Step: (rect.width - 28) / 100
-          }
-          let { h, s, v } = this.rgb2hsv(this.data.initColor)
+            Step: (rect.width - 28) / 100,
+          };
+          let { h, s, v } = this.rgb2hsv(this.data.initColor);
           // 初始化定位
           this.setData({
-            hsv:{
-              h,s,v
+            hsv: {
+              h,
+              s,
+              v,
             },
             x: Math.round(s * this.SV.Step),
-            y: Math.round((100 - v) * this.SV.Step)
-          })
+            y: Math.round((100 - v) * this.SV.Step),
+          });
         }
-      })
-    }
+      });
+    },
   },
   methods: {
     areaTap(res) {
-      const $ = this.createSelectorQuery()
-      const target = $.select('.target')
-      target.boundingClientRect()
+      const $ = this.createSelectorQuery();
+      const target = $.select(".target");
+      target.boundingClientRect();
       $.exec((r) => {
-        const rect = r[0]
+        const rect = r[0];
         if (rect) {
           // 修正浮标位置, 魔法数字`-14`：去除半个浮标的宽度
           this.setData({
             x: res.detail.x - rect.left - 14,
-            y: res.detail.y - rect.top - 14
-          })
+            y: res.detail.y - rect.top - 14,
+          });
 
           this.changeSV({
             detail: {
               x: this.data.x,
-              y: this.data.y
-            }
-          })
-          this.onEnd()
+              y: this.data.y,
+            },
+          });
+          this.onEnd();
         }
-      })
+      });
     },
     onEnd() {
-      this.triggerEvent('changeColor', {
-        color: this.data.colorRes
-      })
+      this.triggerEvent("changeColor", {
+        color: this.data.colorRes,
+      });
     },
     changeHue: function (e) {
       let hue = e.detail.value;
       this.setData({
-        "hsv.h":hue,
+        "hsv.h": hue,
         hueColor: this.hsv2rgb(hue, 100, 100),
-        colorRes: this.hsv2rgb(hue, this.data.hsv.s, this.data.hsv.v)
-      })
+        colorRes: this.hsv2rgb(hue, this.data.hsv.s, this.data.hsv.v),
+      });
     },
     changeSV: function (e) {
-      let {
-        x,
-        y
-      } = e.detail;
+      let { x, y } = e.detail;
       x = Math.round(x / this.SV.Step);
       y = 100 - Math.round(y / this.SV.Step);
       this.setData({
-        "hsv.s":x,
+        "hsv.s": x,
         "hsv.v": y,
-        colorRes: this.hsv2rgb(this.data.hsv.h, x, y)
-      })
+        colorRes: this.hsv2rgb(this.data.hsv.h, x, y),
+      });
     },
     close: function close(e) {
       if (this.data.maskClosable) {
         this.setData({
-          show: false
+          show: false,
         });
-        this.triggerEvent('close');
+        this.triggerEvent("close");
       }
     },
-    preventdefault:function() {
-      
-    },
+    preventdefault: function () {},
     hsv2rgb: function (h, s, v) {
       let hsv_h = (h / 360).toFixed(2);
       let hsv_s = (s / 100).toFixed(2);
@@ -155,22 +153,34 @@ Component({
           rgb_b = hsv_v;
           break;
         case 5:
-          rgb_r = hsv_v, rgb_g = p, rgb_b = q;
+          (rgb_r = hsv_v), (rgb_g = p), (rgb_b = q);
           break;
       }
 
-      return 'rgb(' + (Math.floor(rgb_r * 255) + "," + Math.floor(rgb_g * 255) + "," + Math.floor(rgb_b * 255)) + ')';
+      return (
+        "rgb(" +
+        (Math.floor(rgb_r * 255) +
+          "," +
+          Math.floor(rgb_g * 255) +
+          "," +
+          Math.floor(rgb_b * 255)) +
+        ")"
+      );
     },
     rgb2hsv: function (color) {
-      let rgb = color.split(',');
-      let R = parseInt(rgb[0].split('(')[1]);
+      let rgb = color.split(",");
+      let R = parseInt(rgb[0].split("(")[1]);
       let G = parseInt(rgb[1]);
-      let B = parseInt(rgb[2].split(')')[0]);
+      let B = parseInt(rgb[2].split(")")[0]);
 
-      let hsv_red = R / 255, hsv_green = G / 255, hsv_blue = B / 255;
+      let hsv_red = R / 255,
+        hsv_green = G / 255,
+        hsv_blue = B / 255;
       let hsv_max = Math.max(hsv_red, hsv_green, hsv_blue),
         hsv_min = Math.min(hsv_red, hsv_green, hsv_blue);
-      let hsv_h, hsv_s, hsv_v = hsv_max;
+      let hsv_h,
+        hsv_s,
+        hsv_v = hsv_max;
 
       let hsv_d = hsv_max - hsv_min;
       hsv_s = hsv_max == 0 ? 0 : hsv_d / hsv_max;
@@ -179,7 +189,8 @@ Component({
       else {
         switch (hsv_max) {
           case hsv_red:
-            hsv_h = (hsv_green - hsv_blue) / hsv_d + (hsv_green < hsv_blue ? 6 : 0);
+            hsv_h =
+              (hsv_green - hsv_blue) / hsv_d + (hsv_green < hsv_blue ? 6 : 0);
             break;
           case hsv_green:
             hsv_h = (hsv_blue - hsv_red) / hsv_d + 2;
@@ -193,8 +204,8 @@ Component({
       return {
         h: (hsv_h * 360).toFixed(),
         s: (hsv_s * 100).toFixed(),
-        v: (hsv_v * 100).toFixed()
-      }
+        v: (hsv_v * 100).toFixed(),
+      };
     },
-  }
-})
+  },
+});

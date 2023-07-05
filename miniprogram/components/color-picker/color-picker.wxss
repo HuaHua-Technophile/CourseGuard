@@ -1,3 +1,4 @@
+@import "../../bootstrap5.3.wxss";
 .dialog {
   visibility: hidden;
   opacity: 0;

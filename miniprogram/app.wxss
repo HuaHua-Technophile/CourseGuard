@@ -40,3 +40,11 @@ page {
 .CousesItem.check.dark {
   background: var(--bs-pink);
 }
+.CourseBg {
+  --course-bg-opacity: 1;
+  background: rgba(var(--course-bg-rgb), var(--course-bg-opacity)) !important;
+}
+.CourseText {
+  --course-text-opacity: 1;
+  background: rgba(var(--course-text-rgb), var(--course-text-opacity)) !important;
+}
