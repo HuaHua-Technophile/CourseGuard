@@ -4,12 +4,12 @@
     <!-- navbar内容区,上方都是状态栏 -->
     <view style="height:{{navBarHeight}}px;margin-top: {{navBarTop}}px;" class="d-flex align-items-center px-2">
       <view class="iconfont icon-31fanhui1 fs-4 me-3" bind:tap="goBack"></view>
-      <text>{{Curriculum.name}}</text>
+      <text>添加课程</text>
     </view>
   </view>
   <!-- 内容区域 -->
   <view class="changeCurr vh-100 overflow-scroll noScrollBar">
-    <view class="mb-4 px-3">
+    <view class="mb-4 px-3" style="padding-top: {{navBarFullHeight+5}}px;">
       <!-- 新建课表 -->
       <view style="height: 40px;" class="mb-2">
         <AnimateButton bind:tap="addCourse">
