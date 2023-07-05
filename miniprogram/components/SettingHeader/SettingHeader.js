@@ -1,11 +1,12 @@
-const app = getApp()
+const app = getApp();
+const db = wx.cloud.database();
 Component({
   data: {
-    tableName: '',
+    tableName: "",
     morningNum: 4,
     affterNum: 4,
     nightNum: 2,
-    array: [0]
+    array: [0],
   },
 
   /* 组件的方法列表*/
@@ -13,61 +14,62 @@ Component({
     // 监听picker中的选项改变来设置课程数量
     bindPickerChange(event) {
       this.setData({
-        [event.currentTarget.dataset.time]: event.detail.value
-      })
+        [event.currentTarget.dataset.time]: event.detail.value,
+      });
     },
     // 设置课表名称
     inputChange(event) {
       this.setData({
-        tableName: event.detail.value
-      })
+        tableName: event.detail.value,
+      });
     },
     // 提交数据到云数据库
     toDataBase() {
-      const db = wx.cloud.database()
-      const _ = db.command
-      db.collection('Curriculum').where({
-        _id: app.globalData.id
-      }).update({
-        data: {
-          classInfo: {
-            morningCourses: this.data.morningNum,
-            afternoonCourses: this.data.affterNum,
-            nightCourses: this.data.nightNum
+      const _ = db.command;
+      db.collection("Curriculum")
+        .where({
+          _id: app.globalData.id,
+        })
+        .update({
+          data: {
+            classInfo: {
+              morningCourses: this.data.morningNum,
+              afternoonCourses: this.data.affterNum,
+              nightCourses: this.data.nightNum,
+            },
+            name: this.data.tableName,
           },
-          name: this.data.tableName
-        }
-      })
-      console.log('提交数据库成功');
+        });
+      console.log("提交数据库成功");
     },
     // 获取用户当前课表设置
     getUserSetting() {
-      const db = wx.cloud.database()
-      const _ = db.command
-      let dbData
-      db.collection('Curriculum').where({
-
-        _id: app.globalData.id,
-      }).get({
-        success: (res) => {
-          console.log('getUserSetting调用了。获取到数据为', res)
-          dbData = res.data
-          this.setData({
-            tableName: dbData[0].name,
-            morningNum: dbData[0].classInfo.morningCourses,
-            affterNum: dbData[0].classInfo.afternoonCourses,
-            nightNum: dbData[0].classInfo.nightCourses
-          })
-        }
-      })
-    }
+      const _ = db.command;
+      let dbData;
+      db.collection("Curriculum")
+        .where({
+          _id: app.globalData.id,
+        })
+        .get({
+          success: (res) => {
+            console.log("getUserSetting调用了。获取到数据为", res);
+            dbData = res.data;
+            this.setData({
+              tableName: dbData[0].name,
+              morningNum: dbData[0].classInfo.morningCourses,
+              affterNum: dbData[0].classInfo.afternoonCourses,
+              nightNum: dbData[0].classInfo.nightCourses,
+            });
+          },
+        });
+    },
   },
   lifetimes: {
     created() {
       console.log(app.globalData.id);
     },
     attached() {
-      this.getUserSetting()
+      this.getUserSetting();
       //   wx.login({
       //     success: (res) => {
       //         console.log(res);
@@ -96,13 +98,13 @@ Component({
       //     }
       // })
       // 循环遍历设置每个时间段的课程数量
-      const array = ['没有课']
+      const array = ["没有课"];
       for (let i = 1; i <= 10; i++) {
-        array.push(`${i}节`)
+        array.push(`${i}节`);
       }
       this.setData({
-        array: array
-      })
+        array: array,
+      });
     },
-  }
-})
+  },
+});
