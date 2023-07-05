@@ -6,31 +6,35 @@ Page({
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
+    pageContainerShow: false
   },
   // 新建课表
   createCurriculum() {
-    const db = wx.cloud.database();
-    db.collection("Curriculum").add({
-      // data 字段表示需新增的 JSON 数据
-      data: {
-        name: app.globalData.name,
-        // 课程信息
-        Course: app.globalData.Course,
-        // 课程安排
-        arrangement: app.globalData.arrangement,
-        // 上课时段
-        hour: app.globalData.hour,
-        // 课表信息
-        classInfo: app.globalData.classInfo,
-      },
-      success: (res) => {
-        app.globalData.id = res._id;
-        console.log(`课程表${app.globalData.id}添加成功`, res);
-        wx.navigateBack({
-          delta: 1
-        });
-      },
+    this.setData({
+      pageContainerShow: true
     })
+    // const db = wx.cloud.database();
+    // db.collection("Curriculum").add({
+    //   // data 字段表示需新增的 JSON 数据
+    //   data: {
+    //     name: this.data,
+    //     // 课程信息
+    //     Course: app.globalData.Course,
+    //     // 课程安排
+    //     arrangement: app.globalData.arrangement,
+    //     // 上课时段
+    //     hour: app.globalData.hour,
+    //     // 课表信息
+    //     classInfo: app.globalData.classInfo,
+    //   },
+    //   success: (res) => {
+    //     app.globalData.id = res._id;
+    //     console.log(`课程表${app.globalData.id}添加成功`, res);
+    //     wx.navigateBack({
+    //       delta: 1
+    //     });
+    //   },
+    // })
   },
   goBack() {
     wx.navigateBack({

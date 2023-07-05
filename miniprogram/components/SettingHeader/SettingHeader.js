@@ -45,8 +45,10 @@ Component({
       const db = wx.cloud.database()
       const _ = db.command
       let dbData
-      db.collection('Curriculum').get({
+      db.collection('Curriculum').where({
+
         _id: app.globalData.id,
+      }).get({
         success: (res) => {
           console.log('getUserSetting调用了。获取到数据为', res)
           dbData = res.data
@@ -56,13 +58,14 @@ Component({
             affterNum: dbData[0].classInfo.afternoonCourses,
             nightNum: dbData[0].classInfo.nightCourses
           })
-          console.log(this.data.nightNum);
         }
       })
     }
   },
   lifetimes: {
-    created() {},
+    created() {
+      console.log(app.globalData.id);
+    },
     attached() {
       this.getUserSetting()
       //   wx.login({

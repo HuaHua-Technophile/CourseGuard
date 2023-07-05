@@ -124,7 +124,7 @@ Page({
             db.collection("Curriculum").add({
               // data 字段表示需新增的 JSON 数据
               data: {
-                name: app.globalData.name,
+                name: '课镖客',
                 // 课程信息
                 Course: app.globalData.Course,
                 // 课程安排
