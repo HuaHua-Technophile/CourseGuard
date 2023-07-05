@@ -1,5 +1,6 @@
 const app = getApp();
-const db = wx.cloud.database();
+const db = wx.cloud.database().collection("Curriculum"); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
+
 Page({
   data: {
     id: -1, //传入的当前课表的id
@@ -71,17 +72,15 @@ Page({
     this.data.CourseList.forEach((i) => {
       Course[i.name] = i;
     });
-    db.collection("Curriculum")
-      .where({ _id: this.data.id })
-      .update({
-        data: {
-          Course: Course,
-        },
-        success: function (res) {
-          console.log("更新了数据库", res);
-          wx.navigateBack({ delta: 1 });
-        },
-      });
+    db.where({ _id: this.data.id }).update({
+      data: {
+        Course: Course,
+      },
+      success: function (res) {
+        console.log("更新了数据库", res);
+        wx.navigateBack({ delta: 1 });
+      },
+    });
     console.log("点击了保存", Course);
   },
   /*生命周期函数--监听页面加载*/
@@ -94,20 +93,18 @@ Page({
     });
     // 接收其他页面传值-------------------------
     this.setData({ id: options.id });
-    db.collection("Curriculum")
-      .where({ _id: this.data.id })
-      .get({
-        success: (res) => {
-          let CourseList = [];
-          for (let i in res.data[0].Course) {
-            res.data[0].Course[i].name = i;
-            CourseList.push(res.data[0].Course[i]);
-          }
-          this.setData({ CourseList });
-          this.setData({ CourseListBackup: CourseList });
-          console.log("当前课程表有这些课程", this.data.CourseList);
-        },
-      });
+    db.where({ _id: this.data.id }).get({
+      success: (res) => {
+        let CourseList = [];
+        for (let i in res.data[0].Course) {
+          res.data[0].Course[i].name = i;
+          CourseList.push(res.data[0].Course[i]);
+        }
+        this.setData({ CourseList });
+        this.setData({ CourseListBackup: CourseList });
+        console.log("当前课程表有这些课程", this.data.CourseList);
+      },
+    });
   },
   /* 生命周期函数--监听页面卸载*/
   onUnload() {

@@ -1,4 +1,6 @@
 const app = getApp();
+const db = wx.cloud.database().collection("Curriculum"); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
+
 Page({
   data: {
     state: 0,
@@ -61,24 +63,21 @@ Page({
   },
   /* 生命周期函数--监听页面初次渲染完成*/
   onReady() {
-    const db = wx.cloud.database();
     const _ = db.command;
     // 根据课表设置中的课程数渲染相应时间设置条数
-    db.collection("Curriculum")
-      .where({
-        _id: app.globalData.id,
-      })
-      .get({
-        success: (res) => {
-          let classInfo = res.data[0].classInfo;
-          this.setData({
-            morningNum: Number(classInfo.morningCourses),
-            affternonNum: Number(classInfo.afternoonCourses),
-            nightNum: Number(classInfo.nightCourses),
-          });
-          console.log(res);
-        },
-      });
+    db.where({
+      _id: app.globalData.id,
+    }).get({
+      success: (res) => {
+        let classInfo = res.data[0].classInfo;
+        this.setData({
+          morningNum: Number(classInfo.morningCourses),
+          affternonNum: Number(classInfo.afternoonCourses),
+          nightNum: Number(classInfo.nightCourses),
+        });
+        console.log(res);
+      },
+    });
     console.log("提交数据库成功");
   },
 });

@@ -1,5 +1,5 @@
 const app = getApp();
-const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
+const db = wx.cloud.database().collection("Curriculum"); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
 Page({
   data: {
     Curriculum: {},
@@ -36,17 +36,15 @@ Page({
   // 课表数据获取,封装为函数
   getCurriculum() {
     console.log(`将获取_id为 "${app.globalData.id}" 的课表`);
-    db.collection("Curriculum")
-      .where({
-        _id: app.globalData.id,
-      })
-      .get({
-        success: (res) => {
-          console.log(`_id"${app.globalData.id}":`, res);
-          this.setData({ Curriculum: res.data[0] }); //返回数据是一个数组,取其第Index个作为当前渲染的课程表
-          this.pushCourseList();
-        },
-      });
+    db.where({
+      _id: app.globalData.id,
+    }).get({
+      success: (res) => {
+        console.log(`_id"${app.globalData.id}":`, res);
+        this.setData({ Curriculum: res.data[0] }); //返回数据是一个数组,取其第Index个作为当前渲染的课程表
+        this.pushCourseList();
+      },
+    });
   },
   // 路由跳转-------------------------
   toThisPage(e) {
@@ -125,14 +123,14 @@ Page({
     // 如果课程表id为空,说明用户新进入小程序,需要执行是否为新用户的判断
     if (app.globalData.id == -1) {
       // 统计数据库中能获取到多少条该用户的课程表,判断是否是新用户
-      db.collection("Curriculum").count({
+      db.count({
         success: (res) => {
           console.log(`获取到${res.total}个课程表,新用户:${res.total == 0}`);
           if (res.total == 0) {
-            db.collection("Curriculum").add({
+            db.add({
               // data 字段表示需新增的 JSON 数据
               data: {
-                name: '课镖客',
+                name: "课镖客",
                 // 课程信息
                 Course: app.globalData.Course,
                 // 课程安排
@@ -149,7 +147,7 @@ Page({
               },
             });
           } else {
-            db.collection("Curriculum").get({
+            db.get({
               success: (res) => {
                 this.setData({
                   Curriculum: res.data[0],

@@ -1,4 +1,5 @@
 const app = getApp();
+const db = wx.cloud.database().collection("Curriculum"); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
 Page({
   data: {
     CurriculumList: [],
@@ -6,15 +7,14 @@ Page({
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
-    pageContainerShow: false
+    pageContainerShow: false,
   },
   // 新建课表
   createCurriculum() {
     this.setData({
-      pageContainerShow: true
-    })
-    // const db = wx.cloud.database();
-    // db.collection("Curriculum").add({
+      pageContainerShow: true,
+    });
+    // db.add({
     //   // data 字段表示需新增的 JSON 数据
     //   data: {
     //     name: this.data,
@@ -38,7 +38,7 @@ Page({
   },
   goBack() {
     wx.navigateBack({
-      delta: 1
+      delta: 1,
     });
   },
   /* 生命周期函数--监听页面加载*/
@@ -56,12 +56,11 @@ Page({
       "是否第一次进入页面:",
       app.globalData.id == -1
     );
-    const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
     // 获取所有课表--------------------------
-    db.collection("Curriculum").get({
+    db.get({
       success: (res) => {
         this.setData({
-          CurriculumList: res.data
+          CurriculumList: res.data,
         });
         console.log("您的所有课程表:", this.data.CurriculumList);
       },
