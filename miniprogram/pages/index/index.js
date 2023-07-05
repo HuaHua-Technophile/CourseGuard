@@ -9,12 +9,28 @@ Page({
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
+    CourseList: [],
   },
   // 关于我们
   aboutUs() {
     this.setData({
       pageContainerShow: true,
     });
+  },
+  // 课程列表修改与当前课程信息log打印
+  pushCourseList() {
+    // 将课程写入数组中,以进行编辑课程的选择
+    let CourseList = [];
+    for (let i in this.data.Curriculum.Course) {
+      CourseList.push(i);
+    }
+    this.setData({ CourseList });
+    console.log(
+      "当前课表",
+      this.data.Curriculum,
+      "有这些课程:",
+      this.data.CourseList
+    ); //当前课表数据
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
@@ -27,33 +43,14 @@ Page({
       .get({
         success: (res) => {
           console.log(`_id"${app.globalData.id}":`, res);
-          this.setData({
-            Curriculum: res.data[0], //返回数据是一个数组,取其第Index个作为当前渲染的课程表
-          });
-          console.log("当前课表数据", this.data.Curriculum); //当前课表数据
+          this.setData({ Curriculum: res.data[0] }); //返回数据是一个数组,取其第Index个作为当前渲染的课程表
+          this.pushCourseList();
         },
       });
   },
   // 路由跳转-------------------------
-  toClassSetting() {
-    wx.navigateTo({
-      url: `../classSetting/classSetting`,
-    });
-  },
-  toTimeSetting() {
-    wx.navigateTo({
-      url: `../timeSetting/timeSetting`,
-    });
-  },
-  toChangeCurriculum() {
-    wx.navigateTo({
-      url: `../changeCurriculum/changeCurriculum`,
-    });
-  },
-  toAddCourse() {
-    wx.navigateTo({
-      url: `../addCourse/addCourse`,
-    });
+  toThisPage(e) {
+    wx.navigateTo({ url: e.currentTarget.dataset.url });
   },
   // 切换进入预备编辑------------------------------
   changeEditing() {
@@ -63,12 +60,8 @@ Page({
         i[j].forEach((k) => (k.check = false));
       }
     });
-    this.setData({
-      Editing: !this.data.Editing,
-    });
-    this.setData({
-      [`Curriculum.arrangement`]: arrangement,
-    });
+    this.setData({ Editing: !this.data.Editing });
+    this.setData({ [`Curriculum.arrangement`]: arrangement });
   },
   // 点击添加课程进入预备编辑或提示课程信息
   addCourseToEditing(e) {
@@ -94,16 +87,10 @@ Page({
       console.log("弹出课程信息框");
     }
   },
-  /* editingThese() {
-    wx.navigateTo({
-      url: "/test",
-      success: function (res) {
-        // 通过 eventChannel 向被打开页面传送数据
-        res.eventChannel.emit("test-data", { data: "test" });
-        // res.eventChannel.emit 第二个参数是要传递的数据 **第二个参数只能是key-value形式的对象**
-      },
-    });
-  }, */
+  // 编辑已经勾选的课时
+  bindPickerChange(e) {
+    console.log("picker选择了", e);
+  },
   // 完成编辑
   finishEditing() {
     this.setData({
@@ -118,6 +105,8 @@ Page({
       navBarTop: app.globalData.navBarTop,
       navBarHeight: app.globalData.navBarHeight,
     });
+  },
+  onShow() {
     const db = wx.cloud.database();
     console.log(
       "当前课程id:",
@@ -486,7 +475,7 @@ Page({
                   Curriculum: res.data[0],
                 });
                 app.globalData.id = res.data[0]._id;
-                console.log(`当前课表数据`, this.data.Curriculum); //当前课表数据
+                this.pushCourseList();
               },
             });
           }
@@ -499,8 +488,6 @@ Page({
       this.getCurriculum(); //获取课表数据
     }
     // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
-    this.setData({
-      week: new Date().getDay(),
-    });
+    this.setData({ week: new Date().getDay() });
   },
 });
