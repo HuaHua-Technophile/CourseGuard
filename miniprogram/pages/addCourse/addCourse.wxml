@@ -42,16 +42,20 @@
               <view style="height: 15px; width: 15px; --course-bg-rgb:{{item.bgColor}};" class="CourseBg rounded-pill border"></view>
             </view>
           </view>
-          <view class="d-flex justify-content-between">
+          <view class="d-flex justify-content-between mb-2">
             <text>字体颜色</text>
             <view data-index="{{index}}" data-color="textColor" bind:tap="toPick" class="d-flex align-items-center">
               <text class="me-2 fs-8 {{item.textColor?'':'opacity-50'}}">{{item.textColor||'前景色'}}</text>
               <view style="height: 15px; width: 15px; --course-text-rgb:{{item.textColor}};" class="CourseText rounded-pill border"></view>
             </view>
           </view>
+          <view class="d-flex justify-content-between">
+            <text>课程备注</text>
+            <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="25" value="{{item.remark}}" data-value="remark" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+          </view>
         </view>
       </view>
-      <!-- 添加课表,批量删除课表 -->
+      <!-- 确认保存 -->
       <view style="height: 40px;">
         <AnimateButton bind:tap="saveCourse">
           确认保存

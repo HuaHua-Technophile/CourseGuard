@@ -62,6 +62,11 @@ Page({
   },
   saveCourse() {
     console.log("点击了保存", this.data.CourseList);
+    if (this.data.CourseList.some((i) => i.name == ""))
+      wx.showToast({
+        title: "课程的简称为空",
+        icon: "error",
+      });
   },
   /*生命周期函数--监听页面加载*/
   onLoad(options) {
