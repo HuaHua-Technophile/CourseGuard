@@ -22,38 +22,26 @@
           <view style="height: 2.305rem;" class="mb-1"></view>
           <!-- 上午 -->
           <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
-            <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{ index < Curriculum.classInfo.morningCourses }}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+            <view wx:for="{{ Curriculum.hour.morningArr }}" wx:key="index" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
               <text style="height: 1rem">{{ index + 1 }}</text>
-              <text class="fs-10 opacity-50" style="height: 9.3px">{{
-                item[0]
-                }}</text>
-              <text class="fs-10 opacity-50" style="height: 9.3px">{{
-                item[1]
-                }}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{item.startTime}}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{item.endTime}}</text>
             </view>
           </view>
           <!-- 下午 -->
           <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
-            <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses <= index && index < Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses}}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+            <view wx:for="{{ Curriculum.hour.afternonArr }}" wx:key="index" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
               <text style="height: 1rem">{{ index + 1 }}</text>
-              <text class="fs-10 opacity-50" style="height: 9.3px">{{
-                item[0]
-                }}</text>
-              <text class="fs-10 opacity-50" style="height: 9.3px">{{
-                item[1]
-                }}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{item.startTime}}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{item.endTime}}</text>
             </view>
           </view>
           <!-- 晚上 -->
           <view class="mb-1 {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded px-1 overflow-hidden">
-            <view wx:for="{{ Curriculum.hour }}" wx:key="index" wx:if="{{Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses <= index && index < Curriculum.classInfo.morningCourses + Curriculum.classInfo.afternoonCourses + Curriculum.classInfo.nightCourses}}" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-              <view style="height: 1rem">{{ index + 1 }}</view>
-              <view class="fs-10 opacity-50" style="height: 9.3px">{{
-                item[0]
-                }}</view>
-              <view class="fs-10 opacity-50" style="height: 9.3px">{{
-                item[1]
-                }}</view>
+            <view wx:for="{{ Curriculum.hour.nightArr }}" wx:key="index" class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+              <text style="height: 1rem">{{ index + 1 }}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{item.startTime}}</text>
+              <text class="fs-10 opacity-50" style="height: 9.3px">{{item.endTime}}</text>
             </view>
           </view>
         </view>
