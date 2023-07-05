@@ -7,7 +7,9 @@ Page({
     navBarHeight: 0, //navbar内容区域高度
   },
   goBack() {
-    wx.navigateBack({ delta: 1 });
+    wx.navigateBack({
+      delta: 1,
+    });
   },
   // 封装模态弹窗方法
   showModalAsync() {
