@@ -69,6 +69,7 @@
           <!-- 晚上 -->
         </view>
       </view>
+
       <!-- 下方操作栏 -->
       <view wx:if="{{!Editing}}" class="d-flex">
         <AnimateButton class="flex-grow-1 mx-2 flex-column" bindtap="changeEditing">
@@ -77,19 +78,19 @@
             <view>选课编辑</view>
           </view>
         </AnimateButton>
-        <AnimateButton class="flex-grow-1 me-2" bindtap="toClassSetting">
+        <AnimateButton class="flex-grow-1 me-2" data-url="../classSetting/classSetting" bindtap="toThisPage">
           <view>
             <view class="iconfont icon-shezhi d-flex justify-content-center"></view>
             <view>课表设置</view>
           </view>
         </AnimateButton>
-        <AnimateButton class="flex-grow-1 me-2" bindtap="toTimeSetting">
+        <AnimateButton class="flex-grow-1 me-2" data-url="../timeSetting/timeSetting" bindtap="toThisPage">
           <view>
             <view class="iconfont icon-shijian d-flex justify-content-center"></view>
             <view>上课时段</view>
           </view>
         </AnimateButton>
-        <AnimateButton class="flex-grow-1 me-2" bindtap="toChangeCurriculum">
+        <AnimateButton class="flex-grow-1 me-2" data-url="../changeCurriculum/changeCurriculum" bindtap="toThisPage">
           <view>
             <view class="iconfont icon-qiehuan d-flex justify-content-center"></view>
             <view>切换课表</view>
@@ -98,19 +99,21 @@
       </view>
       <!-- 课表编辑栏 -->
       <view wx:if="{{Editing}}" class="d-flex">
-        <AnimateButton class="flex-grow-1 mx-2 flex-column" bindtap='editingThese' >
-          <view>
-            <view class="iconfont icon-bianji d-flex justify-content-center"></view>
-            <view>编辑所选</view>
-          </view>
-        </AnimateButton>
+        <picker bindchange="bindPickerChange" value="{{index}}" range="{{pickerList}}">
+          <AnimateButton class="flex-grow-1 mx-2 flex-column" bindtap='editingThese'>
+            <view>
+              <view class="iconfont icon-bianji d-flex justify-content-center"></view>
+              <view>编辑所选</view>
+            </view>
+          </AnimateButton>
+        </picker>
         <AnimateButton class="flex-grow-1 me-2">
           <view>
             <view class="iconfont icon-shanchu d-flex justify-content-center"></view>
             <view>删除所选</view>
           </view>
         </AnimateButton>
-        <AnimateButton class="flex-grow-1 me-2" bindtap="toAddCourse">
+        <AnimateButton class="flex-grow-1 me-2" data-url="../addCourse/addCourse" bindtap="toThisPage">
           <view>
             <view class="iconfont icon-jia d-flex justify-content-center"></view>
             <view>添加课程</view>
