@@ -2,10 +2,18 @@
   <!-- 动态修改title样式,包括文本内容与颜色 -->
   <navigation-bar title="切换课表" front-color="{{theme=='light'?'#3e3152':'#aa97c2'}}" background-color="{{theme=='light'?'#FFDE86':'#320532'}}" />
   <view class="changeCurr vh-100 overflow-hidden noScrollBar">
-    <view class="mb-4">
+    <view class="mb-4 px-3">
       <!-- 课表列表 -->
-      <view></view>
-      <!-- 添加课表,批量删除课表 -->
+      <view class="tableList {{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50">
+        <view class="listItem">
+          <view class="title">课表一</view>
+          <view class="edit">
+            <view class="select bg-success">选用</view>
+            <view class="del bg-danger">删除</view>
+          </view>
+        </view>
+      </view>
+      <!-- 添加课表 -->
       <view bind:tap="createCurriculum">新建课程表</view>
     </view>
   </view>

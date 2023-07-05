@@ -53,12 +53,18 @@ Page({
         i[j].forEach((k) => (k.check = false));
       }
     });
-    this.setData({ Editing: !this.data.Editing });
-    this.setData({ [`Curriculum.arrangement`]: arrangement });
+    this.setData({
+      Editing: !this.data.Editing
+    });
+    this.setData({
+      [`Curriculum.arrangement`]: arrangement
+    });
   },
   // 完成编辑
   finishEditing() {
-    this.setData({ Editing: !this.data.Editing });
+    this.setData({
+      Editing: !this.data.Editing
+    });
   },
   // 点击添加课程进入预备编辑或提示课程信息
   addCourse(e) {
@@ -108,132 +114,238 @@ Page({
                 // _id: "课镖客666", // 可选自定义 _id，在此处场景下用数据库自动分配的就可以了
                 name: "课镖客666",
                 // 课程信息
-                Course: {
-                  声乐: {
-                    courseColor: "#50503625",
-                    teacher: "波澜哥",
-                    textColor: "#FF0000",
-                    classRoom: "9-301",
-                  },
-                  思政: {
-                    classRoom: "5-214",
-                    courseColor: "23,86,95",
-                    teacher: "张三",
-                    textColor: "#c8c8c8",
-                  },
-                  间谍伪装: {
-                    classRoom: "1A-999",
-                    courseColor: "#564asd",
-                    teacher: "川建国",
-                    textColor: "#c8c8c8",
-                  },
-                },
+                Course: {},
                 // 课程安排
-                arrangement: [
-                  {
-                    morningCourses: [
-                      { Course: "" },
-                      { Course: "声乐" },
-                      { Course: "" },
-                      { Course: "思政" },
+                arrangement: [{
+                    morningCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    afternoonCourses: [
-                      { Course: "间谍伪装" },
-                      { Course: "间谍伪装" },
-                      { Course: "声乐" },
-                      { Course: "声乐" },
+                    afternoonCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    nightCourses: [{ Course: "思政" }, { Course: "思政" }],
+                    nightCourses: [{
+                      Course: ""
+                    }, {
+                      Course: ""
+                    }],
                   },
                   {
-                    morningCourses: [
-                      { Course: "间谍伪装" },
-                      { Course: "间谍伪装" },
-                      { Course: "" },
-                      { Course: "" },
+                    morningCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    afternoonCourses: [
-                      { Course: "间谍伪装" },
-                      { Course: "" },
-                      { Course: "声乐" },
-                      { Course: "" },
+                    afternoonCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    nightCourses: [{ Course: "思政" }, { Course: "思政" }],
+                    nightCourses: [{
+                      Course: ""
+                    }, {
+                      Course: ""
+                    }],
                   },
                   {
-                    morningCourses: [
-                      { Course: "声乐" },
-                      { Course: "" },
-                      { Course: "" },
-                      { Course: "" },
+                    morningCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    afternoonCourses: [
-                      { Course: "" },
-                      { Course: "" },
-                      { Course: "声乐" },
-                      { Course: "声乐" },
+                    afternoonCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    nightCourses: [{ Course: "声乐" }, { Course: "" }],
+                    nightCourses: [{
+                      Course: ""
+                    }, {
+                      Course: ""
+                    }],
                   },
                   {
-                    morningCourses: [
-                      { Course: "" },
-                      { Course: "" },
-                      { Course: "" },
-                      { Course: "声乐" },
+                    morningCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    afternoonCourses: [
-                      { Course: "思政" },
-                      { Course: "" },
-                      { Course: "" },
-                      { Course: "" },
+                    afternoonCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    nightCourses: [{ Course: "间谍伪装" }, { Course: "" }],
+                    nightCourses: [{
+                      Course: ""
+                    }, {
+                      Course: ""
+                    }],
                   },
                   {
-                    morningCourses: [
-                      { Course: "思政" },
-                      { Course: "" },
-                      { Course: "声乐" },
-                      { Course: "" },
+                    morningCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    afternoonCourses: [
-                      { Course: "间谍伪装" },
-                      { Course: "" },
-                      { Course: "声乐" },
-                      { Course: "间谍伪装" },
+                    afternoonCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    nightCourses: [{ Course: "思政" }, { Course: "间谍伪装" }],
+                    nightCourses: [{
+                      Course: ""
+                    }, {
+                      Course: ""
+                    }],
                   },
                   {
-                    morningCourses: [
-                      { Course: "" },
-                      { Course: "间谍伪装" },
-                      { Course: "间谍伪装" },
-                      { Course: "" },
+                    morningCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    afternoonCourses: [
-                      { Course: "声乐" },
-                      { Course: "间谍伪装" },
-                      { Course: "" },
-                      { Course: "" },
+                    afternoonCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    nightCourses: [{ Course: "思政" }, { Course: "思政" }],
+                    nightCourses: [{
+                      Course: ""
+                    }, {
+                      Course: ""
+                    }],
                   },
                   {
-                    morningCourses: [
-                      { Course: "声乐" },
-                      { Course: "" },
-                      { Course: "" },
-                      { Course: "声乐" },
+                    morningCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    afternoonCourses: [
-                      { Course: "" },
-                      { Course: "" },
-                      { Course: "间谍伪装" },
-                      { Course: "声乐" },
+                    afternoonCourses: [{
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
+                      {
+                        Course: ""
+                      },
                     ],
-                    nightCourses: [{ Course: "声乐" }, { Course: "" }],
+                    nightCourses: [{
+                      Course: ""
+                    }, {
+                      Course: ""
+                    }],
                   },
                 ],
                 // 上课时段
@@ -244,15 +356,9 @@ Page({
                 },
                 // 课表信息
                 classInfo: {
-                  morningStart: "08:00", //上午开始时间
                   morningCourses: 4, //上午课程数量
-                  afternoonStart: "14:00", //下午开始时间
                   afternoonCourses: 4, //下午课程数量
-                  nightStart: "19:00", //晚上开始时间
                   nightCourses: 2, //晚上课程数量
-                  courseTime: 40, //一节课的时间
-                  breakTime: 20, //课间休息的时长
-                  courseTotal: {}, //存放课程的信息
                 },
               },
               success: (res) => {
