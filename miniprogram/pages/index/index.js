@@ -1,4 +1,5 @@
 const app = getApp();
+const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
 Page({
   data: {
     Curriculum: {},
@@ -34,7 +35,6 @@ Page({
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
-    const db = wx.cloud.database(); //在开始使用数据库 API 进行增删改查操作之前，需要先获取数据库的引用。以下调用获取默认环境的数据库的引用
     console.log(`将获取_id为 "${app.globalData.id}" 的课表`);
     db.collection("Curriculum")
       .where({
@@ -92,9 +92,12 @@ Page({
     let arrangement = this.data.Curriculum.arrangement;
     arrangement.forEach((i) => {
       for (let j in i) {
-        console.log(j);
+        i[j].forEach((k) => {
+          if (k.check == true) k.name = this.data.CourseList[e.detail.value];
+        });
       }
     });
+
     console.log("picker选择了", e);
   },
   // 完成编辑
@@ -113,7 +116,6 @@ Page({
     });
   },
   onShow() {
-    const db = wx.cloud.database();
     console.log(
       "当前课程id:",
       app.globalData.id,
