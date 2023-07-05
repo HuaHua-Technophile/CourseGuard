@@ -10,7 +10,7 @@ Page({
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
-    CourseList: [],
+    CourseList: [], //课程列表,用户picker选择器的遍历
   },
   // 关于我们
   aboutUs() {
@@ -18,7 +18,7 @@ Page({
       pageContainerShow: true,
     });
   },
-  // 课程列表修改与当前课程信息log打印
+  // CourseList课程列表修改与当前课程信息log打印
   pushCourseList() {
     // 将课程写入数组中,以进行编辑课程的选择
     let CourseList = [];
@@ -50,7 +50,7 @@ Page({
   toThisPage(e) {
     wx.navigateTo({ url: e.currentTarget.dataset.url });
   },
-  // 切换进入预备编辑------------------------------
+  // 切换状态,进入预备编辑------------------------------
   changeEditing() {
     let arrangement = this.data.Curriculum.arrangement;
     arrangement.forEach((i) => {
@@ -61,7 +61,7 @@ Page({
     this.setData({ Editing: !this.data.Editing });
     this.setData({ [`Curriculum.arrangement`]: arrangement });
   },
-  // 点击添加课程进入预备编辑或提示课程信息
+  // 点击添加课程进入预备编辑,或提示课程信息
   addCourseToEditing(e) {
     if (this.data.Editing) {
       let arrangement = this.data.Curriculum.arrangement;
@@ -85,18 +85,31 @@ Page({
       console.log("弹出课程信息框");
     }
   },
-  // 编辑已经勾选的课时
-  PickerChange(e) {
+  // 遍历编辑课表,封装为方法,供批量修改课程和批量删除课程使用
+  editingArrangement(course) {
     let arrangement = this.data.Curriculum.arrangement;
     arrangement.forEach((i) => {
       for (let j in i) {
         i[j].forEach((k) => {
-          if (k.check == true) k.name = this.data.CourseList[e.detail.value];
+          if (k.check == true) k.Course = course;
         });
       }
     });
-
-    console.log("picker选择了", e);
+    db.where({ _id: this.data.id }).update({
+      data: { arrangement },
+      success: (res) => {
+        console.log("更新了数据库", res);
+        this.getCurriculum();
+      },
+    });
+  },
+  // 编辑已经勾选的课时
+  changeArrangement(e) {
+    console.log("picker选择了", this.data.CourseList[e.detail.value]);
+    this.editingArrangement(this.data.CourseList[e.detail.value]);
+  },
+  deleteArrangement() {
+    this.editingArrangement("");
   },
   // 完成编辑
   finishEditing() {
