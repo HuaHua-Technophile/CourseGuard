@@ -2,7 +2,6 @@ const app = getApp();
 Page({
   data: {
     state: 0,
-    id: -1,
     morningNum: 6,
     affternonNum: 6,
     nightNum: 6,
@@ -58,8 +57,7 @@ Page({
       navBarTop: app.globalData.navBarTop,
       navBarHeight: app.globalData.navBarHeight,
     });
-    this.setData({ id: options.id });
-    console.log(this.data.id);
+    console.log(app.globalData.id);
   },
   /* 生命周期函数--监听页面初次渲染完成*/
   onReady() {
@@ -68,7 +66,7 @@ Page({
     // 根据课表设置中的课程数渲染相应时间设置条数
     db.collection("Curriculum")
       .where({
-        _id: this.data.id,
+        _id: app.globalData.id,
       })
       .get({
         success: (res) => {

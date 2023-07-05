@@ -26,7 +26,8 @@ App({
     }
   },
   globalData: {
-    theme: "",//暗色/亮色
+    id: -1, //课程id
+    theme: "", //暗色/亮色
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度

@@ -79,6 +79,7 @@ Page({
         },
         success: function (res) {
           console.log("更新了数据库", res);
+          wx.navigateBack({ delta: 1 });
         },
       });
     console.log("点击了保存", Course);
