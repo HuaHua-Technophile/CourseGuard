@@ -1,4 +1,5 @@
 const app = getApp();
+const db = wx.cloud.database();
 Page({
   data: {
     id: -1, //传入的当前课表的id
@@ -61,12 +62,26 @@ Page({
       });
   },
   saveCourse() {
-    console.log("点击了保存", this.data.CourseList);
     if (this.data.CourseList.some((i) => i.name == ""))
       wx.showToast({
         title: "课程的简称为空",
         icon: "error",
       });
+    let Course = {};
+    this.data.CourseList.forEach((i) => {
+      Course[i.name] = i;
+    });
+    db.collection("Curriculum")
+      .where({ _id: this.data.id })
+      .update({
+        data: {
+          Course: Course,
+        },
+        success: function (res) {
+          console.log("更新了数据库", res);
+        },
+      });
+    console.log("点击了保存", Course);
   },
   /*生命周期函数--监听页面加载*/
   onLoad(options) {
@@ -78,7 +93,6 @@ Page({
     });
     // 接收其他页面传值-------------------------
     this.setData({ id: options.id });
-    const db = wx.cloud.database();
     db.collection("Curriculum")
       .where({ _id: this.data.id })
       .get({
