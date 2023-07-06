@@ -16,6 +16,10 @@ Page({
     navBarWidth: 0, // 胶囊遮挡的不可用区域宽度,用作右外边距/右内边距
     CourseList: [], //课程列表,用户picker选择器的遍历
     checkCount: 0, //当前已经勾选的课时的统计,如果没有勾选任何课程则弹出提示
+    storageData: {},
+    dayArr: ['一', '二', '三', '四', '五', '六', '日'],
+    teacherShow: false,
+    teachAdress: false
   },
   // 关于我们
   aboutUs() {
@@ -38,7 +42,9 @@ Page({
     for (let i in this.data.Curriculum.Course) {
       CourseList.push(i);
     }
-    this.setData({ CourseList });
+    this.setData({
+      CourseList
+    });
     console.log(
       "当前课表",
       this.data.Curriculum,
@@ -54,14 +60,18 @@ Page({
     }).get({
       success: (res) => {
         console.log(`_id"${app.globalData.id}":`, res);
-        this.setData({ Curriculum: res.data[0] }); //返回数据是一个数组,取其第Index个作为当前渲染的课程表
+        this.setData({
+          Curriculum: res.data[0]
+        }); //返回数据是一个数组,取其第Index个作为当前渲染的课程表
         this.pushCourseList();
       },
     });
   },
   // 路由跳转-------------------------
   toThisPage(e) {
-    wx.navigateTo({ url: e.currentTarget.dataset.url });
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    });
   },
   // 切换课表中的check状态,封装为函数,供changeEditing与全选操作调用
   changeArrangementCheck(flag) {
@@ -73,19 +83,24 @@ Page({
     });
     if (flag)
       this.setData({
-        checkCount:
-          7 *
+        checkCount: 7 *
           (this.data.Curriculum.morningCourses +
             this.data.Curriculum.afternoonCourses +
             this.data.Curriculum.nightCourses),
       });
-    else this.setData({ checkCount: 0 });
-    this.setData({ [`Curriculum.arrangement`]: arrangement });
+    else this.setData({
+      checkCount: 0
+    });
+    this.setData({
+      [`Curriculum.arrangement`]: arrangement
+    });
   },
   // 切换状态,进入预备编辑------------------------------
   changeEditing() {
     this.changeArrangementCheck(false);
-    this.setData({ Editing: !this.data.Editing });
+    this.setData({
+      Editing: !this.data.Editing
+    });
   },
   // 提示课程信息,或点击添加课时进入预备编辑
   addCourseToEditing(e) {
@@ -101,9 +116,13 @@ Page({
           e.currentTarget.dataset.course
         ][e.currentTarget.dataset.index].check
       )
-        this.setData({ checkCount: this.data.checkCount + 1 });
+        this.setData({
+          checkCount: this.data.checkCount + 1
+        });
       //如果新增勾选,就增加
-      else this.setData({ checkCount: this.data.checkCount - 1 }); //取消勾选就减少
+      else this.setData({
+        checkCount: this.data.checkCount - 1
+      }); //取消勾选就减少
       this.setData({
         [`Curriculum.arrangement[${e.currentTarget.dataset.day}].${e.currentTarget.dataset.course}[${e.currentTarget.dataset.index}].check`]: arrangement[
           e.currentTarget.dataset.day
@@ -144,9 +163,15 @@ Page({
         });
       }
     });
-    this.setData({ checkCount: 0 });
-    db.where({ _id: this.data.id }).update({
-      data: { arrangement },
+    this.setData({
+      checkCount: 0
+    });
+    db.where({
+      _id: this.data.id
+    }).update({
+      data: {
+        arrangement
+      },
       success: (res) => {
         console.log("更新了数据库", res);
         this.getCurriculum();
@@ -179,6 +204,37 @@ Page({
     });
   },
   onShow() {
+    // 获取课表设置
+    wx.getStorage({
+      key: 'setting',
+      success: (res) => {
+        this.setData({
+          storageData: res.data
+        })
+        if (this.data.storageData.starState && this.data.storageData.sunState) {
+          console.log('成功');
+          this.setData({
+            dayArr: ['一', '二', '三', '四', '五', '六', '日']
+          })
+        } else if (this.data.storageData.starState === false && this.data.storageData.sunState) {
+          this.setData({
+            dayArr: ['一', '二', '三', '四', '五', '日']
+          })
+        } else if (this.data.storageData.starState && this.data.storageData.sunState === false) {
+          this.setData({
+            dayArr: ['一', '二', '三', '四', '五', '六']
+          })
+        } else if (this.data.storageData.starState === false && this.data.storageData.sunState === false) {
+          this.setData({
+            dayArr: ['一', '二', '三', '四', '五']
+          })
+        }
+        this.setData({
+          teacherShow: this.data.storageData.teacherState,
+          teachAdress: this.data.storageData.classroomState
+        })
+      }
+    })
     console.log(
       "当前课程id:",
       app.globalData.id,
@@ -231,6 +287,8 @@ Page({
       this.getCurriculum(); //获取课表数据
     }
     // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
-    this.setData({ week: new Date().getDay() });
+    this.setData({
+      week: new Date().getDay()
+    });
   },
 });

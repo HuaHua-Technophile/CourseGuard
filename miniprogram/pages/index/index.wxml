@@ -87,17 +87,20 @@
         <view class="flex-grow-1 overflow-hidden">
           <!-- 星期数 -->
           <view class="d-flex justify-content-around {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded mb-1">
-            <view wx:for="{{ ['一', '二', '三', '四', '五', '六', '日'] }}" wx:key="index" style="flex:1;" class="itemMarginX text-center py-2  {{week - 1 == index || (index == 6 && week == 0) ? 'text-danger' : ''}}">周{{ item }}</view>
+            <view wx:for="{{dayArr}}" wx:key="index" style="flex:1;" class="itemMarginX text-center py-2  {{week - 1 == index || (index == 6 && week == 0) ? 'text-danger' : ''}}">周{{ item }}</view>
           </view>
           <!-- 上午课程 -->
           <view class="d-flex {{theme == 'light' ? 'bg-light' : 'bg-dark'}} bg-opacity-50 rounded">
             <!-- 每一列(周几) -->
             <view wx:for="{{ Curriculum.arrangement }}" wx:for-index="day" wx:key="day" style="flex:1" class="itemMarginX">
               <!-- 每一节课程的item -->
-              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" wx:if="{{index < Curriculum.classInfo.morningCourses}}" style="height: var(--itemHeight);color:rgb({{Curriculum.Course[j.Course].textColor}});background: rgba({{Curriculum.Course[j.Course].bgColor}},0.8);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day='{{day}}' data-index='{{index}}' data-name="{{Curriculum.Course[j.Course].name}}" bindtap="addCourseToEditing">
+              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" wx:if="{{index < Curriculum.classInfo.morningCourses}}" style="height: var(--itemHeight);color:rgb({{Curriculum.Course[j.Course].textColor}});background: rgba({{Curriculum.Course[j.Course].bgColor}},0.8);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bindtap="addCourseToEditing">
+                <!-- 课程简称 -->
                 <view class="fs-9">{{Curriculum.Course[j.Course].name}}</view>
-                <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].teacher}}</view>
-                <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].location}}</view>
+                <!-- 授课教师 -->
+                <view wx:if="{{teacherShow}}" class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].teacher}}</view>
+                <!-- 授课地址 -->
+                <view wx:if="{{teachAdress}}" class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].location}}</view>
                 <!-- 勾选框 -->
                 <view hidden="{{!Editing}}" class="position-absolute end-0 bottom-0 border {{theme=='light'?'border-pink bg-pink':'border-purple bg-purple'}} border-opacity-50 {{j.check?'':'bg-opacity-10'}} rounded" style="width:10px;height: 10px;margin: 0 0.5px 0.5px 0;"></view>
               </view>

@@ -11,8 +11,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    switchArr: ['allNameState', 'teacherState', 'classroomState', 'starState', 'sunState'],
-    allNameState: false,
+    switchArr: ['teacherState', 'classroomState', 'starState', 'sunState'],
     teacherState: false,
     classroomState: false,
     starState: false,
@@ -35,7 +34,6 @@ Component({
       wx.setStorage({
         key: "setting",
         data: {
-          allNameState: this.data.allNameState,
           teacherState: this.data.teacherState,
           classroomState: this.data.classroomState,
           starState: this.data.starState,
@@ -63,7 +61,6 @@ Component({
       // 获取用户当前课表设置
       this.getStorageData().then(res => {
         this.setData({
-          allNameState: res.allNameState,
           teacherState: res.teacherState,
           classroomState: res.classroomState,
           starState: res.starState,

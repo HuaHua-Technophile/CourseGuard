@@ -1,29 +1,24 @@
 <!--components/AdditionalSettings/AdditionalSettings.wxml-->
 <!-- 课程表设置页面，额外设置组件 -->
 <view class="additionalSettings">
-  <!-- 显示课程全称 -->
-  <view class="allNameArea">
-    <view>显示课程全称</view>
-    <switch checked="{{allNameState}}" color="#ff0081" data-index="0" bindchange="switchChange"></switch>
-  </view>
   <!-- 是否显示教师 -->
   <view class="allNameArea">
     <view>是否显示教师</view>
-    <switch checked="{{teacherState}}" color="#ff0081" data-index="1" bindchange="switchChange"></switch>
+    <switch checked="{{teacherState}}" color="#ff0081" data-index="0" bindchange="switchChange"></switch>
   </view>
   <!-- 是否显示教室 -->
   <view class="allNameArea">
-    <view>是否显示教室</view>
-    <switch checked="{{classroomState}}" color="#ff0081" data-index="2" bindchange="switchChange"></switch>
+    <view>是否显示授课地点</view>
+    <switch checked="{{classroomState}}" color="#ff0081" data-index="1" bindchange="switchChange"></switch>
   </view>
   <!-- 是否显示周六 -->
   <view class="allNameArea">
     <view>是否显示周六</view>
-    <switch checked="{{starState}}" color="#ff0081" data-index="3" bindchange="switchChange"></switch>
+    <switch checked="{{starState}}" color="#ff0081" data-index="2" bindchange="switchChange"></switch>
   </view>
   <!-- 是否显示周日 -->
   <view class="allNameArea">
     <view>是否显示周日</view>
-    <switch checked="{{sunState}}" color="#ff0081" data-index="4" bindchange="switchChange"></switch>
+    <switch checked="{{sunState}}" color="#ff0081" data-index="3" bindchange="switchChange"></switch>
   </view>
 </view>

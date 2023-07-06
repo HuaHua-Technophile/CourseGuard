@@ -7,6 +7,9 @@ Component({
     affterNum: 4,
     nightNum: 2,
     array: [0],
+    morningArr: [],
+    afternonArr: [],
+    nightArr: []
   },
 
   /* 组件的方法列表*/
@@ -26,6 +29,110 @@ Component({
     // 提交数据到云数据库
     toDataBase() {
       const _ = db.command;
+      // 获取数据库中用户时间设置（上午）
+      db.collection("Curriculum")
+        .where({
+          _id: app.globalData.id,
+        })
+        .get({
+          success: (res) => {
+            console.log('获取成功', res.data[0]);
+            if (res.data[0].hour.morningArr.length > 0) {
+              console.log('数据存在', res.data[0].hour.morningArr);
+              this.setData({
+                morningArr: res.data[0].hour.morningArr,
+              });
+              // 根据课程数显示上午相应时间设置条目
+              let morningArrAdd = [];
+              for (
+                let i = 1; i <= this.data.morningNum - this.data.morningArr.length; i++
+              ) {
+                morningArrAdd.push({
+                  id: res.data[0].hour.morningArr[
+                    res.data[0].hour.morningArr.length - 1
+                  ].id + i,
+                  startTime: "00:00",
+                  endTime: "00:40",
+                });
+              }
+              this.setData({
+                morningArr: [...this.data.morningArr, ...morningArrAdd],
+              });
+              this.toSavemorningData()
+              console.log("morningArr", this.data.morningArr);
+            }
+          },
+        });
+      // 获取数据库中用户时间设置（下午）
+      db.collection("Curriculum")
+        .where({
+          _id: app.globalData.id,
+        })
+        .get({
+          success: (res) => {
+            console.log(res);
+            if (res.data[0].hour.afternonArr.length > 0) {
+              console.log(res.data[0].hour.afternonArr);
+              this.setData({
+                afternonArr: res.data[0].hour.afternonArr,
+              });
+              // 根据课程数显示相应时间设置条目
+              let afternonArrAdd = [];
+              for (
+                let i = 1; i <= this.data.affterNum - this.data.afternonArr.length; i++
+              ) {
+                afternonArrAdd.push({
+                  id: res.data[0].hour.afternonArr[
+                    res.data[0].hour.afternonArr.length - 1
+                  ].id + i,
+                  startTime: "00:00",
+                  endTime: "00:40",
+                });
+              }
+              this.setData({
+                afternonArr: [...this.data.afternonArr, ...afternonArrAdd],
+              });
+              this.toSaveafternoonData()
+            }
+          },
+        });
+      // 获取数据库中用户时间设置(晚上)
+      db.collection("Curriculum")
+        .where({
+          _id: app.globalData.id,
+        })
+        .get({
+          success: (res) => {
+            console.log(res, res.data[0].hour.nightArr.length);
+            if (res.data[0].hour.nightArr.length > 0) {
+              console.log(res.data[0].hour.nightArr);
+              this.setData({
+                nightArr: res.data[0].hour.nightArr,
+              });
+              // 根据课程数显示相应时间设置条目
+              let nightArrAdd = [];
+              for (
+                let i = 1; i <= this.data.nightNum - this.data.nightArr.length; i++
+              ) {
+                nightArrAdd.push({
+                  id: res.data[0].hour.nightArr[
+                    res.data[0].hour.nightArr.length - 1
+                  ].id + i,
+                  startTime: "00:00",
+                  endTime: "00:40",
+                });
+              }
+              this.setData({
+                nightArr: [...this.data.nightArr, ...nightArrAdd],
+              });
+              this.toSavenightData()
+            }
+          },
+        });
+      this.toSaveHeaderData()
+    },
+    // 提交头部信息到数据库
+    toSaveHeaderData() {
       db.collection("Curriculum")
         .where({
           _id: app.globalData.id,
@@ -40,7 +147,48 @@ Component({
             name: this.data.tableName,
           },
         });
-      console.log("提交数据库成功");
+    },
+    // 提交上午信息到数据库
+    toSavemorningData() {
+      db.collection("Curriculum")
+        .where({
+          _id: app.globalData.id,
+        })
+        .update({
+          data: {
+            hour: {
+              morningArr: this.data.morningArr
+            }
+          },
+        });
+    },
+    // 提交下午信息到数据库
+    toSaveafternoonData() {
+      db.collection("Curriculum")
+        .where({
+          _id: app.globalData.id,
+        })
+        .update({
+          data: {
+            hour: {
+              afternonArr: this.data.afternonArr
+            }
+          },
+        });
+    },
+    // 提交晚上信息到数据库
+    toSavenightData() {
+      db.collection("Curriculum")
+        .where({
+          _id: app.globalData.id,
+        })
+        .update({
+          data: {
+            hour: {
+              nightArr: this.data.nightArr
+            }
+          },
+        });
     },
     // 获取用户当前课表设置
     getUserSetting() {
