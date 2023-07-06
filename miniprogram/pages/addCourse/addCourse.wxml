@@ -10,7 +10,7 @@
   <!-- 内容区域 -->
   <view class="changeCurr vh-100 overflow-scroll noScrollBar">
     <view class="mb-4 px-3" style="padding-top: {{navBarFullHeight+5}}px;">
-      <!-- 新建课表 -->
+      <!-- 新建课程 -->
       <view style="height: 40px;" class="mb-2">
         <AnimateButton bind:tap="addCourse">
           添加课程
