@@ -4,16 +4,18 @@ const db = wx.cloud.database().collection("Curriculum"); //在开始使用数据
 Page({
   data: {
     state: 0,
-    morningNum: 6,
-    affternonNum: 6,
-    nightNum: 6,
+    morningNum: 4,
+    affternonNum: 4,
+    nightNum: 2,
     theme: "", //暗色/亮色
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
   },
   goBack() {
-    wx.navigateBack({ delta: 1 });
+    wx.navigateBack({
+      delta: 1
+    });
   },
   // 封装模态弹窗方法
   showModalAsync() {

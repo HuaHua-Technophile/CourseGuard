@@ -3,14 +3,17 @@
   <view id="nav-bar" class="w-100 position-fixed top-0 start-0 z-3" style="height: {{navBarFullHeight}}px;">
     <!-- navbar内容区,上方都是状态栏 -->
     <view style="height:{{navBarHeight}}px;margin-top: {{navBarTop}}px;padding-right: calc(100% - {{navBarWidth}}px + 5px) !important;" class="d-flex align-items-center ps-2">
-      <view class="iconfont icon-guanyuwomen fs-4 me-3" bind:tap="goBack"></view>
+      <!-- 左上角“关于我们” 叹号 -->
+      <view class="iconfont icon-guanyuwomen fs-4 me-3" bind:tap="aboutUs"></view>
+      <!-- 当前课表名称。name -->
       <text>{{Curriculum.name}}</text>
+      <!-- 进入编辑状态后，已勾选的课时数量 -->
       <view wx:if="{{Editing}}" class="ms-1 opacity-75 fs-9 d-flex align-items-end">(已选{{checkCount}})</view>
     </view>
   </view>
   <!-- 假页面容器组件 -->
   <page-container show="{{pageContainerShow}}" custom-style="background: transparent !important;backdrop-filter: blur(6px);display:flex;justify-content:center;color:#c8c8c8;">
-    <view class="vh-100 d-flex justify-content-center align-items-center bg-transparent">45646</view>
+    <view class="vh-100 d-flex justify-content-center align-items-center bg-transparent"></view>
   </page-container>
   <!-- 页面内容 -->
   <view class="index vh-100 overflow-scroll noScrollBar">
