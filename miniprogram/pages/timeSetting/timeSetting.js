@@ -14,15 +14,17 @@ Page({
   },
   goBack() {
     wx.navigateBack({
-      delta: 1
+      delta: 1,
     });
   },
   // 封装模态弹窗方法
   showModalAsync() {
     return new Promise((resolve) => {
       wx.showModal({
-        title: "温馨提示",
-        content: "修改课程数量直接影响现有课程配置，确定要这么操作?",
+        title: "妳不是手滑了嘛?",
+        content: "好好查看时间准确性哦",
+        cancelText: "手滑啦~",
+        confirmText: "就要改!",
         success(res) {
           if (res.confirm) {
             resolve(res.confirm);

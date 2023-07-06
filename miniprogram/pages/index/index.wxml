@@ -98,7 +98,7 @@
             <!-- 每一列(周几) -->
             <view wx:for="{{ Curriculum.arrangement }}" wx:for-index="day" wx:key="day" hidden="{{(day==5 && !showStarday ) || (day==6 && !showSunday )}}" style="flex:1" class="itemMarginX">
               <!-- 每一节课程的item -->
-              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" wx:if="{{index < Curriculum.classInfo.morningCourses}}" style="height: var(--itemHeight);color:rgb({{Curriculum.Course[j.Course].textColor}});background: rgba({{Curriculum.Course[j.Course].bgColor}},0.8);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bindtap="addCourseToEditing">
+              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" wx:if="{{index < Curriculum.classInfo.morningCourses}}" style="height: var(--itemHeight);color:rgb({{Curriculum.Course[j.Course].textColor}});background: rgba({{Curriculum.Course[j.Course].bgColor}},0.8);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-name="{{Curriculum.Course[j.Course].name}}" data-coursetime="morningArr" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bindtap="addCourseToEditing">
                 <!-- 课程简称 -->
                 <view class="fs-9">{{Curriculum.Course[j.Course].name}}</view>
                 <!-- 授课教师 -->
