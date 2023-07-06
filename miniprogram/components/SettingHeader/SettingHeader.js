@@ -9,7 +9,7 @@ Component({
     array: [0],
     morningArr: [],
     afternonArr: [],
-    nightArr: []
+    nightArr: [],
   },
 
   /* 组件的方法列表*/
@@ -26,7 +26,7 @@ Component({
         tableName: event.detail.value,
       });
     },
-    // 提交数据到云数据库
+    // 获取数据到本地渲染,然后调用toSaveHeaderData提交方法
     toDataBase() {
       const _ = db.command;
       // 获取数据库中用户时间设置（上午）
@@ -36,21 +36,24 @@ Component({
         })
         .get({
           success: (res) => {
-            console.log('获取成功', res.data[0]);
+            console.log("获取成功", res.data[0]);
             if (res.data[0].hour.morningArr.length > 0) {
-              console.log('数据存在', res.data[0].hour.morningArr);
+              console.log("数据存在", res.data[0].hour.morningArr);
               this.setData({
                 morningArr: res.data[0].hour.morningArr,
               });
               // 根据课程数显示上午相应时间设置条目
               let morningArrAdd = [];
               for (
-                let i = 1; i <= this.data.morningNum - this.data.morningArr.length; i++
+                let i = 1;
+                i <= this.data.morningNum - this.data.morningArr.length;
+                i++
               ) {
                 morningArrAdd.push({
-                  id: res.data[0].hour.morningArr[
-                    res.data[0].hour.morningArr.length - 1
-                  ].id + i,
+                  id:
+                    res.data[0].hour.morningArr[
+                      res.data[0].hour.morningArr.length - 1
+                    ].id + i,
                   startTime: "00:00",
                   endTime: "00:40",
                 });
@@ -58,7 +61,7 @@ Component({
               this.setData({
                 morningArr: [...this.data.morningArr, ...morningArrAdd],
               });
-              this.toSavemorningData()
+              this.toSavemorningData();
               console.log("morningArr", this.data.morningArr);
             }
           },
@@ -79,12 +82,15 @@ Component({
               // 根据课程数显示相应时间设置条目
               let afternonArrAdd = [];
               for (
-                let i = 1; i <= this.data.affterNum - this.data.afternonArr.length; i++
+                let i = 1;
+                i <= this.data.affterNum - this.data.afternonArr.length;
+                i++
               ) {
                 afternonArrAdd.push({
-                  id: res.data[0].hour.afternonArr[
-                    res.data[0].hour.afternonArr.length - 1
-                  ].id + i,
+                  id:
+                    res.data[0].hour.afternonArr[
+                      res.data[0].hour.afternonArr.length - 1
+                    ].id + i,
                   startTime: "00:00",
                   endTime: "00:40",
                 });
@@ -92,7 +98,7 @@ Component({
               this.setData({
                 afternonArr: [...this.data.afternonArr, ...afternonArrAdd],
               });
-              this.toSaveafternoonData()
+              this.toSaveafternoonData();
             }
           },
         });
@@ -112,12 +118,15 @@ Component({
               // 根据课程数显示相应时间设置条目
               let nightArrAdd = [];
               for (
-                let i = 1; i <= this.data.nightNum - this.data.nightArr.length; i++
+                let i = 1;
+                i <= this.data.nightNum - this.data.nightArr.length;
+                i++
               ) {
                 nightArrAdd.push({
-                  id: res.data[0].hour.nightArr[
-                    res.data[0].hour.nightArr.length - 1
-                  ].id + i,
+                  id:
+                    res.data[0].hour.nightArr[
+                      res.data[0].hour.nightArr.length - 1
+                    ].id + i,
                   startTime: "00:00",
                   endTime: "00:40",
                 });
@@ -125,13 +134,13 @@ Component({
               this.setData({
                 nightArr: [...this.data.nightArr, ...nightArrAdd],
               });
-              this.toSavenightData()
+              this.toSavenightData();
             }
           },
         });
-      this.toSaveHeaderData()
+      this.toSaveHeaderData();
     },
-    // 提交头部信息到数据库
+    // 提交 课程数量 / 课程名称 到数据库
     toSaveHeaderData() {
       db.collection("Curriculum")
         .where({
@@ -157,8 +166,8 @@ Component({
         .update({
           data: {
             hour: {
-              morningArr: this.data.morningArr
-            }
+              morningArr: this.data.morningArr,
+            },
           },
         });
     },
@@ -171,8 +180,8 @@ Component({
         .update({
           data: {
             hour: {
-              afternonArr: this.data.afternonArr
-            }
+              afternonArr: this.data.afternonArr,
+            },
           },
         });
     },
@@ -185,8 +194,8 @@ Component({
         .update({
           data: {
             hour: {
-              nightArr: this.data.nightArr
-            }
+              nightArr: this.data.nightArr,
+            },
           },
         });
     },
