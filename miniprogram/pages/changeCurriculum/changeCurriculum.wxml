@@ -15,19 +15,23 @@
         <view class="listItem">
           <view class="title">{{item.name}}</view>
           <view class="edit">
-            <view class="select bg-success">选用</view>
-            <view class="del bg-danger">删除</view>
+            <view class="select bg-success" bindtap="toSelect" data-id="{{item._id}}">选用</view>
+            <view class="del bg-danger" bindtap="toDel" data-id="{{item._id}}">删除</view>
           </view>
         </view>
       </view>
       <!-- 添加课表 -->
       <page-container show="{{pageContainerShow}}">
         <view class="box">
-          <input class="border-danger" type="text" />
-          <view>取消</view>
+          <input focus="{{focus}}" bindinput="inputModel" type="text" placeholder-style="color: red" placeholder="请输入课表名称" />
+          <view class="tip">{{tip}}</view>
+          <view class="btnArea">
+            <view class="cl" bindtap="notCreateCurriculum">取消</view>
+            <view class="en" bindtap="createCurriculum">确认</view>
+          </view>
         </view>
       </page-container>
-      <view bind:tap="createCurriculum">新建课程表</view>
+      <view bind:tap="toCreateCurriculum">新建课程表</view>
     </view>
   </view>
 </page-meta>
