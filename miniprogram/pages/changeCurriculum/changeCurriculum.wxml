@@ -8,32 +8,40 @@
     </view>
   </view>
   <!-- 添加课表的假页面容器 -->
-  <page-container show="{{pageContainerShow}}">
-    <view class="box">
-      <input focus="{{focus}}" bindinput="inputModel" type="text" placeholder-style="color: red" placeholder="请输入课表名称" />
-      <view class="tip">{{tip}}</view>
-      <view class="btnArea">
-        <view class="cl" bindtap="notCreateCurriculum">取消</view>
-        <view class="en" bindtap="createCurriculum">确认</view>
-      </view>
+  <page-container show="{{pageContainerShow}}" custom-style="background: transparent !important;backdrop-filter: blur(6px);padding-bottom:30px;">
+    <!-- 课表名称输入框 -->
+    <input focus="{{focus}}" style="width: 80%;background:rgba(var(--body-theme-color-rgb),0.5);" class="mx-auto mb-3 rounded-pill p-2 text-center" bindinput="inputModel" type="text" placeholder-class="text-light-emphasis text-center" placeholder="请输入新的课表名称好嘛~" />
+    <!-- 确认/取消按钮 -->
+    <view class="d-flex justify-content-evenly">
+      <AnimateButton bind:tap="notCreateCurriculum" class="me-3" style="width: 25vw;height:33px">
+        才不要
+      </AnimateButton>
+      <AnimateButton bind:tap="createCurriculum" style="width: 25vw;height:33px">
+        创建!
+      </AnimateButton>
     </view>
   </page-container>
   <!-- 内容区域 -->
   <view class="changeCurr vh-100 overflow-scroll noScrollBar">
     <view class="mb-4 px-3" style="padding-top: {{navBarFullHeight+5}}px;">
+      <!-- 新建课表 -->
+      <view style="height: 40px;" class="mb-2">
+        <AnimateButton bind:tap="toCreateCurriculum">
+          添加新课表
+        </AnimateButton>
+      </view>
       <!-- 课表列表 -->
       <view class="{{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50 mb-2 rounded overflow-hidden p-3 d-flex align-items-center justify-content-between" wx:for="{{CurriculumList}}" wx:key="index">
         <!-- 课表名称 -->
         <view>{{item.name}}</view>
         <!-- 切换/删除 -->
-        <view class="d-flex align-items-center">
+        <view class="d-flex align-items-center" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.3);">
           <view class="border border-3 border-success border-opacity-50 rounded me-2 d-flex justify-content-center align-items-center" style="height: 20px;width: 20px;" bindtap="toSelect" data-name="{{item.name}}" data-id="{{item._id}}">
-            <view class="iconfont icon-wancheng fs-5 text-shadow-2 text-success opacity-75"></view>
+            <view wx:if="{{item._id == id}}" class="iconfont icon-wancheng fs-5 text-success opacity-75"></view>
           </view>
           <view class="iconfont icon-shanchu fs-3" bindtap="toDel" data-name="{{item.name}}" data-id="{{item._id}}"></view>
         </view>
       </view>
     </view>
-    <view bind:tap="toCreateCurriculum">新建课程表</view>
   </view>
 </page-meta>

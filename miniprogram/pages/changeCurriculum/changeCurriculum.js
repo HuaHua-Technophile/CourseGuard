@@ -9,10 +9,10 @@ Page({
     navBarHeight: 0, //navbar内容区域高度
     pageContainerShow: false,
     value: "",
-    tip: "",
     showModalcontent: "确认选用当前课表？",
     confirmText: "就要它!",
     focus: false,
+    id: -1, //需要在wxml中进行id比对,判断当前选中的是哪个课程表,因此id需要赋值到data中
   },
   // 封装模态弹窗方法
   showModalAsync() {
@@ -40,15 +40,20 @@ Page({
   },
   // 选用对应课表
   toSelect(e) {
-    console.log(e.currentTarget.dataset);
-    this.data.showModalcontent = `移情别恋至 '${e.currentTarget.dataset.name}' ?`;
-    this.data.confirmText = "就要它!";
-    this.showModalAsync().then(() => {
-      app.globalData.id = e.currentTarget.dataset.id;
-      wx.navigateBack({
-        delta: 1,
+    if (e.currentTarget.dataset.id == app.globalData.id) {
+      wx.showToast({
+        title: `已经是${e.currentTarget.dataset.name}啦!`,
       });
-    });
+    } else {
+      this.data.showModalcontent = `移情别恋至 '${e.currentTarget.dataset.name}' ?`;
+      this.data.confirmText = "就要它!";
+      this.showModalAsync().then(() => {
+        app.globalData.id = e.currentTarget.dataset.id;
+        wx.navigateBack({
+          delta: 1,
+        });
+      });
+    }
   },
   // 删除对应课表
   toDel(e) {
@@ -86,14 +91,12 @@ Page({
   inputModel(e) {
     this.setData({
       value: e.detail.value,
-      tip: "",
     });
   },
   // 新建课表弹窗
   toCreateCurriculum() {
     this.setData({
       pageContainerShow: !this.data.pageContainerShow,
-      tip: "",
       focus: true,
     });
   },
@@ -125,10 +128,10 @@ Page({
   createCurriculum() {
     for (let item of this.data.CurriculumList) {
       if (item.name === this.data.value) {
-        this.setData({
-          tip: "课表命名重复",
-        });
-        console.log("重名");
+        wx.showToast({
+          title: '名字一猫一样',
+          icon:'error'
+        })
         return;
       }
     }
@@ -148,6 +151,7 @@ Page({
   onLoad(options) {
     // 接收其他页面传值-------------------------
     this.setData({
+      id: app.globalData.id,
       theme: app.globalData.theme,
       navBarFullHeight: app.globalData.navBarFullHeight,
       navBarTop: app.globalData.navBarTop,
