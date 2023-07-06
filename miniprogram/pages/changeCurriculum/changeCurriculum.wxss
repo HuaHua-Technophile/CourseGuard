@@ -31,9 +31,25 @@
 }
 
 .box {
-  padding-left: 30rpx;
-  padding-right: 30rpx;
-  margin-bottom: 200rpx;
+  padding: 30rpx 30rpx 0rpx 30rpx;
+  margin-bottom: 160rpx;
 }
 
-.box>input {}
+.box>input {
+  border: 2rpx solid #000;
+}
+
+.tip {
+  height: 30rpx;
+}
+
+.btnArea {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cl {
+  margin-right: 60rpx;
+}

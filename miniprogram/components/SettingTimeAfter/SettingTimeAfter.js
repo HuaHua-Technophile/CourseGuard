@@ -94,10 +94,8 @@ Component({
       for (let i = 0; i < this.properties.afternon; i++) {
         afternonTemp.push({
           id: i + 1,
-          startTime:
-            startIntNum < 10 ? `0${startIntNum}:00` : `${startIntNum}:00`,
-          endTime:
-            startIntNum < 10 ? `0${startIntNum}:40` : `${startIntNum}:40`,
+          startTime: startIntNum < 10 ? `0${startIntNum}:00` : `${startIntNum}:00`,
+          endTime: startIntNum < 10 ? `0${startIntNum}:40` : `${startIntNum}:40`,
         });
         if (i === 2 || i === 4 || i === 6) {
           startIntNum++;
@@ -183,6 +181,7 @@ Component({
         })
         .get({
           success: (res) => {
+            console.log(res);
             if (res.data[0].hour.afternonArr.length > 0) {
               console.log(res.data[0].hour.afternonArr);
               this.setData({
@@ -191,15 +190,12 @@ Component({
               // 根据课程数显示相应时间设置条目
               let afternonArrAdd = [];
               for (
-                let i = 1;
-                i <= this.properties.afternon - this.data.afternonArr.length;
-                i++
+                let i = 1; i <= this.properties.afternon - this.data.afternonArr.length; i++
               ) {
                 afternonArrAdd.push({
-                  id:
-                    res.data[0].hour.afternonArr[
-                      res.data[0].hour.afternonArr.length - 1
-                    ].id + i,
+                  id: res.data[0].hour.afternonArr[
+                    res.data[0].hour.afternonArr.length - 1
+                  ].id + i,
                   startTime: "00:00",
                   endTime: "00:40",
                 });

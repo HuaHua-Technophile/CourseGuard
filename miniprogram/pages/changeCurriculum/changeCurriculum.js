@@ -8,35 +8,131 @@ Page({
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
     pageContainerShow: false,
+    value: '',
+    tip: '',
+    showModalcontent: '确认选用当前课表？',
+    focus: false
+  },
+  // 封装模态弹窗方法
+  showModalAsync() {
+    return new Promise((resolve) => {
+      wx.showModal({
+        title: "温馨提示",
+        content: this.data.showModalcontent,
+        success(res) {
+          if (res.confirm) {
+            resolve(res.confirm);
+          }
+        },
+      });
+    });
+  },
+  // Toast封装
+  showToast() {
+    wx.showToast({
+      title: '无法删除',
+      icon: 'error',
+      duration: 2000
+    })
+  },
+  // 选用对应课表
+  toSelect(e) {
+    console.log(e.currentTarget.dataset);
+    this.data.showModalcontent = '确认选用当前课表？'
+    this.showModalAsync().then(() => {
+      app.globalData.id = e.currentTarget.dataset.id;
+      wx.navigateBack({
+        delta: 1
+      });
+    })
+  },
+  // 删除对应课表
+  toDel(e) {
+    if (this.data.CurriculumList.length === 1) {
+      this.showToast()
+    } else {
+      this.data.showModalcontent = '确认删除当前课表？'
+      this.showModalAsync().then(() => {
+        db.where({
+          _id: e.currentTarget.dataset.id
+        }).remove({
+          success: (res) => {
+            console.log(res.data)
+            if (e.currentTarget.dataset.id == app.globalData.id) {
+              app.globalData.id = this.data.CurriculumList[0]._id
+            }
+            for (let i = 0; i < this.data.CurriculumList.length; i++) {
+              if (this.data.CurriculumList[i]._id == e.currentTarget.dataset.id) {
+                let CurriculumListTemp = this.data.CurriculumList
+                CurriculumListTemp.splice(i, 1)
+                this.setData({
+                  CurriculumList: CurriculumListTemp
+                })
+              }
+            }
+          }
+        })
+      })
+    }
+  },
+  // 绑定input框数据
+  inputModel(e) {
+    this.setData({
+      value: e.detail.value,
+      tip: ''
+    })
+  },
+  // 新建课表弹窗
+  toCreateCurriculum() {
+    this.setData({
+      pageContainerShow: !this.data.pageContainerShow,
+      tip: '',
+      focus: true
+    });
+  },
+  // 新建课表数据库提交函数封装
+  addSaveToDataBase() {
+    db.add({
+      // data 字段表示需新增的 JSON 数据
+      data: {
+        name: this.data.value,
+        // 课程信息
+        Course: app.globalData.Course,
+        // 课程安排
+        arrangement: app.globalData.arrangement,
+        // 上课时段
+        hour: app.globalData.hour,
+        // 课表信息
+        classInfo: app.globalData.classInfo,
+      },
+      success: (res) => {
+        app.globalData.id = res._id;
+        console.log(`课程表${app.globalData.id}添加成功`, res);
+        wx.redirectTo({
+          url: '../index/index'
+        })
+      },
+    })
   },
   // 新建课表
   createCurriculum() {
-    this.setData({
-      pageContainerShow: true,
-    });
-    // db.add({
-    //   // data 字段表示需新增的 JSON 数据
-    //   data: {
-    //     name: this.data,
-    //     // 课程信息
-    //     Course: app.globalData.Course,
-    //     // 课程安排
-    //     arrangement: app.globalData.arrangement,
-    //     // 上课时段
-    //     hour: app.globalData.hour,
-    //     // 课表信息
-    //     classInfo: app.globalData.classInfo,
-    //   },
-    //   success: (res) => {
-    //     app.globalData.id = res._id;
-    //     console.log(`课程表${app.globalData.id}添加成功`, res);
-    //     wx.navigateBack({
-    //       delta: 1
-    //     });
-    //   },
-    // })
+    for (let item of this.data.CurriculumList) {
+      if (item.name === this.data.value) {
+        this.setData({
+          tip: '课表命名重复'
+        })
+        console.log('重名');
+        return
+      }
+    }
+    this.addSaveToDataBase()
+  },
+  // 取消新建课表
+  notCreateCurriculum() {
+    this.toCreateCurriculum()
   },
   goBack() {
+    console.log('进入了goBack事件')
     wx.navigateBack({
       delta: 1,
     });
