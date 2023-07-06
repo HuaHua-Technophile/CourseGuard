@@ -9,7 +9,8 @@
   </view>
   <!-- 添加课表的假页面容器 -->
   <page-container show="{{pageContainerShow}}" custom-style="background: transparent !important;backdrop-filter: blur(6px);padding-bottom:30px;">
-    <input focus="{{focus}}" style="width: 80%;background:rgba(var(--body-theme-color-rgb),0.5);" class="mx-auto mb-3 rounded-pill p-2 text-center" bindinput="inputModel" type="text" placeholder-class="text-body text-center" placeholder="请输入新的课表名称好嘛~" />
+    <!-- 课表名称输入框 -->
+    <input focus="{{focus}}" style="width: 80%;background:rgba(var(--body-theme-color-rgb),0.5);" class="mx-auto mb-3 rounded-pill p-2 text-center" bindinput="inputModel" type="text" placeholder-class="text-light-emphasis text-center" placeholder="请输入新的课表名称好嘛~" />
     <!-- 确认/取消按钮 -->
     <view class="d-flex justify-content-evenly">
       <AnimateButton bind:tap="notCreateCurriculum" class="me-3" style="width: 25vw;height:33px">
