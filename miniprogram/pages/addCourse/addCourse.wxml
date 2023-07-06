@@ -53,8 +53,8 @@
             <text class="me-3">课程备注</text>
             <input placeholder="请输入" class="flex-grow-1 d-inline text-end fs-7 opacity-75" maxlength="25" value="{{item.remark}}" data-value="remark" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
-          <view class="position-absolute top-0 end-0 bg-danger bg-opacity-50 d-flex justify-content-center align-items-center" style="height: 13px;width:20px;border-radius: 0 0 0 0.375rem;">
-            <view class="iconfont icon-shanchu1 fs-8 fw-bold"></view>
+          <view class="position-absolute top-0 end-0 bg-danger bg-opacity-50 d-flex justify-content-center align-items-center" style="height: 15px;width:22px;border-radius: 0 0 0 0.375rem;" data-index="{{index}}" data-name="{{item.name}}" bindtap="deleteThisCourse">
+            <view class="iconfont icon-shanchu1 fs-10 fw-bold"></view>
           </view>
         </view>
       </view>
