@@ -48,6 +48,7 @@ Page({
       location: "",
       bgColor: "",
       textColor: "",
+      remark: "",
     });
     this.setData({ CourseList });
     console.log("当前课表新增了一节课程:", this.data.CourseList);
