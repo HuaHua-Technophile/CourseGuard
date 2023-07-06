@@ -37,10 +37,8 @@ App({
     // 课程信息
     Course: {},
     // 课程安排
-    arrangement: [
-      {
-        morningCourses: [
-          {
+    arrangement: [{
+        morningCourses: [{
             Course: "",
           },
           {
@@ -53,8 +51,7 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [
-          {
+        afternoonCourses: [{
             Course: "",
           },
           {
@@ -67,8 +64,7 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [
-          {
+        nightCourses: [{
             Course: "",
           },
           {
@@ -77,8 +73,7 @@ App({
         ],
       },
       {
-        morningCourses: [
-          {
+        morningCourses: [{
             Course: "",
           },
           {
@@ -91,8 +86,7 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [
-          {
+        afternoonCourses: [{
             Course: "",
           },
           {
@@ -105,8 +99,7 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [
-          {
+        nightCourses: [{
             Course: "",
           },
           {
@@ -115,8 +108,7 @@ App({
         ],
       },
       {
-        morningCourses: [
-          {
+        morningCourses: [{
             Course: "",
           },
           {
@@ -129,8 +121,7 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [
-          {
+        afternoonCourses: [{
             Course: "",
           },
           {
@@ -143,8 +134,7 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [
-          {
+        nightCourses: [{
             Course: "",
           },
           {
@@ -153,8 +143,7 @@ App({
         ],
       },
       {
-        morningCourses: [
-          {
+        morningCourses: [{
             Course: "",
           },
           {
@@ -167,8 +156,7 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [
-          {
+        afternoonCourses: [{
             Course: "",
           },
           {
@@ -181,8 +169,7 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [
-          {
+        nightCourses: [{
             Course: "",
           },
           {
@@ -191,8 +178,7 @@ App({
         ],
       },
       {
-        morningCourses: [
-          {
+        morningCourses: [{
             Course: "",
           },
           {
@@ -205,8 +191,7 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [
-          {
+        afternoonCourses: [{
             Course: "",
           },
           {
@@ -219,8 +204,7 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [
-          {
+        nightCourses: [{
             Course: "",
           },
           {
@@ -229,8 +213,7 @@ App({
         ],
       },
       {
-        morningCourses: [
-          {
+        morningCourses: [{
             Course: "",
           },
           {
@@ -243,8 +226,7 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [
-          {
+        afternoonCourses: [{
             Course: "",
           },
           {
@@ -257,8 +239,7 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [
-          {
+        nightCourses: [{
             Course: "",
           },
           {
@@ -267,8 +248,7 @@ App({
         ],
       },
       {
-        morningCourses: [
-          {
+        morningCourses: [{
             Course: "",
           },
           {
@@ -281,8 +261,7 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [
-          {
+        afternoonCourses: [{
             Course: "",
           },
           {
@@ -295,8 +274,7 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [
-          {
+        nightCourses: [{
             Course: "",
           },
           {
@@ -307,8 +285,7 @@ App({
     ],
     // 上课时段
     hour: {
-      morningArr: [
-        {
+      morningArr: [{
           id: 1,
           startTime: "07:00",
           endTime: "07:40",
@@ -329,8 +306,7 @@ App({
           endTime: "10:40",
         },
       ],
-      afternonArr: [
-        {
+      afternonArr: [{
           id: 1,
           startTime: "13:00",
           endTime: "13:40",
@@ -351,8 +327,7 @@ App({
           endTime: "16:40",
         },
       ],
-      nightArr: [
-        {
+      nightArr: [{
           id: 1,
           startTime: "19:00",
           endTime: "19:40",
