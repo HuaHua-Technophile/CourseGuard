@@ -68,24 +68,26 @@ Page({
         title: "课程的简称为空",
         icon: "error",
       });
-    let Course = {};
-    this.data.CourseList.forEach((i) => {
-      Course[i.name] = i;
-    });
-    db.doc(`${app.globalData.id}`).set({
-      data: {
-        Course,
-        name: this.data.Curriculum.name,
-        classInfo: this.data.Curriculum.classInfo,
-        arrangement: this.data.Curriculum.arrangement,
-        hour: this.data.Curriculum.hour,
-      },
-      success: function (res) {
-        console.log("更新了数据库", res);
-        wx.navigateBack({ delta: 1 });
-      },
-    });
-    console.log("点击了保存", Course);
+    else {
+      let Course = {};
+      this.data.CourseList.forEach((i) => {
+        Course[i.name] = i;
+      });
+      db.doc(`${app.globalData.id}`).set({
+        data: {
+          Course,
+          name: this.data.Curriculum.name,
+          classInfo: this.data.Curriculum.classInfo,
+          arrangement: this.data.Curriculum.arrangement,
+          hour: this.data.Curriculum.hour,
+        },
+        success: function (res) {
+          console.log("更新了数据库", res);
+          wx.navigateBack({ delta: 1 });
+        },
+      });
+      console.log("点击了保存", Course);
+    }
   },
   /*生命周期函数--监听页面加载*/
   onLoad(options) {
