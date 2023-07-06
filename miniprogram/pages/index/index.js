@@ -10,12 +10,21 @@ Page({
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
+    navBarWidth: 0, // 胶囊遮挡的不可用区域宽度,用作右外边距/右内边距
     CourseList: [], //课程列表,用户picker选择器的遍历
+    checkCount: 0, //当前已经勾选的课时的统计,如果没有勾选任何课程则弹出提示
   },
   // 关于我们
   aboutUs() {
     this.setData({
       pageContainerShow: true,
+    });
+  },
+  // 没选课时的提示
+  NothingCheckToast() {
+    wx.showToast({
+      title: "您还未勾选课时",
+      icon: "error",
     });
   },
   // CourseList课程列表修改与当前课程信息log打印
@@ -50,18 +59,31 @@ Page({
   toThisPage(e) {
     wx.navigateTo({ url: e.currentTarget.dataset.url });
   },
-  // 切换状态,进入预备编辑------------------------------
-  changeEditing() {
+  // 切换课表中的check状态,封装为函数,供changeEditing与全选操作调用
+  changeArrangementCheck(flag) {
     let arrangement = this.data.Curriculum.arrangement;
     arrangement.forEach((i) => {
       for (let j in i) {
-        i[j].forEach((k) => (k.check = false));
+        i[j].forEach((k) => (k.check = flag));
       }
     });
-    this.setData({ Editing: !this.data.Editing });
+    if (flag)
+      this.setData({
+        checkCount:
+          7 *
+          (this.data.Curriculum.morningCourses +
+            this.data.Curriculum.afternoonCourses +
+            this.data.Curriculum.nightCourses),
+      });
+    else this.setData({ checkCount: 0 });
     this.setData({ [`Curriculum.arrangement`]: arrangement });
   },
-  // 点击添加课程进入预备编辑,或提示课程信息
+  // 切换状态,进入预备编辑------------------------------
+  changeEditing() {
+    this.changeArrangementCheck(false);
+    this.setData({ Editing: !this.data.Editing });
+  },
+  // 点击添加课时进入预备编辑,或提示课程信息
   addCourseToEditing(e) {
     if (this.data.Editing) {
       let arrangement = this.data.Curriculum.arrangement;
@@ -70,6 +92,14 @@ Page({
       ].check = !arrangement[e.currentTarget.dataset.day][
         e.currentTarget.dataset.course
       ][e.currentTarget.dataset.index].check; //check取反
+      if (
+        arrangement[e.currentTarget.dataset.day][
+          e.currentTarget.dataset.course
+        ][e.currentTarget.dataset.index].check
+      )
+        this.setData({ checkCount: this.data.checkCount + 1 });
+      //如果新增勾选,就增加
+      else this.setData({ checkCount: this.data.checkCount - 1 }); //取消勾选就减少
       this.setData({
         [`Curriculum.arrangement[${e.currentTarget.dataset.day}].${e.currentTarget.dataset.course}[${e.currentTarget.dataset.index}].check`]: arrangement[
           e.currentTarget.dataset.day
@@ -85,16 +115,20 @@ Page({
       console.log("弹出课程信息框");
     }
   },
-  // 遍历编辑课表,封装为方法,供批量修改课程和批量删除课程使用
+  // 遍历编辑课表,封装为方法,供批量修改课时和批量删除课时使用
   editingArrangement(course) {
     let arrangement = this.data.Curriculum.arrangement;
     arrangement.forEach((i) => {
       for (let j in i) {
         i[j].forEach((k) => {
-          if (k.check == true) k.Course = course;
+          if (k.check == true) {
+            k.check = false;
+            k.Course = course;
+          }
         });
       }
     });
+    this.setData({ checkCount: 0 });
     db.where({ _id: this.data.id }).update({
       data: { arrangement },
       success: (res) => {
@@ -108,6 +142,7 @@ Page({
     console.log("picker选择了", this.data.CourseList[e.detail.value]);
     this.editingArrangement(this.data.CourseList[e.detail.value]);
   },
+  // 删除已勾选的课时
   deleteArrangement() {
     this.editingArrangement("");
   },
@@ -124,6 +159,7 @@ Page({
       navBarFullHeight: app.globalData.navBarFullHeight,
       navBarTop: app.globalData.navBarTop,
       navBarHeight: app.globalData.navBarHeight,
+      navBarWidth: app.globalData.navBarWidth,
     });
   },
   onShow() {

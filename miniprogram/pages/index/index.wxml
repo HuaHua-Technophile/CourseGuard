@@ -2,9 +2,10 @@
   <!-- 头部navbar -->
   <view id="nav-bar" class="w-100 position-fixed top-0 start-0 z-3" style="height: {{navBarFullHeight}}px;">
     <!-- navbar内容区,上方都是状态栏 -->
-    <view style="height:{{navBarHeight}}px;margin-top: {{navBarTop}}px;" class="d-flex align-items-center px-2">
+    <view style="height:{{navBarHeight}}px;margin-top: {{navBarTop}}px;padding-right: calc(100% - {{navBarWidth}}px + 5px) !important;" class="d-flex align-items-center ps-2">
       <view class="iconfont icon-guanyuwomen fs-4 me-3" bind:tap="goBack"></view>
       <text>{{Curriculum.name}}</text>
+      <view wx:if="{{Editing}}" class="ms-1 opacity-75 fs-9 d-flex align-items-end">(已选{{checkCount}})</view>
     </view>
   </view>
   <!-- 假页面容器组件 -->
@@ -56,10 +57,10 @@
             <!-- 每一列(周几) -->
             <view wx:for="{{ Curriculum.arrangement }}" wx:for-index="day" wx:key="day" style="flex:1" class="itemMarginX">
               <!-- 每一节课程的item -->
-              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" wx:if="{{index < Curriculum.classInfo.morningCourses}}" style="height: var(--itemHeight);color:{{Curriculum.Course[j.Course].textColor}};background: rgba({{Curriculum.Course[j.Course].courseColor}},0.3);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bindtap="addCourseToEditing">
-                <view class="fs-9">{{j.Course}}</view>
+              <view wx:for="{{ item.morningCourses }}" wx:for-item="j" wx:key="index" wx:if="{{index < Curriculum.classInfo.morningCourses}}" style="height: var(--itemHeight);color:rgb({{Curriculum.Course[j.Course].textColor}});background: rgba({{Curriculum.Course[j.Course].bgColor}},0.8);" class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-day='{{day}}' data-index='{{index}}' bindtap="addCourseToEditing">
+                <view class="fs-9">{{Curriculum.Course[j.Course].name}}</view>
                 <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].teacher}}</view>
-                <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].classRoom}}</view>
+                <view class="fs-10 fs-body opacity-50">{{Curriculum.Course[j.Course].location}}</view>
                 <!-- 勾选框 -->
                 <view hidden="{{!Editing}}" class="position-absolute end-0 bottom-0 border {{theme=='light'?'border-pink bg-pink':'border-purple bg-purple'}} border-opacity-50 {{j.check?'':'bg-opacity-10'}} rounded" style="width:10px;height: 10px;margin: 0 0.5px 0.5px 0;"></view>
               </view>
@@ -69,7 +70,6 @@
           <!-- 晚上 -->
         </view>
       </view>
-
       <!-- 下方操作栏 -->
       <view wx:if="{{!Editing}}" class="d-flex">
         <AnimateButton class="flex-grow-1 mx-2" bindtap="changeEditing">
@@ -99,7 +99,7 @@
       </view>
       <!-- 课表编辑栏 -->
       <view wx:if="{{Editing}}" class="d-flex">
-        <picker wx:if="{{CourseList.length>0}}" bindchange="changeArrangement" value="{{index}}" range="{{CourseList}}" class="flex-grow-1 mx-2">
+        <picker wx:if="{{CourseList.length>0&&checkCount>0}}" bindchange="changeArrangement" value="{{index}}" range="{{CourseList}}" class="flex-grow-1 mx-2">
           <AnimateButton>
             <view>
               <view class="iconfont icon-bianji d-flex justify-content-center"></view>
@@ -107,13 +107,19 @@
             </view>
           </AnimateButton>
         </picker>
-        <AnimateButton wx:else class="flex-grow-1 mx-2" data-url="../addCourse/addCourse" bindtap="toThisPage">
+        <AnimateButton wx:elif="{{checkCount>0}}" class="flex-grow-1 mx-2" data-url="../addCourse/addCourse" bindtap="toThisPage">
           <view>
             <view class="iconfont icon-bianji d-flex justify-content-center"></view>
             <view>暂无课程</view>
           </view>
         </AnimateButton>
-        <AnimateButton class="flex-grow-1 me-2" bind:tap="deleteArrangement">
+        <AnimateButton wx:else class="flex-grow-1 mx-2" bind:tap="NothingCheckToast">
+          <view>
+            <view class="iconfont icon-bianji d-flex justify-content-center"></view>
+            <view>暂无所选</view>
+          </view>
+        </AnimateButton>
+        <AnimateButton class="flex-grow-1 me-2" bind:tap="{{checkCount>0? 'deleteArrangement':'NothingCheckToast'}}">
           <view>
             <view class="iconfont icon-shanchu d-flex justify-content-center"></view>
             <view>删除所选</view>
@@ -122,7 +128,7 @@
         <AnimateButton class="flex-grow-1 me-2" data-url="../addCourse/addCourse" bindtap="toThisPage">
           <view>
             <view class="iconfont icon-jia d-flex justify-content-center"></view>
-            <view>添加课程</view>
+            <view>增删改课</view>
           </view>
         </AnimateButton>
         <AnimateButton class="flex-grow-1 me-2" bindtap="finishEditing">
