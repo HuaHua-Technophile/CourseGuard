@@ -13,7 +13,11 @@
   </view>
   <!-- 假页面容器组件 -->
   <page-container show="{{pageContainerShow}}" custom-style="background: transparent !important;backdrop-filter: blur(6px);display:flex;justify-content:center;color:#c8c8c8;">
-    <view class="vh-100 d-flex justify-content-center align-items-center bg-transparent"></view>
+    <view class="vh-100 d-flex justify-content-center align-items-center flex-column bg-transparent">
+      <view>课镖客小程序是一种基于微信平台的轻量级应用，可以让用户方便地查看、管理自己的课程安排。课镖客小程序有多种功能和特色：</view>
+      <view>支持自定义课程数、时间、背景等设置，根据不同的时间展示不同的课程</view>
+      <view>支持自定义课表信息展示、课程编辑、新增、切换及删除课表</view>
+    </view>
   </page-container>
   <!-- 页面内容 -->
   <view class="index vh-100 overflow-scroll noScrollBar">
