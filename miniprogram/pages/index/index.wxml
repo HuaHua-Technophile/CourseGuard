@@ -13,10 +13,40 @@
   </view>
   <!-- 假页面容器组件 -->
   <page-container show="{{pageContainerShow}}" custom-style="background: transparent !important;backdrop-filter: blur(6px);display:flex;justify-content:center;color:#c8c8c8;">
-    <view class="vh-100 d-flex justify-content-center align-items-center flex-column bg-transparent">
+    <view wx:if="{{pageContainerAbout}}" class="vh-100 d-flex justify-content-center align-items-center flex-column bg-transparent">
       <view>课镖客小程序是一种基于微信平台的轻量级应用，可以让用户方便地查看、管理自己的课程安排。课镖客小程序有多种功能和特色：</view>
       <view>支持自定义课程数、时间、背景等设置，根据不同的时间展示不同的课程</view>
       <view>支持自定义课表信息展示、课程编辑、新增、切换及删除课表</view>
+    </view>
+    <view wx:else class="w-100 pb-5 px-3">
+      <view class="fs-5 mb-3">课程详情</view>
+      <view class="ps-3">
+        <view class="d-flex align-items-center mb-1">
+          <text class="me-3">课程名称:</text>
+          <view class="rounded fs-7 d-flex align-items-center" style="padding: 0px 5px 2px;color:rgb({{Curriculum.Course[Course].textColor}});background: rgba({{Curriculum.Course[Course].bgColor}},0.8);">{{Course}}<view wx:if="{{Curriculum.Course[Course].fullName}}">/{{Curriculum.Course[Course].fullName}}</view>
+          </view>
+        </view>
+        <view class="d-flex align-items-center mb-1">
+          <text class="me-3">授课地点:</text>
+          <view class="fs-7">{{Curriculum.Course[Course].location}}
+          </view>
+        </view>
+        <view class="d-flex align-items-center mb-1">
+          <text class="me-3">授课教师:</text>
+          <view class="fs-7">{{Curriculum.Course[Course].teacher}}
+          </view>
+        </view>
+        <view class="d-flex align-items-center mb-1">
+          <text class="me-3">授课时长:</text>
+          <view class="fs-7">{{CourseTime.startTime}} - {{CourseTime.endTime}}
+          </view>
+        </view>
+        <view class="d-flex align-items-center mb-1">
+          <text class="me-3 text-nowrap">课程备注:</text>
+          <view class="fs-8 opacity-75">{{Curriculum.Course[Course].remark}}
+          </view>
+        </view>
+      </view>
     </view>
   </page-container>
   <!-- 页面内容 -->

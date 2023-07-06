@@ -6,6 +6,9 @@ Page({
     week: -1, //今天是周几,用于顶部周几高亮
     Editing: false, //是否处于编辑状态
     pageContainerShow: false, // 假页面容器展示状态
+    pageContainerAbout: false, // 控制当前弹出的假页面容器,是用于展示"关于我们",还是"课程信息"
+    Course: "", //弹出的假页面如果展示的是课程信息,那就从这里拿取数据
+    CourseTime: "", //弹出的假页面如果展示的是课程信息,那就从这里拿取上课时长的数据
     theme: "", //暗色/亮色
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
@@ -21,6 +24,7 @@ Page({
   // 关于我们
   aboutUs() {
     this.setData({
+      pageContainerAbout: true,
       pageContainerShow: true,
     });
   },
@@ -98,7 +102,7 @@ Page({
       Editing: !this.data.Editing
     });
   },
-  // 点击添加课时进入预备编辑,或提示课程信息
+  // 提示课程信息,或点击添加课时进入预备编辑
   addCourseToEditing(e) {
     if (this.data.Editing) {
       let arrangement = this.data.Curriculum.arrangement;
@@ -131,7 +135,19 @@ Page({
         ][e.currentTarget.dataset.index]
       );
     } else {
-      console.log("弹出课程信息框");
+      console.log("当前点击item的name是", e.currentTarget.dataset.name);
+      if (e.currentTarget.dataset.name) {
+        let CourseTime = this.data.Curriculum.hour[
+          e.currentTarget.dataset.coursetime
+        ][e.currentTarget.dataset.index];
+        this.setData({
+          CourseTime,
+          pageContainerAbout: false,
+          Course: e.currentTarget.dataset.name,
+          pageContainerShow: true,
+        });
+        console.log("这节课的授课时长是:", this.data.CourseTime);
+      }
     }
   },
   // 遍历编辑课表,封装为方法,供批量修改课时和批量删除课时使用
