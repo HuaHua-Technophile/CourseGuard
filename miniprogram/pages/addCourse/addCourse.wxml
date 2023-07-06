@@ -18,7 +18,7 @@
       </view>
       <!-- 课程列表 -->
       <view class="mb-2">
-        <view wx:for="{{CourseList}}" wx:key="index" class="rounded {{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50 mb-2 p-3">
+        <view wx:for="{{CourseList}}" wx:key="index" class="rounded overflow-hidden {{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50 mb-2 p-3 position-relative">
           <view class="d-flex justify-content-between mb-2">
             <text class="me-3">课程简称</text>
             <input placeholder="必填,4位长度以内" class="flex-grow-1 d-inline text-end" maxlength="4" value="{{item.name}}" data-value="name" id="{{index}}" confirm-type="done" bindblur="changeValue" />
@@ -52,6 +52,9 @@
           <view class="d-flex justify-content-between">
             <text class="me-3">课程备注</text>
             <input placeholder="请输入" class="flex-grow-1 d-inline text-end fs-7 opacity-75" maxlength="25" value="{{item.remark}}" data-value="remark" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+          </view>
+          <view class="position-absolute top-0 end-0 bg-danger bg-opacity-50 d-flex justify-content-center align-items-center" style="height: 13px;width:20px;border-radius: 0 0 0 0.375rem;">
+            <view class="iconfont icon-shanchu1 fs-8 fw-bold"></view>
           </view>
         </view>
       </view>
