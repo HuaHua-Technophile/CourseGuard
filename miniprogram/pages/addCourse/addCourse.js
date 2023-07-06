@@ -62,6 +62,23 @@ Page({
       });
     console.log("编辑完成:", this.data.CourseList);
   },
+  // 删除课程
+  deleteThisCourse(e) {
+    wx.showModal({
+      title: `删除${e.currentTarget.dataset.name}`,
+      content: "你不是手滑了嘛?",
+      cancelText: "手滑啦",
+      confirmText: "删掉它!",
+      success: (res) => {
+        if (res.confirm) {
+          let CourseList = this.data.CourseList;
+          CourseList.splice(e.currentTarget.dataset.index, 1);
+          this.setData({ CourseList });
+        }
+      },
+    });
+  },
+  // 保存数据,替换数据库中数据
   saveCourse() {
     if (this.data.CourseList.some((i) => i.name == ""))
       wx.showToast({
