@@ -33,9 +33,8 @@ Page({
   // Toast封装
   showToast() {
     wx.showToast({
-      title: "无法删除",
+      title: "就剩最后一个咯",
       icon: "error",
-      duration: 2000,
     });
   },
   // 选用对应课表
@@ -129,9 +128,9 @@ Page({
     for (let item of this.data.CurriculumList) {
       if (item.name === this.data.value) {
         wx.showToast({
-          title: '名字一猫一样',
-          icon:'error'
-        })
+          title: "名字一猫一样",
+          icon: "error",
+        });
         return;
       }
     }

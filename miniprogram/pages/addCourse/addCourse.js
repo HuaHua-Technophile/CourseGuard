@@ -83,7 +83,7 @@ Page({
   saveCourse() {
     if (this.data.CourseList.some((i) => i.name == ""))
       wx.showToast({
-        title: "课程的简称为空",
+        title: "还有没填的哦",
         icon: "error",
       });
     else {
