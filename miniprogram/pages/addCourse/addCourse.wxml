@@ -20,38 +20,38 @@
       <view class="mb-2">
         <view wx:for="{{CourseList}}" wx:key="index" class="rounded {{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50 mb-2 p-3">
           <view class="d-flex justify-content-between mb-2">
-            <text>课程简称</text>
+            <text class="me-3">课程简称</text>
             <input placeholder="必填,4位长度以内" class="flex-grow-1 d-inline text-end" maxlength="4" value="{{item.name}}" data-value="name" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
           <view class="d-flex justify-content-between mb-2">
-            <text>课程全称</text>
+            <text class="me-3">课程全称</text>
             <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="12" value="{{item.fullName}}" data-value="fullName" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
           <view class="d-flex justify-content-between mb-2">
-            <text>教师称呼</text>
+            <text class="me-3">教师称呼</text>
             <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.teacher}}" data-value="teacher" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
           <view class="d-flex justify-content-between mb-2">
-            <text>授课地点</text>
+            <text class="me-3">授课地点</text>
             <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="10" value="{{item.location}}" data-value="location" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
           <view class="d-flex justify-content-between mb-2">
-            <text>背景颜色</text>
+            <text class="me-3">背景颜色</text>
             <view data-index="{{index}}" data-color="bgColor" bind:tap="toPick" class="d-flex align-items-center ">
               <text class="me-2 fs-8 {{item.bgColor?'':'opacity-50'}}">{{item.bgColor||'背景色'}}</text>
               <view style="height: 15px; width: 15px; --course-bg-rgb:{{item.bgColor}};" class="CourseBg rounded-pill border"></view>
             </view>
           </view>
           <view class="d-flex justify-content-between mb-2">
-            <text>字体颜色</text>
+            <text class="me-3">字体颜色</text>
             <view data-index="{{index}}" data-color="textColor" bind:tap="toPick" class="d-flex align-items-center">
               <text class="me-2 fs-8 {{item.textColor?'':'opacity-50'}}">{{item.textColor||'前景色'}}</text>
               <view style="height: 15px; width: 15px; --course-text-rgb:{{item.textColor}};" class="CourseText rounded-pill border"></view>
             </view>
           </view>
           <view class="d-flex justify-content-between">
-            <text>课程备注</text>
-            <input placeholder="请输入" class="flex-grow-1 d-inline text-end" maxlength="25" value="{{item.remark}}" data-value="remark" id="{{index}}" confirm-type="done" bindblur="changeValue" />
+            <text class="me-3">课程备注</text>
+            <input placeholder="请输入" class="flex-grow-1 d-inline text-end fs-7 opacity-75" maxlength="25" value="{{item.remark}}" data-value="remark" id="{{index}}" confirm-type="done" bindblur="changeValue" />
           </view>
         </view>
       </view>

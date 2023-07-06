@@ -8,6 +8,7 @@ App({
       menuButtonInfo.top + menuButtonInfo.height;
     that.globalData.navBarTop = menuButtonInfo.top;
     that.globalData.navBarHeight = menuButtonInfo.height;
+    that.globalData.navBarWidth = menuButtonInfo.left;
     // 暗色/亮色检测----------------------
     wx.getSystemInfo({
       success: (res) => (that.globalData.theme = res.theme),
@@ -31,25 +32,15 @@ App({
     navBarFullHeight: 0, // 整个导航栏高度
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
+    navBarWidth: 0, // 胶囊遮挡的不可用区域宽度,用作右外边距/右内边距
     // 默认课表/新课表---骨架数据
     // 课程信息
     Course: {},
     // 课程安排
-    arrangement: [{
-        morningCourses: [{
-            Course: "",
-          },
+    arrangement: [
+      {
+        morningCourses: [
           {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-        ],
-        afternoonCourses: [{
             Course: "",
           },
           {
@@ -62,7 +53,22 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [{
+        afternoonCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [
+          {
             Course: "",
           },
           {
@@ -71,20 +77,8 @@ App({
         ],
       },
       {
-        morningCourses: [{
-            Course: "",
-          },
+        morningCourses: [
           {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-        ],
-        afternoonCourses: [{
             Course: "",
           },
           {
@@ -97,16 +91,8 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [{
-            Course: "",
-          },
+        afternoonCourses: [
           {
-            Course: "",
-          },
-        ],
-      },
-      {
-        morningCourses: [{
             Course: "",
           },
           {
@@ -119,20 +105,8 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [{
-            Course: "",
-          },
+        nightCourses: [
           {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-        ],
-        nightCourses: [{
             Course: "",
           },
           {
@@ -141,20 +115,8 @@ App({
         ],
       },
       {
-        morningCourses: [{
-            Course: "",
-          },
+        morningCourses: [
           {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-        ],
-        afternoonCourses: [{
             Course: "",
           },
           {
@@ -167,16 +129,8 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [{
-            Course: "",
-          },
+        afternoonCourses: [
           {
-            Course: "",
-          },
-        ],
-      },
-      {
-        morningCourses: [{
             Course: "",
           },
           {
@@ -189,20 +143,8 @@ App({
             Course: "",
           },
         ],
-        afternoonCourses: [{
-            Course: "",
-          },
+        nightCourses: [
           {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-        ],
-        nightCourses: [{
             Course: "",
           },
           {
@@ -211,20 +153,8 @@ App({
         ],
       },
       {
-        morningCourses: [{
-            Course: "",
-          },
+        morningCourses: [
           {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-        ],
-        afternoonCourses: [{
             Course: "",
           },
           {
@@ -237,7 +167,22 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [{
+        afternoonCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [
+          {
             Course: "",
           },
           {
@@ -246,20 +191,8 @@ App({
         ],
       },
       {
-        morningCourses: [{
-            Course: "",
-          },
+        morningCourses: [
           {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-          {
-            Course: "",
-          },
-        ],
-        afternoonCourses: [{
             Course: "",
           },
           {
@@ -272,7 +205,98 @@ App({
             Course: "",
           },
         ],
-        nightCourses: [{
+        afternoonCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+      {
+        morningCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+      },
+      {
+        morningCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        afternoonCourses: [
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+          {
+            Course: "",
+          },
+        ],
+        nightCourses: [
+          {
             Course: "",
           },
           {
@@ -283,7 +307,8 @@ App({
     ],
     // 上课时段
     hour: {
-      morningArr: [{
+      morningArr: [
+        {
           id: 1,
           startTime: "07:00",
           endTime: "07:40",
@@ -304,7 +329,8 @@ App({
           endTime: "10:40",
         },
       ],
-      afternonArr: [{
+      afternonArr: [
+        {
           id: 1,
           startTime: "13:00",
           endTime: "13:40",
@@ -325,7 +351,8 @@ App({
           endTime: "16:40",
         },
       ],
-      nightArr: [{
+      nightArr: [
+        {
           id: 1,
           startTime: "19:00",
           endTime: "19:40",
@@ -343,6 +370,5 @@ App({
       afternoonCourses: 4, //下午课程数量
       nightCourses: 2, //晚上课程数量
     },
-
   },
 });
