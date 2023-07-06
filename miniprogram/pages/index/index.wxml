@@ -13,10 +13,12 @@
   </view>
   <!-- 假页面容器组件 -->
   <page-container show="{{pageContainerShow}}" custom-style="background: transparent !important;backdrop-filter: blur(6px);display:flex;justify-content:center;color:#c8c8c8;">
-    <view wx:if="{{pageContainerAbout}}" class="vh-100 d-flex justify-content-center align-items-center flex-column bg-transparent">
-      <view>课镖客小程序是一种基于微信平台的轻量级应用，可以让用户方便地查看、管理自己的课程安排。课镖客小程序有多种功能和特色：</view>
-      <view>支持自定义课程数、时间、背景等设置，根据不同的时间展示不同的课程</view>
-      <view>支持自定义课表信息展示、课程编辑、新增、切换及删除课表</view>
+    <view wx:if="{{pageContainerAbout}}" class="vh-100 d-flex px-3 justify-content-center align-items-center flex-column bg-transparent">
+      <view style="line-height: 50rpx;">课镖客小程序是一种基于微信平台的轻量级应用，可以让用户方便地查看、管理自己的课程安排。课镖客小程序有多种功能和特色：</view>
+      <view style="line-height: 50rpx;">支持自定义课程数、时间、背景等设置，根据不同的时间展示不同的课程</view>
+      <view style="line-height: 50rpx;">支持自定义课表信息展示、课程编辑、新增、切换及删除课表</view>
+      <view style="line-height: 50rpx;">课镖客遵循友好、高效、一致的设计原则，每个页面都应有明确的重点，清晰明确地告知用户身在何处、又可以往何处去，确保用户在页面中游刃有余地穿梭而不迷路</view>
+      <view style="line-height: 50rpx;">易于操作的选择控件改善用户输入的体验。并保持不同页面间导航一致，指向清晰，有路可退</view>
     </view>
     <view wx:else class="w-100 pb-5 px-3">
       <view class="fs-5 mb-3">课程详情</view>
