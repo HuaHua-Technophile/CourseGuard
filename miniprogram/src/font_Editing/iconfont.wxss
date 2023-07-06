@@ -1,6 +1,7 @@
 @font-face {
   font-family: "iconfont"; /* Project id 4150822 */
-  src: url('//at.alicdn.com/t/c/font_4150822_lwnbij6ept.woff2?t=1688541238397') format('woff2');
+  src: url("//at.alicdn.com/t/c/font_4150822_mhkf9qw95x.woff2?t=1688615242753")
+    format("woff2");
 }
 
 .iconfont {
@@ -8,6 +9,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shanchu1:before {
+  content: "\e66e";
 }
 
 .icon-guanyuwomen:before {
