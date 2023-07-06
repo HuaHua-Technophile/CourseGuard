@@ -12,10 +12,10 @@ Component({
    */
   data: {
     switchArr: ['teacherState', 'classroomState', 'starState', 'sunState'],
-    teacherState: false,
-    classroomState: false,
-    starState: false,
-    sunState: false
+    teacherState: true,
+    classroomState: true,
+    starState: true,
+    sunState: true
   },
 
   /**

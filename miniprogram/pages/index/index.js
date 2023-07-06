@@ -18,8 +18,10 @@ Page({
     checkCount: 0, //当前已经勾选的课时的统计,如果没有勾选任何课程则弹出提示
     storageData: {},
     dayArr: ['一', '二', '三', '四', '五', '六', '日'],
-    teacherShow: false,
-    teachAdress: false
+    teacherShow: true,
+    teachAdress: true,
+    showStarday: true,
+    showSunday: true
   },
   // 关于我们
   aboutUs() {
@@ -214,19 +216,27 @@ Page({
         if (this.data.storageData.starState && this.data.storageData.sunState) {
           console.log('成功');
           this.setData({
-            dayArr: ['一', '二', '三', '四', '五', '六', '日']
+            dayArr: ['一', '二', '三', '四', '五', '六', '日'],
+            showStarday: true,
+            showSunday: true
           })
         } else if (this.data.storageData.starState === false && this.data.storageData.sunState) {
           this.setData({
-            dayArr: ['一', '二', '三', '四', '五', '日']
+            dayArr: ['一', '二', '三', '四', '五', '日'],
+            showStarday: false,
+            showSunday: true
           })
         } else if (this.data.storageData.starState && this.data.storageData.sunState === false) {
           this.setData({
-            dayArr: ['一', '二', '三', '四', '五', '六']
+            dayArr: ['一', '二', '三', '四', '五', '六'],
+            showStarday: true,
+            showSunday: false
           })
         } else if (this.data.storageData.starState === false && this.data.storageData.sunState === false) {
           this.setData({
-            dayArr: ['一', '二', '三', '四', '五']
+            dayArr: ['一', '二', '三', '四', '五'],
+            showStarday: false,
+            showSunday: false
           })
         }
         this.setData({
