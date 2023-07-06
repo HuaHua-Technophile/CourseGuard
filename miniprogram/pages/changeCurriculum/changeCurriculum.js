@@ -8,17 +8,20 @@ Page({
     navBarTop: 0, //navbar内容区域顶边距
     navBarHeight: 0, //navbar内容区域高度
     pageContainerShow: false,
-    value: '',
-    tip: '',
-    showModalcontent: '确认选用当前课表？',
-    focus: false
+    value: "",
+    tip: "",
+    showModalcontent: "确认选用当前课表？",
+    confirmText: "就要它!",
+    focus: false,
   },
   // 封装模态弹窗方法
   showModalAsync() {
     return new Promise((resolve) => {
       wx.showModal({
-        title: "温馨提示",
+        title: "妳不是手滑了嘛?",
         content: this.data.showModalcontent,
+        cancelText: "手滑啦~",
+        confirmText: this.data.confirmText,
         success(res) {
           if (res.confirm) {
             resolve(res.confirm);
@@ -30,64 +33,68 @@ Page({
   // Toast封装
   showToast() {
     wx.showToast({
-      title: '无法删除',
-      icon: 'error',
-      duration: 2000
-    })
+      title: "无法删除",
+      icon: "error",
+      duration: 2000,
+    });
   },
   // 选用对应课表
   toSelect(e) {
     console.log(e.currentTarget.dataset);
-    this.data.showModalcontent = '确认选用当前课表？'
+    this.data.showModalcontent = `移情别恋至 '${e.currentTarget.dataset.name}' ?`;
+    this.data.confirmText = "就要它!";
     this.showModalAsync().then(() => {
       app.globalData.id = e.currentTarget.dataset.id;
       wx.navigateBack({
-        delta: 1
+        delta: 1,
       });
-    })
+    });
   },
   // 删除对应课表
   toDel(e) {
     if (this.data.CurriculumList.length === 1) {
-      this.showToast()
+      this.showToast();
     } else {
-      this.data.showModalcontent = '确认删除当前课表？'
+      this.data.showModalcontent = `要丢掉 '${e.currentTarget.dataset.name}' ？`;
+      this.data.confirmText = "丢掉它!";
       this.showModalAsync().then(() => {
         db.where({
-          _id: e.currentTarget.dataset.id
+          _id: e.currentTarget.dataset.id,
         }).remove({
           success: (res) => {
-            console.log(res.data)
+            console.log(res.data);
             if (e.currentTarget.dataset.id == app.globalData.id) {
-              app.globalData.id = this.data.CurriculumList[0]._id
+              app.globalData.id = this.data.CurriculumList[0]._id;
             }
             for (let i = 0; i < this.data.CurriculumList.length; i++) {
-              if (this.data.CurriculumList[i]._id == e.currentTarget.dataset.id) {
-                let CurriculumListTemp = this.data.CurriculumList
-                CurriculumListTemp.splice(i, 1)
+              if (
+                this.data.CurriculumList[i]._id == e.currentTarget.dataset.id
+              ) {
+                let CurriculumListTemp = this.data.CurriculumList;
+                CurriculumListTemp.splice(i, 1);
                 this.setData({
-                  CurriculumList: CurriculumListTemp
-                })
+                  CurriculumList: CurriculumListTemp,
+                });
               }
             }
-          }
-        })
-      })
+          },
+        });
+      });
     }
   },
   // 绑定input框数据
   inputModel(e) {
     this.setData({
       value: e.detail.value,
-      tip: ''
-    })
+      tip: "",
+    });
   },
   // 新建课表弹窗
   toCreateCurriculum() {
     this.setData({
       pageContainerShow: !this.data.pageContainerShow,
-      tip: '',
-      focus: true
+      tip: "",
+      focus: true,
     });
   },
   // 新建课表数据库提交函数封装
@@ -109,30 +116,30 @@ Page({
         app.globalData.id = res._id;
         console.log(`课程表${app.globalData.id}添加成功`, res);
         wx.redirectTo({
-          url: '../index/index'
-        })
+          url: "../index/index",
+        });
       },
-    })
+    });
   },
   // 新建课表
   createCurriculum() {
     for (let item of this.data.CurriculumList) {
       if (item.name === this.data.value) {
         this.setData({
-          tip: '课表命名重复'
-        })
-        console.log('重名');
-        return
+          tip: "课表命名重复",
+        });
+        console.log("重名");
+        return;
       }
     }
-    this.addSaveToDataBase()
+    this.addSaveToDataBase();
   },
   // 取消新建课表
   notCreateCurriculum() {
-    this.toCreateCurriculum()
+    this.toCreateCurriculum();
   },
   goBack() {
-    console.log('进入了goBack事件')
+    console.log("进入了goBack事件");
     wx.navigateBack({
       delta: 1,
     });
