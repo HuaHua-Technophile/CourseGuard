@@ -66,9 +66,9 @@ Page({
   // 删除课程
   deleteThisCourse(e) {
     wx.showModal({
-      title: `删除${e.currentTarget.dataset.name}`,
-      content: "你不是手滑了嘛?",
-      cancelText: "手滑啦",
+      title: "妳不是手滑了嘛?",
+      content: `删除${e.currentTarget.dataset.name}`,
+      cancelText: "手滑啦~",
       confirmText: "删掉它!",
       success: (res) => {
         if (res.confirm) {

@@ -7,31 +7,33 @@
       <text>切换课表</text>
     </view>
   </view>
+  <!-- 添加课表的假页面容器 -->
+  <page-container show="{{pageContainerShow}}">
+    <view class="box">
+      <input focus="{{focus}}" bindinput="inputModel" type="text" placeholder-style="color: red" placeholder="请输入课表名称" />
+      <view class="tip">{{tip}}</view>
+      <view class="btnArea">
+        <view class="cl" bindtap="notCreateCurriculum">取消</view>
+        <view class="en" bindtap="createCurriculum">确认</view>
+      </view>
+    </view>
+  </page-container>
   <!-- 内容区域 -->
-  <view class="changeCurr vh-100 overflow-hidden noScrollBar">
+  <view class="changeCurr vh-100 overflow-scroll noScrollBar">
     <view class="mb-4 px-3" style="padding-top: {{navBarFullHeight+5}}px;">
       <!-- 课表列表 -->
-      <view class="tableList {{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50" wx:for="{{CurriculumList}}" wx:key="index">
-        <view class="listItem">
-          <view class="title">{{item.name}}</view>
-          <view class="edit">
-            <view class="select bg-success" bindtap="toSelect" data-id="{{item._id}}">选用</view>
-            <view class="del bg-danger" bindtap="toDel" data-id="{{item._id}}">删除</view>
+      <view class="{{theme=='light'?'bg-light':'bg-dark'}} bg-opacity-50 mb-2 rounded overflow-hidden p-3 d-flex align-items-center justify-content-between" wx:for="{{CurriculumList}}" wx:key="index">
+        <!-- 课表名称 -->
+        <view>{{item.name}}</view>
+        <!-- 切换/删除 -->
+        <view class="d-flex align-items-center">
+          <view class="border border-3 border-success border-opacity-50 rounded me-2 d-flex justify-content-center align-items-center" style="height: 20px;width: 20px;" bindtap="toSelect" data-name="{{item.name}}" data-id="{{item._id}}">
+            <view class="iconfont icon-wancheng fs-5 text-shadow-2 text-success opacity-75"></view>
           </view>
+          <view class="iconfont icon-shanchu fs-3" bindtap="toDel" data-name="{{item.name}}" data-id="{{item._id}}"></view>
         </view>
       </view>
-      <!-- 添加课表 -->
-      <page-container show="{{pageContainerShow}}">
-        <view class="box">
-          <input focus="{{focus}}" bindinput="inputModel" type="text" placeholder-style="color: red" placeholder="请输入课表名称" />
-          <view class="tip">{{tip}}</view>
-          <view class="btnArea">
-            <view class="cl" bindtap="notCreateCurriculum">取消</view>
-            <view class="en" bindtap="createCurriculum">确认</view>
-          </view>
-        </view>
-      </page-container>
-      <view bind:tap="toCreateCurriculum">新建课程表</view>
     </view>
+    <view bind:tap="toCreateCurriculum">新建课程表</view>
   </view>
 </page-meta>

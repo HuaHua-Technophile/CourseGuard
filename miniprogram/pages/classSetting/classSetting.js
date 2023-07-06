@@ -15,8 +15,10 @@ Page({
   showModalAsync() {
     return new Promise((resolve) => {
       wx.showModal({
-        title: "温馨提示",
-        content: "修改课程数量直接影响现有课程配置，确定要这么操作?",
+        title: "妳不是手滑了嘛?",
+        content: "修改课程数量将影响现有课程排序",
+        cancelText: "手滑啦~",
+        confirmText: "就要改!",
         success(res) {
           if (res.confirm) {
             resolve(res.confirm);
