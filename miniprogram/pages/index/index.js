@@ -22,6 +22,7 @@ Page({
     teachAdress: true,
     showStarday: true,
     showSunday: true,
+    loading: true, //骨架屏显示/隐藏
   },
   // 关于我们
   aboutUs() {
@@ -68,7 +69,7 @@ Page({
         console.log(`${time}补全了`, Curriculum.arrangement);
       }
     }
-    this.setData({ Curriculum });
+    this.setData({ Curriculum, loading: false });
   },
   // 课表数据获取,封装为函数
   getCurriculum() {

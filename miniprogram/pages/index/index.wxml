@@ -53,8 +53,11 @@
       </view>
     </view>
   </page-container>
+  <!-- 骨架屏 -->
+  <import src="./index.skeleton.wxml" />
+  <template is="skeleton" wx:if="{{loading}}" />
   <!-- 页面内容 -->
-  <view class="index vh-100 overflow-scroll noScrollBar">
+  <view wx:else class="index vh-100 overflow-scroll noScrollBar">
     <view class="mb-4" style="padding-top: {{navBarFullHeight+5}}px;">
       <!-- 课表本体 -->
       <view id="Curriculum" class="d-flex">
