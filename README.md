@@ -1,7 +1,5 @@
-<div style="display:flex;justify-content:center;">
-<span style="position:relative">
 <a href="https://github.com/HuaHua-Technophile/CourseGuard.git">
-<img src="https://i.imgloc.com/2023/07/07/VprnIx.png"/>
+<img src="https://i.imgloc.com/2023/07/07/VprnIx.png" style="width:100vw;object-fit:cover;"/>
 </a>
 <!-- <img src="https://i.imgloc.com/2023/07/07/VppByy.png" style="position:absolute;left:0%;width:15vw;"/> -->
 </span>
@@ -11,11 +9,6 @@
 <h4 align="center" style="color:#ED93AD;">为您的课程保驾护航</h4>
 
 <div style="display:flex;justify-content:center;"><img src="https://i.imgloc.com/2023/07/07/VppHfz.jpeg" style="width:20vw;" /></div>
-
-<br />
-<br />
-<br />
-<br />
 
 [🐛 必备依赖](#必备依赖)
 
@@ -51,3 +44,12 @@
 框架
 
 - #### Bootstrap ^5.3.0(自行修改版)
+
+# 设计理念
+
+# 功能与特点
+
+- **功能性**：课程表软件的核心功能是帮助用户管理和查看自己的课程安排，因此提供了方便快捷的课程编辑、显示、课时自定义、课表切换等功能，满足用户的基本需求
+- **个性化**：课镖客允许用户根据自己的喜好和习惯，自定义课程表的外观、颜色、背景等元素，增加趣味性和美观性
+- **简洁性**：课镖客避免了市场上同类竞品过多的复杂和冗余的功能和信息，保持界面的清晰和简洁，突出课程表的主要内容，提高用户的使用效率和体验
+- **兼容性**：课镖客发布于小程序平台，支持多种平台和设备，如 iOS、Android 等，多课表云端保存，方便用户在不同的场景和环境下使用
