@@ -154,7 +154,14 @@ Page({
         ][e.currentTarget.dataset.index]
       );
     } else {
-      console.log("当前点击item的name是", e.currentTarget.dataset.name);
+      console.log(
+        "当前点击item的name是",
+        e.currentTarget.dataset.name,
+        "课程时段为:",
+        this.data.Curriculum.hour,
+        "携带信息为",
+        e.currentTarget.dataset.coursetime
+      );
       if (e.currentTarget.dataset.name) {
         let CourseTime = this.data.Curriculum.hour[
           e.currentTarget.dataset.coursetime

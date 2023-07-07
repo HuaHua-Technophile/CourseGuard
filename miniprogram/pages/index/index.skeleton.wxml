@@ -1,5 +1,5 @@
 <!--
-此文件为开发者工具生成，生成时间: 2023/7/7上午9:00:54
+此文件为开发者工具生成，生成时间: 2023/7/7上午11:50:01
 使用方法：
 在 C:\Study\CourseGuard\miniprogram\pages\index\index.wxml 引入模板
 
@@ -17,569 +17,515 @@
 -->
 <template name="skeleton">
   <view class="sk-container">
-      <view class="w-100 position-fixed top-0 start-0 z-3" id="nav-bar" style="height: 83px;">
-        <view class="d-flex align-items-center ps-2" style="height:32px;margin-top: 51px;padding-right: calc(100% - 281px + 5px) !important;">
-          <view class="iconfont icon-guanyuwomen fs-4 me-3 sk-pseudo sk-pseudo-circle"></view>
-          <text class="sk-transparent sk-text-14-2857-467 sk-text">课镖客</text>
-        </view>
+    <view class="w-100 position-fixed top-0 start-0 z-3" id="nav-bar" style="height: 83px;">
+      <view class="d-flex align-items-center ps-2" style="height:32px;margin-top: 51px;padding-right: calc(100% - 281px + 5px) !important;">
+        <view class="iconfont icon-guanyuwomen fs-4 me-3 sk-pseudo sk-pseudo-circle"></view>
+        <text class="sk-transparent sk-text-14-2857-801 sk-text">课镖客</text>
       </view>
-      <view class="index vh-100 overflow-scroll noScrollBar">
-        <view class="mb-4" style="padding-top: 88px;">
-          <view class="d-flex" id="Curriculum">
-            <view class="me-1 flex-shrink-0">
-              <view class="mb-1" style="height: 2.305rem;"></view>
-              <view class="mb-1 bg-light bg-opacity-50 rounded px-1 overflow-hidden">
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">1</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-186 sk-text" style="height: 9.3px">07:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-651 sk-text" style="height: 9.3px">07:40</text>
-                </view>
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">2</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-592 sk-text" style="height: 9.3px">08:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-247 sk-text" style="height: 9.3px">08:40</text>
-                </view>
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">3</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-193 sk-text" style="height: 9.3px">09:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-899 sk-text" style="height: 9.3px">09:40</text>
-                </view>
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">4</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-826 sk-text" style="height: 9.3px">10:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-158 sk-text" style="height: 9.3px">10:40</text>
-                </view>
+    </view>
+    <view class="index vh-100 overflow-scroll noScrollBar">
+      <view class="mb-4" style="padding-top: 88px;">
+        <view class="d-flex" id="Curriculum">
+          <view class="me-1 flex-shrink-0">
+            <view class="mb-1" style="height: 36.0px;"></view>
+            <view class="mb-1 bg-light bg-opacity-50 rounded px-1 overflow-hidden">
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">1</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-655 sk-text" style="height: 9.3px">07:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-118 sk-text" style="height: 9.3px">07:40</text>
               </view>
-              <view class="mb-1 bg-light bg-opacity-50 rounded px-1 overflow-hidden">
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">1</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-177 sk-text" style="height: 9.3px">13:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-405 sk-text" style="height: 9.3px">13:40</text>
-                </view>
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">2</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-343 sk-text" style="height: 9.3px">14:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-131 sk-text" style="height: 9.3px">14:40</text>
-                </view>
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">3</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-315 sk-text" style="height: 9.3px">15:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-705 sk-text" style="height: 9.3px">15:40</text>
-                </view>
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">4</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-247 sk-text" style="height: 9.3px">16:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-450 sk-text" style="height: 9.3px">16:40</text>
-                </view>
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">2</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-891 sk-text" style="height: 9.3px">08:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-450 sk-text" style="height: 9.3px">08:40</text>
               </view>
-              <view class="mb-1 bg-light bg-opacity-50 rounded px-1 overflow-hidden">
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">1</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-359 sk-text" style="height: 9.3px">19:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-952 sk-text" style="height: 9.3px">19:40</text>
-                </view>
-                <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
-                  <text style="height: 1rem" class="sk-transparent sk-opacity">2</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-206 sk-text" style="height: 9.3px">20:00</text>
-                  <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-137 sk-text" style="height: 9.3px">20:40</text>
-                </view>
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">3</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-406 sk-text" style="height: 9.3px">09:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-643 sk-text" style="height: 9.3px">09:40</text>
+              </view>
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">4</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-264 sk-text" style="height: 9.3px">10:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-930 sk-text" style="height: 9.3px">10:40</text>
               </view>
             </view>
-            <view class="flex-grow-1 overflow-hidden">
-              <view class="d-flex justify-content-around bg-light bg-opacity-50 rounded mb-1">
-                <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-56 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周一</view>
-                <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-192 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周二</view>
-                <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-468 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周三</view>
-                <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-364 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周四</view>
-                <view class="itemMarginX text-center py-2 text-danger sk-transparent sk-text-14-2857-747 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周五</view>
-                <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-571 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周六</view>
-                <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-54 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周日</view>
+            <view class="mb-1 bg-light bg-opacity-50 rounded px-1 overflow-hidden">
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">1</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-241 sk-text" style="height: 9.3px">13:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-148 sk-text" style="height: 9.3px">13:40</text>
               </view>
-              <view class="d-flex bg-light bg-opacity-50 rounded mb-1">
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="0" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="0" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="0" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="0" data-index="3" data-name="高数" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9 sk-transparent sk-text-14-2857-739 sk-text" style="background-position-x: 50%;">高数</view>
-                    <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-248 sk-text" style="background-position-x: 50%;">李老师</view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="1" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="1" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="1" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="1" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="2" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="2" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="2" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="2" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="3" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="3" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="3" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="3" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="4" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="4" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="4" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="4" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="5" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="5" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="5" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="5" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="6" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="6" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="6" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="6" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">2</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-311 sk-text" style="height: 9.3px">14:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-285 sk-text" style="height: 9.3px">14:40</text>
               </view>
-              <view class="d-flex bg-light bg-opacity-50 rounded mb-1">
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="0" data-index="0" data-name="高数" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9 sk-transparent sk-text-14-2857-232 sk-text" style="background-position-x: 50%;">高数</view>
-                    <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-261 sk-text" style="background-position-x: 50%;">李老师</view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="0" data-index="1" data-name="高数"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9 sk-transparent sk-text-14-2857-219 sk-text" style="background-position-x: 50%;">高数</view>
-                    <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-974 sk-text" style="background-position-x: 50%;">李老师</view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="0" data-index="2" data-name="高数"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9 sk-transparent sk-text-14-2857-622 sk-text" style="background-position-x: 50%;">高数</view>
-                    <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-718 sk-text" style="background-position-x: 50%;">李老师</view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="0" data-index="3" data-name="高数"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9 sk-transparent sk-text-14-2857-331 sk-text" style="background-position-x: 50%;">高数</view>
-                    <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-417 sk-text" style="background-position-x: 50%;">李老师</view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="1" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="1" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="1" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="1" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="2" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="2" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="2" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="2" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="3" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="3" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="3" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="3" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="4" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="4" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="4" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="4" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="5" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="5" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="5" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="5" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="6" data-index="0" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="6" data-index="1" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="6" data-index="2" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternoonArr" data-day="6" data-index="3" data-name="undefined"
-                    style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">3</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-146 sk-text" style="height: 9.3px">15:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-155 sk-text" style="height: 9.3px">15:40</text>
               </view>
-              <view class="d-flex bg-light bg-opacity-50 rounded mb-1">
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="0" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="0" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="1" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="1" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="2" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="2" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="3" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="3" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="4" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="4" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="5" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="5" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
-                <view class="itemMarginX" style="flex:1">
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="6" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                  <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="6" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
-                    <view class="fs-9"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                    <view class="fs-10 fs-body opacity-50"></view>
-                  </view>
-                </view>
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">4</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-231 sk-text" style="height: 9.3px">16:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-544 sk-text" style="height: 9.3px">16:40</text>
+              </view>
+            </view>
+            <view class="mb-1 bg-light bg-opacity-50 rounded px-1 overflow-hidden">
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">1</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-106 sk-text" style="height: 9.3px">19:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-847 sk-text" style="height: 9.3px">19:40</text>
+              </view>
+              <view class="itemMarginY d-flex flex-column align-items-center justify-content-center" style="height: var(--itemHeight);;">
+                <text style="height: 1rem" class="sk-transparent sk-opacity">2</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-722 sk-text" style="height: 9.3px">20:00</text>
+                <text class="fs-10 opacity-50 sk-transparent sk-text-14-2857-598 sk-text" style="height: 9.3px">20:40</text>
               </view>
             </view>
           </view>
-          <view class="d-flex">
-            <view is="components/AnimateButton/AnimateButton" class="flex-grow-1 mx-2">
-              <view class="AnimateButton--bubbly-button sk-pseudo sk-pseudo-circle">
-                <view>
-                  <view class="iconfont icon-bianji d-flex justify-content-center sk-pseudo sk-pseudo-circle"></view>
+          <view class="flex-grow-1 overflow-hidden">
+            <view class="d-flex justify-content-around bg-light bg-opacity-50 rounded mb-1">
+              <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-51 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周一</view>
+              <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-697 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周二</view>
+              <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-161 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周三</view>
+              <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-23 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周四</view>
+              <view class="itemMarginX text-center py-2 text-danger sk-transparent sk-text-14-2857-101 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周五</view>
+              <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-265 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周六</view>
+              <view class="itemMarginX text-center py-2 sk-transparent sk-text-14-2857-867 sk-text" style="flex: 1 1 0%; background-position-x: 50%;">周日</view>
+            </view>
+            <view class="d-flex bg-light bg-opacity-50 rounded mb-1">
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="0" data-index="0" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-314 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-118 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-429 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="0" data-index="1" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-313 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-809 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-638 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="0" data-index="2" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-260 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-145 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-845 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="0" data-index="3" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-439 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-591 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-543 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="1" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="1" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="1" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="1" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="2" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="2" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="2" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="2" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="3" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="3" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="3" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="3" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="4" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="4" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="4" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="4" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="5" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="5" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="5" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="5" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="6" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="6" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="6" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="morningCourses" data-coursetime="morningArr" data-day="6" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
                 </view>
               </view>
             </view>
-            <view is="components/AnimateButton/AnimateButton" class="flex-grow-1 me-2" data-url="../classSetting/classSetting">
-              <view class="AnimateButton--bubbly-button sk-pseudo sk-pseudo-circle">
-                <view>
-                  <view class="iconfont icon-shezhi d-flex justify-content-center sk-pseudo sk-pseudo-circle"></view>
+            <view class="d-flex bg-light bg-opacity-50 rounded mb-1">
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="0" data-index="0" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-660 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-684 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-283 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="0" data-index="1" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-57 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-12 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-18 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="0" data-index="2" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-416 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-766 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-207 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="0" data-index="3" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-857 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-223 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-721 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="1" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="1" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="1" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="1" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="2" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="2" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="2" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="2" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="3" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="3" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="3" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="3" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="4" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="4" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="4" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="4" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="5" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="5" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="5" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="5" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="6" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="6" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="6" data-index="2" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="afternoonCourses" data-coursetime="afternonArr" data-day="6" data-index="3" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
                 </view>
               </view>
             </view>
-            <view is="components/AnimateButton/AnimateButton" class="flex-grow-1 me-2" data-url="../timeSetting/timeSetting">
-              <view class="AnimateButton--bubbly-button sk-pseudo sk-pseudo-circle">
-                <view>
-                  <view class="iconfont icon-shijian d-flex justify-content-center sk-pseudo sk-pseudo-circle"></view>
+            <view class="d-flex bg-light bg-opacity-50 rounded mb-1">
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="0" data-index="0" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-623 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-593 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-150 sk-text" style="background-position-x: 50%;">腾讯会议</view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="0" data-index="1" data-name="英语" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9 sk-transparent sk-text-14-2857-523 sk-text" style="background-position-x: 50%;">英语</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-704 sk-text" style="background-position-x: 50%;">Lisa老师</view>
+                  <view class="fs-10 fs-body opacity-50 sk-transparent sk-text-14-2857-519 sk-text" style="background-position-x: 50%;">腾讯会议</view>
                 </view>
               </view>
-            </view>
-            <view is="components/AnimateButton/AnimateButton" class="flex-grow-1 me-2" data-url="../changeCurriculum/changeCurriculum">
-              <view class="AnimateButton--bubbly-button sk-pseudo sk-pseudo-circle">
-                <view>
-                  <view class="iconfont icon-qiehuan d-flex justify-content-center sk-pseudo sk-pseudo-circle"></view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="1" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="1" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="2" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="2" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="3" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="3" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="4" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="4" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="5" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="5" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+              </view>
+              <view class="itemMarginX" style="flex:1">
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="6" data-index="0" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                </view>
+                <view class="itemMarginY w-100 overflow-hidden rounded text-center d-flex flex-column justify-content-center position-relative" data-course="nightCourses" data-coursetime="nightArr" data-day="6" data-index="1" data-name="undefined" style="height: var(--itemHeight);color:rgb();background: rgba(,0.8);">
+                  <view class="fs-9"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
+                  <view class="fs-10 fs-body opacity-50"></view>
                 </view>
               </view>
             </view>
           </view>
         </view>
+        <view class="d-flex">
+          <view is="components/AnimateButton/AnimateButton" class="flex-grow-1 mx-2">
+            <view class="AnimateButton--bubbly-button sk-pseudo sk-pseudo-circle">
+              <view>
+                <view class="iconfont icon-bianji d-flex justify-content-center sk-pseudo sk-pseudo-circle"></view>
+              </view>
+            </view>
+          </view>
+          <view is="components/AnimateButton/AnimateButton" class="flex-grow-1 me-2" data-url="../classSetting/classSetting">
+            <view class="AnimateButton--bubbly-button sk-pseudo sk-pseudo-circle">
+              <view>
+                <view class="iconfont icon-shezhi d-flex justify-content-center sk-pseudo sk-pseudo-circle"></view>
+              </view>
+            </view>
+          </view>
+          <view is="components/AnimateButton/AnimateButton" class="flex-grow-1 me-2" data-url="../timeSetting/timeSetting">
+            <view class="AnimateButton--bubbly-button sk-pseudo sk-pseudo-circle">
+              <view>
+                <view class="iconfont icon-shijian d-flex justify-content-center sk-pseudo sk-pseudo-circle"></view>
+              </view>
+            </view>
+          </view>
+          <view is="components/AnimateButton/AnimateButton" class="flex-grow-1 me-2" data-url="../changeCurriculum/changeCurriculum">
+            <view class="AnimateButton--bubbly-button sk-pseudo sk-pseudo-circle">
+              <view>
+                <view class="iconfont icon-qiehuan d-flex justify-content-center sk-pseudo sk-pseudo-circle"></view>
+              </view>
+            </view>
+          </view>
+        </view>
       </view>
+    </view>
   </view>
 </template>
