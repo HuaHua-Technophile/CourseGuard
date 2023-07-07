@@ -3,9 +3,10 @@
 <a href="https://github.com/HuaHua-Technophile/CourseGuard.git">
 <img src="https://i.imgloc.com/2023/07/07/VprnIx.png"/>
 </a>
-<img src="https://i.imgloc.com/2023/07/07/VppByy.png" style="position:absolute;left:0%;width:15vw;"/>
+<!-- <img src="https://i.imgloc.com/2023/07/07/VppByy.png" style="position:absolute;left:0%;width:15vw;"/> -->
 </span>
 </div>
+![VppHfz.jpeg](https://i.imgloc.com/2023/07/07/VppHfz.jpeg)
 <h1 align="center" style="color:pink;">「 课镖客(CourseGuard) 」</h1>
 
 <h4 align="center" style="color:#ED93AD;">为您的课程保驾护航</h4>
