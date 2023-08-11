@@ -6,6 +6,7 @@
       <view class="iconfont icon-31fanhui1 fs-4 me-3" bind:tap="goBack"></view>
       <text>课表设置</text>
     </view>
+    自定义
   </view>
   <!-- 内容区域 -->
   <view class="vh-100 overflow-scroll noScrollBar">
