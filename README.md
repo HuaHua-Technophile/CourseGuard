@@ -49,3 +49,12 @@
 - **个性化**：课镖客允许用户根据自己的喜好和习惯，自定义课程表的外观、颜色、背景等元素，增加趣味性和美观性
 - **简洁性**：课镖客避免了市场上同类竞品过多的复杂和冗余的功能和信息，保持界面的清晰和简洁，突出课程表的主要内容，提高用户的使用效率和体验
 - **兼容性**：课镖客发布于小程序平台，支持多种平台和设备，如 iOS、Android 等，多课表云端保存，方便用户在不同的场景和环境下使用
+
+# 效果图
+
+<img src="https://i.postimg.cc/nz0L7bW2/Pix-Pin-2025-06-20-19-27-08.webp" alt="课镖客" width="500"/>
+<img src="https://i.postimg.cc/gcgDcxgX/Pix-Pin-2025-06-20-19-31-56.webp" alt="课镖客" width="500"/>
+<img src="https://i.postimg.cc/zfq5k2Kc/Pix-Pin-2025-06-20-19-32-33.webp" alt="课镖客" width="500"/>
+<img src="https://i.postimg.cc/Lsk59ZBr/Pix-Pin-2025-06-20-19-32-42.webp" alt="课镖客" width="500"/>
+<img src="https://i.postimg.cc/W323hb5t/Pix-Pin-2025-06-20-19-32-49.webp" alt="课镖客" width="500"/>
+<img src="https://i.postimg.cc/k4XJ7Y5b/Pix-Pin-2025-06-20-19-37-10.webp" alt="课镖客" width="500"/>
