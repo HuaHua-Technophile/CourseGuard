@@ -1,5 +1,9 @@
 <h1 align="center" style="color:pink;">「 课镖客(CourseGuard) 」</h1>
 
+<p align="center">
+  <img src="https://imglink.win/image/2025/06/20/GhUxF.webp" width="150" />
+</p>
+
 <h4 align="center" style="color:#ED93AD;">为您的课程保驾护航</h4>
 
 [🐛 必备依赖](#必备依赖)
@@ -52,9 +56,8 @@
 
 # 效果图
 
-<img src="https://i.postimg.cc/nz0L7bW2/Pix-Pin-2025-06-20-19-27-08.webp" alt="课镖客" width="500"/>
-<img src="https://i.postimg.cc/gcgDcxgX/Pix-Pin-2025-06-20-19-31-56.webp" alt="课镖客" width="500"/>
-<img src="https://i.postimg.cc/zfq5k2Kc/Pix-Pin-2025-06-20-19-32-33.webp" alt="课镖客" width="500"/>
-<img src="https://i.postimg.cc/Lsk59ZBr/Pix-Pin-2025-06-20-19-32-42.webp" alt="课镖客" width="500"/>
-<img src="https://i.postimg.cc/W323hb5t/Pix-Pin-2025-06-20-19-32-49.webp" alt="课镖客" width="500"/>
-<img src="https://i.postimg.cc/k4XJ7Y5b/Pix-Pin-2025-06-20-19-37-10.webp" alt="课镖客" width="500"/>
+![%DISPLAY_TITLE%](https://imglink.win/image/2025/06/20/GhGu1.webp)
+![%DISPLAY_TITLE%](https://imglink.win/image/2025/06/20/Ghc4i.webp)
+![%DISPLAY_TITLE%](https://imglink.win/image/2025/06/20/Gh2X7.webp)
+![%DISPLAY_TITLE%](https://imglink.win/image/2025/06/20/Ghxmn.webp)
+![%DISPLAY_TITLE%](https://imglink.win/image/2025/06/20/GhtWQ.webp)
