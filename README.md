@@ -1,9 +1,3 @@
-<a href="https://github.com/HuaHua-Technophile/CourseGuard.git">
-<img src="https://i.imgloc.com/2023/07/07/VprnIx.png" style="width:100vw;object-fit:cover;"/>
-</a>
-<!-- <img src="https://i.imgloc.com/2023/07/07/VppByy.png" style="position:absolute;left:0%;width:15vw;"/> -->
-</span>
-</div>
 <h1 align="center" style="color:pink;">「 课镖客(CourseGuard) 」</h1>
 
 <h4 align="center" style="color:#ED93AD;">为您的课程保驾护航</h4>
@@ -57,19 +51,3 @@
 - **个性化**：课镖客允许用户根据自己的喜好和习惯，自定义课程表的外观、颜色、背景等元素，增加趣味性和美观性
 - **简洁性**：课镖客避免了市场上同类竞品过多的复杂和冗余的功能和信息，保持界面的清晰和简洁，突出课程表的主要内容，提高用户的使用效率和体验
 - **兼容性**：课镖客发布于小程序平台，支持多种平台和设备，如 iOS、Android 等，多课表云端保存，方便用户在不同的场景和环境下使用
-  ![VBZvPq.jpeg](https://i.imgloc.com/2023/07/08/VBZvPq.jpeg)
-  ![VBZ1up.jpeg](https://i.imgloc.com/2023/07/08/VBZ1up.jpeg)
-  ![VBZhdN.jpeg](https://i.imgloc.com/2023/07/08/VBZhdN.jpeg)
-  ![VBZG4A.jpeg](https://i.imgloc.com/2023/07/08/VBZG4A.jpeg)
-  ![VBZo2d.jpeg](https://i.imgloc.com/2023/07/08/VBZo2d.jpeg)
-  ![VBiVp5.jpeg](https://i.imgloc.com/2023/07/08/VBiVp5.jpeg)
-  ![VBZJWz.jpeg](https://i.imgloc.com/2023/07/08/VBZJWz.jpeg)
-  ![VBZqEv.jpeg](https://i.imgloc.com/2023/07/08/VBZqEv.jpeg)
-  ![VBif98.jpeg](https://i.imgloc.com/2023/07/08/VBif98.jpeg)
-  ![VBZYHU.jpeg](https://i.imgloc.com/2023/07/08/VBZYHU.jpeg)
-  ![VBZadL.jpeg](https://i.imgloc.com/2023/07/08/VBZadL.jpeg)
-  ![VBZLva.jpeg](https://i.imgloc.com/2023/07/08/VBZLva.jpeg)
-  ![VBZTNk.jpeg](https://i.imgloc.com/2023/07/08/VBZTNk.jpeg)
-  ![VBZP4x.jpeg](https://i.imgloc.com/2023/07/08/VBZP4x.jpeg)
-  ![VBZuT3.jpeg](https://i.imgloc.com/2023/07/08/VBZuT3.jpeg)
-  ![Vprtdk.png](https://i.imgloc.com/2023/07/07/Vprtdk.png)
