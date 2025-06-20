@@ -25,6 +25,58 @@ App({
         traceUser: true,
       });
     }
+    this.globalData.fakeCurriculum = {
+      _id: "fake-id-12345",
+      name: "本地测试课表",
+      Course: {
+        大学语文: { name: "大学语文", teacher: "张老师", location: "教1-101" },
+        高等数学: { name: "高等数学", teacher: "李老师", location: "教2-202" },
+        大学英语: { name: "大学英语", teacher: "王老师", location: "教3-303" },
+        体育: { name: "体育", teacher: "刘老师", location: "操场" },
+        计算机基础: {
+          name: "计算机基础",
+          teacher: "赵老师",
+          location: "实验楼501",
+        },
+      },
+      arrangement: [
+        ...Array(7).fill({
+          morningCourses: [
+            { Course: "大学语文" },
+            { Course: "高等数学" },
+            { Course: "" },
+            { Course: "" },
+          ],
+          afternoonCourses: [
+            { Course: "大学英语" },
+            { Course: "" },
+            { Course: "体育" },
+            { Course: "" },
+          ],
+          nightCourses: [{ Course: "计算机基础" }, { Course: "" }],
+        }),
+      ],
+      hour: {
+        morningCourses: [
+          "08:00-08:45",
+          "09:00-09:45",
+          "10:00-10:45",
+          "11:00-11:45",
+        ],
+        afternoonCourses: [
+          "14:00-14:45",
+          "15:00-15:45",
+          "16:00-16:45",
+          "17:00-17:45",
+        ],
+        nightCourses: ["19:00-19:45", "20:00-20:45"],
+      },
+      classInfo: {
+        morningCourses: 4,
+        afternoonCourses: 4,
+        nightCourses: 2,
+      },
+    };
   },
   globalData: {
     id: -1, //课程id

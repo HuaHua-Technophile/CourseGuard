@@ -73,13 +73,50 @@ Page({
   },
   // 课表数据获取,封装为函数
   getCurriculum() {
-    console.log(`将获取_id为 "${app.globalData.id}" 的课表`);
+    console.log("--- 开始获取课表数据 ---"); // 调试语句1：函数开始
+    console.log(`将要获取的课表 _id 是: "${app.globalData.id}"`); // 调试语句2：打印ID
+
+    // 检查 ID 是否存在
+    if (!app.globalData.id) {
+      console.error("错误：全局 globalData.id 为空，无法查询课表！");
+      wx.showToast({
+        title: "未找到课表ID",
+        icon: "error",
+      });
+      this.setData({ loading: false }); // 隐藏骨架屏
+      return; // 终止函数
+    }
+
     db.where({
       _id: app.globalData.id,
     }).get({
       success: (res) => {
-        this.CompleteCourse(res.data[0]); //返回数据是一个数组,取其第Index个作为当前渲染的课程表
+        console.log("数据库查询成功，返回结果: ", res); // 调试语句3：打印成功结果
+        if (res.data && res.data.length > 0) {
+          console.log("成功获取到课表数据:", res.data[0]);
+          this.CompleteCourse(res.data[0]); //返回数据是一个数组,取其第Index个作为当前渲染的课程表
+          this.pushCourseList();
+        } else {
+          console.warn("警告：数据库查询成功但数据为空，将加载本地假数据。");
+          wx.showToast({
+            title: "加载本地示例课表",
+            icon: "none",
+          });
+          this.CompleteCourse(app.globalData.fakeCurriculum);
+          this.pushCourseList();
+          this.setData({ loading: false }); // 隐藏骨架屏
+        }
+      },
+      fail: (err) => {
+        console.error("数据库查询失败！将加载本地假数据。错误信息: ", err); // 调试语句4：打印失败信息
+        wx.showToast({
+          title: "加载本地示例课表",
+          icon: "none",
+          duration: 2000,
+        });
+        this.CompleteCourse(app.globalData.fakeCurriculum);
         this.pushCourseList();
+        this.setData({ loading: false }); // 隐藏骨架屏
       },
     });
   },
@@ -126,9 +163,10 @@ Page({
       let arrangement = this.data.Curriculum.arrangement;
       arrangement[e.currentTarget.dataset.day][e.currentTarget.dataset.course][
         e.currentTarget.dataset.index
-      ].check = !arrangement[e.currentTarget.dataset.day][
-        e.currentTarget.dataset.course
-      ][e.currentTarget.dataset.index].check; //check取反
+      ].check =
+        !arrangement[e.currentTarget.dataset.day][
+          e.currentTarget.dataset.course
+        ][e.currentTarget.dataset.index].check; //check取反
       if (
         arrangement[e.currentTarget.dataset.day][
           e.currentTarget.dataset.course
@@ -143,9 +181,10 @@ Page({
           checkCount: this.data.checkCount - 1,
         }); //取消勾选就减少
       this.setData({
-        [`Curriculum.arrangement[${e.currentTarget.dataset.day}].${e.currentTarget.dataset.course}[${e.currentTarget.dataset.index}].check`]: arrangement[
-          e.currentTarget.dataset.day
-        ][e.currentTarget.dataset.course][e.currentTarget.dataset.index].check,
+        [`Curriculum.arrangement[${e.currentTarget.dataset.day}].${e.currentTarget.dataset.course}[${e.currentTarget.dataset.index}].check`]:
+          arrangement[e.currentTarget.dataset.day][
+            e.currentTarget.dataset.course
+          ][e.currentTarget.dataset.index].check,
       }); //取反后设置回this.data中
       console.log(
         "添加/删除了一节课进入待编辑列表",
@@ -163,9 +202,10 @@ Page({
         e.currentTarget.dataset.coursetime
       );
       if (e.currentTarget.dataset.name) {
-        let CourseTime = this.data.Curriculum.hour[
-          e.currentTarget.dataset.coursetime
-        ][e.currentTarget.dataset.index];
+        let CourseTime =
+          this.data.Curriculum.hour[e.currentTarget.dataset.coursetime][
+            e.currentTarget.dataset.index
+          ];
         this.setData({
           CourseTime,
           pageContainerAbout: false,
@@ -261,74 +301,44 @@ Page({
             showStarday: true,
             showSunday: false,
           });
-        } else if (
-          this.data.storageData.starState === false &&
-          this.data.storageData.sunState === false
-        ) {
+        } else {
           this.setData({
             dayArr: ["一", "二", "三", "四", "五"],
             showStarday: false,
             showSunday: false,
           });
         }
-        this.setData({
-          teacherShow: this.data.storageData.teacherState,
-          teachAdress: this.data.storageData.classroomState,
-        });
+        if (this.data.storageData.showTeacher === false) {
+          this.setData({
+            teacherShow: false,
+          });
+        } else {
+          this.setData({
+            teacherShow: true,
+          });
+        }
+        if (this.data.storageData.showAdress === false) {
+          this.setData({
+            teachAdress: false,
+          });
+        } else {
+          this.setData({
+            teachAdress: true,
+          });
+        }
       },
     });
-    console.log(
-      "当前课程id:",
-      app.globalData.id,
-      "是否第一次进入页面:",
-      app.globalData.id == -1
-    );
-    // 如果课程表id为空,说明用户新进入小程序,需要执行是否为新用户的判断
-    if (app.globalData.id == -1) {
-      // 统计数据库中能获取到多少条该用户的课程表,判断是否是新用户
-      db.count({
-        success: (res) => {
-          console.log(`获取到${res.total}个课程表,新用户:${res.total == 0}`);
-          if (res.total == 0) {
-            db.add({
-              // data 字段表示需新增的 JSON 数据
-              data: {
-                name: "课镖客",
-                // 课程信息
-                Course: app.globalData.Course,
-                // 课程安排
-                arrangement: app.globalData.arrangement,
-                // 上课时段
-                hour: app.globalData.hour,
-                // 课表信息
-                classInfo: app.globalData.classInfo,
-              },
-              success: (res) => {
-                app.globalData.id = res._id;
-                console.log(`课程表${app.globalData.id}添加成功`, res);
-                this.getCurriculum(); //获取课表数据
-              },
-            });
-          } else {
-            db.get({
-              success: (res) => {
-                this.CompleteCourse(res.data[0]);
-                app.globalData.id = res.data[0]._id;
-                this.pushCourseList();
-              },
-            });
-          }
-        },
+
+    // 强行调用，绕过所有云开发逻辑
+    this.getCurriculum();
+
+    if (app.globalData.theme) {
+      this.setData({
+        theme: app.globalData.theme,
       });
     }
-    // 如果课程表id已经存在,说明是其他路由页面跳转回来
-    else {
-      console.log(`课程id不为空${app.globalData.id},直接获取数据`);
-      this.getCurriculum(); //获取课表数据
-    }
-    // 判断当前为该周的周几,然后进行页面顶部周几的高亮------------------
-    this.setData({
-      week: new Date().getDay(),
-    });
+  },
+  onHide() {
+    console.log("页面隐藏了");
   },
 });
