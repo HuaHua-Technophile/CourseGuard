@@ -7,9 +7,10 @@
 <h4 align="center">为您的课程保驾护航</h4>
 
 <p align="center">
-    <a href="https://github.com/HuaHua-Technophile/CourseGuard"><img src="https://img.shields.io/badge/platform-微信小程序-green.svg" alt="platform"></a>
-    <a href="https://github.com/HuaHua-Technophile/CourseGuard/stargazers"><img src="https://img.shields.io/github/stars/HuaHua-Technophile/CourseGuard" alt="stars"></a>
-    <a href="https://github.com/HuaHua-Technophile/CourseGuard/network/members"><img src="https://img.shields.io/github/forks/HuaHua-Technophile/CourseGuard" alt="forks"></a>
+    <a href="https://github.com/HuaHua-Technophile/CourseGuard"><img src="https://img.shields.io/badge/platform-微信小程序-green?style=flat" alt="platform"></a>
+    <a href="https://github.com/HuaHua-Technophile/CourseGuard"><img src="https://img.shields.io/github/repo-size/HuaHua-Technophile/CourseGuard?style=flat" alt="repo size"></a>
+    <a href="https://github.com/HuaHua-Technophile/CourseGuard/stargazers"><img src="https://img.shields.io/github/stars/HuaHua-Technophile/CourseGuard?style=flat" alt="stars"></a>
+    <a href="https://github.com/HuaHua-Technophile/CourseGuard/network/members"><img src="https://img.shields.io/github/forks/HuaHua-Technophile/CourseGuard?style=flat" alt="forks"></a>
 </p>
 
 # 📝 简介
@@ -67,15 +68,15 @@ CourseGuard/
 
 # 🖼️ 效果预览
 
-<table>
+<table align="center">
   <tr>
-    <td align="center" valign="top"><img src="https://imglink.win/image/2025/06/20/GhGu1.webp" width="260px"></td>
-    <td align="center" valign="top"><img src="https://imglink.win/image/2025/06/20/Ghc4i.webp" width="260px"></td>
-    <td align="center" valign="top"><img src="https://imglink.win/image/2025/06/20/Gh2X7.webp" width="260px"></td>
+    <td><img src="https://imglink.win/image/2025/06/20/GhGu1.webp" ></td>
+    <td><img src="https://imglink.win/image/2025/06/20/Ghc4i.webp" ></td>
+    <td><img src="https://imglink.win/image/2025/06/20/Gh2X7.webp" ></td>
   </tr>
   <tr>
-    <td align="center" valign="top"><img src="https://imglink.win/image/2025/06/20/Ghxmn.webp" width="260px"></td>
-    <td align="center" valign="top"><img src="https://imglink.win/image/2025/06/20/GhtWQ.webp" width="260px"></td>
+    <td><img src="https://imglink.win/image/2025/06/20/Ghxmn.webp" ></td>
+    <td><img src="https://imglink.win/image/2025/06/20/GhtWQ.webp" ></td>
     <td>&nbsp;</td>
   </tr>
 </table>
